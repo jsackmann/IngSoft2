@@ -7,12 +7,12 @@ ya concluí
 
 		- El atleta puede ver una lista donde tiene cada entrenamiento.
 		- Al elegir uno de ellos con su celular, se mostrará el detalle del mismo
-
+	
 	* Tareas:
 
-		- Concebir cómo representar un entrenamiento.
+		- Concebir cómo almacenar los datos de un entrenamiento
 		- Investigar opciones para mostrar la información de cada entrenamiento.
-		- Crear una vista con una table view para mostrar la lista de
+		- Crear una vista con una _table view_ para mostrar la lista de
 		entrenamientos concluidos.
 		- Crear una vista para mostrar el detalle de entrenamiento.
 		- Agregar funcionalidad para que al seleccionar un entrenamiento de la
@@ -37,15 +37,25 @@ ya hice
 		- El atleta puede ver cuánta distancia recorrió para cada entrenamiento,
 		cuanto tardo en cada uno, y cual fue su velocidad máxima.
 
+		- Todos estos datos estarán disponibles para el atleta para cada entrenamiento
+		en el detalle de los mismos que obtiene al seleccionarlo en la lista.
+
 	* Tareas:
 
-		- Investigar si hay una librería que saca estadísticas sola.
+		- Investigar si hay una librería para obtener estadísticas en base a los 
+		datos ingresados y que cantidad de datos necesita.
 
-		- Codificar las estadísticas.
+		- Investigar el almacenamiento necesario para los datos que se deben 
+		obtener para el cálculo de cada estadística.
+ 
+		- Programar la lógica para calcular estas estadísticas en base
 
-		- Testear que las estadísticas sean correctas.
+		- Testear que las estadísticas obtenidas sean correctas.
 
 		- Probar de intentar sacar estadísticas de datos absurdos.
+
+		- Investigar como mostrar una ventana con las estadísticas que aparezca al
+		seleccionar el entrenamiento de la lista.
 
 3) Como atleta quiero que la aplicación siga mi fase dentro del plan
 para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
@@ -70,15 +80,24 @@ para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
 		- Cada alerta por marcha inválida se repetirá a intervalos regulares
 		mientras persista la condición.
 
+		- En la interfaz gráfica debe aparecer un detalle de la razón de la marcha
+		inválida (es decir, debe indicar si esta yendo más lento o rápido, y la 
+		diferencia entre la marcha ideal y la que lleva).
+
 	* Tareas:
 
 		- Investigar cómo reproducir una canción en cada formato estándar (mp3,
-		wav, etc).
+		wav, etc) dado.
 
-		- Investigar cómo guardar canciones en el teléfono.
+		- Investigar cómo guardar las canciones en el teléfono, y como volverlas a
+		leer.
+
+		- Codificar la lógica para según el tipo de alerta se eliga una canción
+		aleatoria de las disponibles, se la lea de disco y reproduzca.
 
 		- Codificar la lógica para que si la velocidad no esta en el rango, se
-		envíe una alerta.
+		envíe una alerta y se muestre en pantalla la diferencia y según ese rango,
+		cuan "grave" es el nivel de alerta.
 
 		- Testear para los 3 tipos de condiciones de marcha válida e inválida.
 
@@ -95,13 +114,18 @@ entrenamientos en redes sociales y aplicaciones de geolocalización.
 
 		- El atleta puede seleccionar qué recorrido puede publicar.
 
-		- El atleta puede escribir un mensaje.
+		- El atleta puede escribir un mensaje a agregar además de los datos de
+		su entrenamiento.
 
 		- La publicación es visible por los demás miembros de la red social de
 		acuerdo a las reglas de privacidad de la misma.
 
 		- Solo los datos explícitamente indicados por el usuario son publicados
 		en la red social correspondiente.
+
+		- El atleta puede decidir si quiere que se muestre el recorrido que
+		realizó, la velocidad con la que corrió, etc., para cada tipo de dato
+		a compartir.
 
 	* Tareas:
 
@@ -114,6 +138,7 @@ entrenamientos en redes sociales y aplicaciones de geolocalización.
 		- Codificar las funciones de publicación que hacen uso de cada API
 		- Investigar opciones de privacidad para proteger los datos del
 		teléfono.
+		- Codificar la funcionalidad de configuración de datos compartidos.
 
 6) Como atleta quiero poder ingresar los datos de mi estado físico.
 
@@ -141,7 +166,8 @@ entrenamientos en redes sociales y aplicaciones de geolocalización.
 		- Investigar cómo validar los campos de acuerdo al tipo de datos
 		pedidos.
 
-		- Pensar cómo representar esos datos del usuario
+		- Pensar cómo representar esos datos del usuario y en donde almacenar
+		los mismos.
 
 		- Testear ingresando datos inválidos / absurdos para verificar la consistencia
 		  de los mismos dentro de la aplicación. 
