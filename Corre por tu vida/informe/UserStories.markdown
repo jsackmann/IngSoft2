@@ -74,7 +74,7 @@ para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
 
 		- Testear para los 3 tipos de condiciones de marcha válida e inválida.
 
-5) Como atleta quiero poder publicar los recorridos de los
+4) Como atleta quiero poder publicar los recorridos de los
 entrenamientos en redes sociales y aplicaciones de geolocalización.
 
 	* Story Points: 10
@@ -100,7 +100,7 @@ entrenamientos en redes sociales y aplicaciones de geolocalización.
 		realizó, la velocidad con la que corrió, etc., para cada tipo de dato
 		a compartir.
 
-6) Como atleta quiero poder ingresar los datos de mi estado físico.
+5) Como atleta quiero poder ingresar los datos de mi estado físico.
 
 	* Story Points: 5
 
@@ -118,7 +118,7 @@ entrenamientos en redes sociales y aplicaciones de geolocalización.
 
 		- La aplicación guardará registro del valor actual de ambos datos.
 
-7) Como atleta quiero poder ingresar mi frecuencia semanal con la que
+6) Como atleta quiero poder ingresar mi frecuencia semanal con la que
 puedo entrenar.
 
 	* Story Points: 1
@@ -134,7 +134,7 @@ puedo entrenar.
 
 		- La aplicación guardará registro del valor ingresado.
 
-8) Como atleta quiero poder ingresar el objetivo de mi entrenamiento.
+7) Como atleta quiero poder ingresar el objetivo de mi entrenamiento.
 
 	* Story Points: 8
 
@@ -152,7 +152,7 @@ puedo entrenar.
 
 		y otras opciones y posibilidades decididas durante la implementación
 
-9) Como atleta quiero poder ingresar el plazo estipulado para mi
+8) Como atleta quiero poder ingresar el plazo estipulado para mi
 entrenamiento si así lo deseo.
 
 	* Story Points: 2
@@ -164,7 +164,7 @@ entrenamiento si así lo deseo.
 		- El atleta puede elegir un plazo estipulado para la finalización de
 		cada uno de sus objetivos.
 
-10) Como atleta quiero que las notificaciones de velocidad de la
+9) Como atleta quiero que las notificaciones de velocidad de la
 aplicación sean acordes al de batería seleccionado.
 
 	* Story Points: 8
@@ -182,7 +182,7 @@ aplicación sean acordes al de batería seleccionado.
 		- Para otros niveles de batería se determinará también una frecuencia de
 		notificaciones y calidad de las mismas en el momento de la implementación.
 
-11) Como atleta quiero que las actualizaciones de posición sean acordes
+10) Como atleta quiero que las actualizaciones de posición sean acordes
 al nivel de batería seleccionado.
 
 	* Story Points: 8
@@ -195,7 +195,7 @@ al nivel de batería seleccionado.
 		- Para los demás niveles de batería también se indicará una frecuencia de actualización
 		de posición al momento de la implementación.
 
-12) Como atleta quiero poder ajustar la opción de consumo de batería.
+11) Como atleta quiero poder ajustar la opción de consumo de batería.
 
 	* Story Points: 3
 
@@ -210,7 +210,7 @@ al nivel de batería seleccionado.
 		- El atleta puede determinar que impacto tiene en las funcionalidades de la aplicación
 		el cambio de consumo de batería.
 
-13) Como atleta quiero que la aplicación me de un plan de entrenamiento
+12) Como atleta quiero que la aplicación me de un plan de entrenamiento
 en base a los datos.
 
 	* Story Points: 13
@@ -240,7 +240,7 @@ en base a los datos.
 		- La frecuencia semanal del plan de entrenamiento se corresponderá con la ingresada
 		por el corredor al momento de dar la especificación de sus objetivos.
 
-14) Como corredor quiero poder ver la velocidad promedio y la duración
+13) Como corredor quiero poder ver la velocidad promedio y la duración
 de cada fase de un entrenamiento para saber el criterio con el que la
 aplicación mide mi performance corriendo.
 
@@ -277,7 +277,7 @@ aplicación mide mi performance corriendo.
 
 		- Implementar la lógica para calcular los datos de velocidad promedio.
 
-15) Como atleta quiero que la aplicación me avise de la próxima fase
+14) Como atleta quiero que la aplicación me avise de la próxima fase
 del plan si ya pasó el tiempo.
 
 	* Story Points: 8
@@ -294,7 +294,7 @@ del plan si ya pasó el tiempo.
 
 		- No se genera esa notificación particular por otro motivo.
 
-16) Como atleta quiero poder ver mi posición en el mapa en tiempo real.
+15) Como atleta quiero poder ver mi posición en el mapa en tiempo real.
 
 	* Story Points: 13
 
