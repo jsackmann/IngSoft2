@@ -163,6 +163,9 @@ entrenamiento si así lo deseo.
 
 		- El atleta puede elegir un plazo estipulado para la finalización de
 		cada uno de sus objetivos.
+		
+		- Investigar que tipo de granularidad y que tipo de duraciones se 
+		pueden soportar: intervalos válidos, etc.
 
 9) Como atleta quiero que las notificaciones de velocidad de la
 aplicación sean acordes al de batería seleccionado.
@@ -311,8 +314,10 @@ del plan si ya pasó el tiempo.
 
 		- Si se pierde señal de geolocalización, se notifica al usuario.
 
-		- El atleta puede ver un _timestamp_ en cada lugar donde paso.
-
+		- El atleta puede ver un _timestamp_ en cada lugar donde se actualizó
+		su posición.
+		
+		- El atleta puede desactivar geolocalización si lo desea
 	* Tareas:
 
 		- Investigar como obtener el tiempo actual del celular.
@@ -336,3 +341,37 @@ del plan si ya pasó el tiempo.
 
 		- Implementar la lógica para dibujar un recorrido en el mapa dados los puntos
 		y un _timestamp_ de los mismos.
+		
+		- Si se pierde la señal de geolocalización, se notifica al usuario.
+
+16) Como corredor quiero poder inicializar el seguimiento de un entrenamiento de los que me dio la aplicación y que están dentro del plazo para poder empezar a 
+correr bajo el plan obtenido.
+
+	* Story Points: 13
+
+	* Value: 21
+
+	* Criterio de aceptación:
+		
+		- El atleta puede elegir un plan de la lista de disponibles y 
+		cuyo plazo no haya expirado.
+		
+		- El atleta puede seleccionar que el plan empiece a correr, y
+		el mismo empezara el seguimiento en la primer fase.
+		
+		- El atleta puede detener el entrenamiento en cualquier momento.
+		
+		- El seguimiento termina de acuerdo a las fases del plan.
+		
+	* Tareas
+	
+		- Implementar una vista de seguimientos filtrados por plazo.
+		
+		- Implementar que la selección del entrenamiento inicie la
+		aplicación de seguimiento para el mismo.
+		
+		- Implementar que se pueda detener un plan de entrenamiento en
+		cualquier momento del mismo.
+		
+		- Investigar maneras de ordenar la lista según relevancia de
+		entrenamientos.
