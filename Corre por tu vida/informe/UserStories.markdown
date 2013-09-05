@@ -89,8 +89,8 @@ para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
 		- Investigar cómo reproducir una canción en cada formato estándar (mp3,
 		wav, etc) dado.
 
-		- Investigar cómo guardar las canciones en el teléfono, y como volverlas a
-		leer.
+		- Codificar la lógica para que según el tipo de alerta se eliga un sonido a 
+		reproducir (potencialmente leyendo de almacenamiento el mismo) y se lo reproduzca.
 
 		- Codificar la lógica para según el tipo de alerta se eliga una canción
 		aleatoria de las disponibles, se la lea de disco y reproduzca.
@@ -172,7 +172,7 @@ entrenamientos en redes sociales y aplicaciones de geolocalización.
 		- Testear ingresando datos inválidos / absurdos para verificar la consistencia
 		  de los mismos dentro de la aplicación. 
 
-		- Documentar límites de las validaciones
+		- Documentar límites de las validaciones.
 
 7) Como atleta quiero poder ingresar mi frecuencia semanal con la que
 puedo entrenar.
@@ -188,7 +188,7 @@ puedo entrenar.
 
 		- Los valores ingresados deben ser una cantidad de días entre 1 y 7.
 
-		- La aplicación guardará registro del valor.
+		- La aplicación guardará registro del valor ingresado.
 
 	* Tareas:
 
@@ -223,9 +223,9 @@ puedo entrenar.
 		- Codificar la lista de tareas.
 
 		- Investigar forma de agregar elementos a la lista si se fuera a
-		actualizar.
+		actualizar la aplicación.
 
-		- Testear agregar objetivos.
+		- Testear agregar objetivos a los ya presentados.
 
 		- Investigar que otros objetivos posibles serían interesantes para un
 		potencial usuario.
@@ -265,15 +265,23 @@ aplicación sean acordes al de batería seleccionado.
 		- Si el atleta eligió un consumo alto de batería, las notificaciones son
 		temas musicales preelegidos por la app y ocurren cada 10 segundos.
 
+		- Para otros niveles de batería se determinará también una frecuencia de
+		notificaciones y calidad de las mismas en el momento de la implementación.
+
 	* Tareas:
 
-	- Investigar cómo obtener la velocidad actual a la que se desplaza el
-	teléfono.
-	- Aproximar el consumo de batería de las actualizaciones en función de la
-	frecuencia de la misma.
-	- Investigar como controlar la frecuencia de muestreo de velocidad del dispositivo.
-	- Escribir el código que permita modificar la frecuencia de muestreo.
-	- Escribir el código que obtenga la velocidad del usuario.
+		- Investigar cómo obtener la velocidad actual a la que se desplaza el
+		teléfono.
+
+		- Aproximar el consumo de batería de las actualizaciones en función de la
+		frecuencia de la misma.
+
+		- Investigar como controlar la frecuencia de muestreo de velocidad del dispositivo.
+
+		- Escribir el código que permita modificar la frecuencia de muestreo.
+
+		- Escribir el código que obtenga la velocidad promedio del usuario dentro del intervalo
+		de muestreo.
 
 11) Como atleta quiero que las actualizaciones de posición sean acordes
 al nivel de batería seleccionado.
@@ -285,7 +293,8 @@ al nivel de batería seleccionado.
 
 		- La posición se actualiza cada 10 segundos si el nivel de consumo batería elegido es alto.
 		- La posición se actualiza cada minuto si el nivel de consumo de batería es bajo.
-		- Cuanto mayor es el nivel de batería, mayor sera la frecuencia de actualizaciones.
+		- Para los demás niveles de batería también se indicará una frecuencia de actualización
+		de posición al momento de la implementación.
 
 	* Tareas:
 
@@ -293,7 +302,7 @@ al nivel de batería seleccionado.
 		- Investigar cuanto consume la actualización del GPS en función de la frecuencia de refresco establecida.
 		- Codificar la funcionalidad de ajuste de frecuencia de actualizaciones del GPS.
 
-12) Como atleta quiero poder ajustar el consumo de batería
+12) Como atleta quiero poder ajustar la opción de consumo de batería.
 
 	* Story Points: 3
 
@@ -302,7 +311,7 @@ al nivel de batería seleccionado.
 	* Criterio de aceptación:
 
 		- El atleta puede seleccionar dentro de los niveles disponibles, como
-		mínimo bajo, medio y alto
+		mínimo bajo, medio y alto.
 		- La aplicación debe poder correr más tiempo bajo un plan de consumo
 		bajo que en uno alto.
 		- El atleta puede determinar que impacto tiene en las funcionalidades de la aplicación
@@ -342,7 +351,10 @@ en base a los datos.
 		constarán de fases con mayor exigencia.
 
 		- La duración y velocidad devueltas serán inversamente proporcionales al
-		peso.
+		peso del corredor, de acuerdo a los criterios de salud vigentes.
+
+		- La frecuencia semanal del plan de entrenamiento se corresponderá con la ingresada
+		por el corredor al momento de dar la especificación de sus objetivos.
 
 	* Tareas:
 
@@ -355,6 +367,9 @@ en base a los datos.
 
 		- Codificar las reglas de asignación de planes en base a los parámetros
 		indicados en el criterio.
+
+		- Codificar la lógica para un asignador de fases a días de semana de acuerdo a la frecuencia
+		ingresada.
 
 14) Como corredor quiero poder ver la velocidad promedio y la duración
 de cada fase de un entrenamiento para saber el criterio con el que la
@@ -379,7 +394,8 @@ aplicación mide mi performance corriendo.
 
 	* Tareas:
 
-		- Investigar cómo mostrar los datos por la interfaz del celular.
+		- Investigar cómo mostrar datos numéricos de velocidad y duración por la interfaz del 
+		celular, y como actualizar la vista cuando estos cambian.
 
 		- Investigar un algoritmo para lograr calcular la velocidad promedio a
 		medida que llegan los datos.
@@ -390,7 +406,7 @@ aplicación mide mi performance corriendo.
 
 		- Crear una vista para mostrar los datos
 
-		- Implementar la lógica para calcular los datos.
+		- Implementar la lógica para calcular los datos de velocidad promedio.
 
 15) Como atleta quiero que la aplicación me avise de la próxima fase
 del plan si ya pasó el tiempo.
@@ -401,8 +417,11 @@ del plan si ya pasó el tiempo.
 
 	* Criterio de aceptación
 
-		- El app genera una notificación auditiva cuando se termine el tiempo de
-		la fase actual.
+		- La aplicación genera una notificación auditiva cuando se termine el tiempo de
+		la fase actual y se pase a otra.
+
+		- La aplicación genera una notificación cuando se terminó la última fase del
+		entrenamiento.
 
 		- No se genera esa notificación particular por otro motivo.
 
@@ -430,26 +449,28 @@ del plan si ya pasó el tiempo.
 
 		- Si se pierde señal de geolocalización, se notifica al usuario.
 
+		- El atleta puede ver un _timestamp_ en cada lugar donde paso.
+
 	* Tareas:
+
+		- Investigar como obtener el tiempo actual del celular.
 
 		- Implementar la lógica para obtener la posición actual del teléfono
 
-		- Incorporar el uso de mapas en la aplicación
+		- Incorporar el uso de mapas de otras fuentes en la aplicación.
 
 		- Agregar una vista con un mapa en la pantalla.
 
 		- Implementar lógica para centrar ese mapa en una posición indicada.
 
 		- Investigar qué pasa cuando se pasa la aplicación al background y
-		cuando vuelve.
+		cuando vuelve, implementar la lógica que mantenga actualizando la
+		aplicación incluso en background.
 
 		- Testear que efectivamente la posición se actualice al desplazar el
 		teléfono
 
-		- Testear que el mapa se centre correctamente
+		- Testear que el mapa se centre correctamente.
 
-		- Testear qué ocurre cuando se manda la aplicación al background.
-
-		- Implementar la lógica para dibujar un recorrido en el mapa
-
-
+		- Implementar la lógica para dibujar un recorrido en el mapa dados los puntos
+		y un _timestamp_ de los mismos.

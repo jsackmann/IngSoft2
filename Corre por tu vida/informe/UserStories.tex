@@ -26,12 +26,12 @@
     \begin{itemize}
     \itemsep1pt\parskip0pt\parsep0pt
     \item
-      Concebir cómo representar un entrenamiento.
+      Concebir cómo almacenar los datos de un entrenamiento
     \item
       Investigar opciones para mostrar la información de cada
       entrenamiento.
     \item
-      Crear una vista con una table view para mostrar la lista de
+      Crear una vista con una \emph{table view} para mostrar la lista de
       entrenamientos concluidos.
     \item
       Crear una vista para mostrar el detalle de entrenamiento.
@@ -64,19 +64,30 @@
       El atleta puede ver cuánta distancia recorrió para cada
       entrenamiento, cuanto tardo en cada uno, y cual fue su velocidad
       máxima.
+    \item
+      Todos estos datos estarán disponibles para el atleta para cada
+      entrenamiento en el detalle de los mismos que obtiene al
+      seleccionarlo en la lista.
     \end{itemize}
   \item
     Tareas:
 
     \begin{itemize}
     \item
-      Investigar si hay una librería que saca estadísticas sola.
+      Investigar si hay una librería para obtener estadísticas en base a
+      los datos ingresados y que cantidad de datos necesita.
     \item
-      Codificar las estadísticas.
+      Investigar el almacenamiento necesario para los datos que se deben
+      obtener para el cálculo de cada estadística.
     \item
-      Testear que las estadísticas sean correctas.
+      Programar la lógica para calcular estas estadísticas en base
+    \item
+      Testear que las estadísticas obtenidas sean correctas.
     \item
       Probar de intentar sacar estadísticas de datos absurdos.
+    \item
+      Investigar como mostrar una ventana con las estadísticas que
+      aparezca al seleccionar el entrenamiento de la lista.
     \end{itemize}
   \end{itemize}
 \item
@@ -106,6 +117,10 @@
     \item
       Cada alerta por marcha inválida se repetirá a intervalos regulares
       mientras persista la condición.
+    \item
+      En la interfaz gráfica debe aparecer un detalle de la razón de la
+      marcha inválida (es decir, debe indicar si esta yendo más lento o
+      rápido, y la diferencia entre la marcha ideal y la que lleva).
     \end{itemize}
   \item
     Tareas:
@@ -113,12 +128,19 @@
     \begin{itemize}
     \item
       Investigar cómo reproducir una canción en cada formato estándar
-      (mp3, wav, etc).
+      (mp3, wav, etc) dado.
     \item
-      Investigar cómo guardar canciones en el teléfono.
+      Codificar la lógica para que según el tipo de alerta se eliga un
+      sonido a reproducir (potencialmente leyendo de almacenamiento el
+      mismo) y se lo reproduzca.
+    \item
+      Codificar la lógica para según el tipo de alerta se eliga una
+      canción aleatoria de las disponibles, se la lea de disco y
+      reproduzca.
     \item
       Codificar la lógica para que si la velocidad no esta en el rango,
-      se envíe una alerta.
+      se envíe una alerta y se muestre en pantalla la diferencia y según
+      ese rango, cuan ``grave'' es el nivel de alerta.
     \item
       Testear para los 3 tipos de condiciones de marcha válida e
       inválida.
@@ -143,13 +165,18 @@
     \item
       El atleta puede seleccionar qué recorrido puede publicar.
     \item
-      El atleta puede escribir un mensaje.
+      El atleta puede escribir un mensaje a agregar además de los datos
+      de su entrenamiento.
     \item
       La publicación es visible por los demás miembros de la red social
       de acuerdo a las reglas de privacidad de la misma.
     \item
       Solo los datos explícitamente indicados por el usuario son
       publicados en la red social correspondiente.
+    \item
+      El atleta puede decidir si quiere que se muestre el recorrido que
+      realizó, la velocidad con la que corrió, etc., para cada tipo de
+      dato a compartir.
     \end{itemize}
   \item
     Tareas:
@@ -173,6 +200,8 @@
     \item
       Investigar opciones de privacidad para proteger los datos del
       teléfono.
+    \item
+      Codificar la funcionalidad de configuración de datos compartidos.
     \end{itemize}
   \end{itemize}
 \item
@@ -209,12 +238,13 @@
       Investigar cómo validar los campos de acuerdo al tipo de datos
       pedidos.
     \item
-      Pensar cómo representar esos datos del usuario
+      Pensar cómo representar esos datos del usuario y en donde
+      almacenar los mismos.
     \item
       Testear ingresando datos inválidos / absurdos para verificar la
       consistencia de los mismos dentro de la aplicación.
     \item
-      Documentar límites de las validaciones
+      Documentar límites de las validaciones.
     \end{itemize}
   \end{itemize}
 \item
@@ -236,7 +266,7 @@
     \item
       Los valores ingresados deben ser una cantidad de días entre 1 y 7.
     \item
-      La aplicación guardará registro del valor.
+      La aplicación guardará registro del valor ingresado.
     \end{itemize}
   \item
     Tareas:
@@ -288,9 +318,9 @@
       Codificar la lista de tareas.
     \item
       Investigar forma de agregar elementos a la lista si se fuera a
-      actualizar.
+      actualizar la aplicación.
     \item
-      Testear agregar objetivos.
+      Testear agregar objetivos a los ya presentados.
     \item
       Investigar que otros objetivos posibles serían interesantes para
       un potencial usuario.
@@ -350,22 +380,31 @@
       Si el atleta eligió un consumo alto de batería, las notificaciones
       son temas musicales preelegidos por la app y ocurren cada 10
       segundos.
+    \item
+      Para otros niveles de batería se determinará también una
+      frecuencia de notificaciones y calidad de las mismas en el momento
+      de la implementación.
     \end{itemize}
   \item
     Tareas:
-  \item
-    Investigar cómo obtener la velocidad actual a la que se desplaza el
-    teléfono.
-  \item
-    Aproximar el consumo de batería de las actualizaciones en función de
-    la frecuencia de la misma.
-  \item
-    Investigar como controlar la frecuencia de muestreo de velocidad del
-    dispositivo.
-  \item
-    Escribir el código que permita modificar la frecuencia de muestreo.
-  \item
-    Escribir el código que obtenga la velocidad del usuario.
+
+    \begin{itemize}
+    \item
+      Investigar cómo obtener la velocidad actual a la que se desplaza
+      el teléfono.
+    \item
+      Aproximar el consumo de batería de las actualizaciones en función
+      de la frecuencia de la misma.
+    \item
+      Investigar como controlar la frecuencia de muestreo de velocidad
+      del dispositivo.
+    \item
+      Escribir el código que permita modificar la frecuencia de
+      muestreo.
+    \item
+      Escribir el código que obtenga la velocidad promedio del usuario
+      dentro del intervalo de muestreo.
+    \end{itemize}
   \end{itemize}
 \item
   Como atleta~quiero que las actualizaciones de posición sean acordes al
@@ -388,8 +427,9 @@
       La posición se actualiza cada minuto si el nivel de consumo de
       batería es bajo.
     \item
-      Cuanto mayor es el nivel de batería, mayor sera la frecuencia de
-      actualizaciones.
+      Para los demás niveles de batería también se indicará una
+      frecuencia de actualización de posición al momento de la
+      implementación.
     \end{itemize}
   \item
     Tareas:
@@ -408,7 +448,7 @@
     \end{itemize}
   \end{itemize}
 \item
-  Como atleta quiero poder ajustar el consumo de batería
+  Como atleta quiero poder ajustar la opción de consumo de batería.
 
   \begin{itemize}
   \item
@@ -422,7 +462,7 @@
     \itemsep1pt\parskip0pt\parsep0pt
     \item
       El atleta puede seleccionar dentro de los niveles disponibles,
-      como mínimo bajo, medio y alto
+      como mínimo bajo, medio y alto.
     \item
       La aplicación debe poder correr más tiempo bajo un plan de consumo
       bajo que en uno alto.
@@ -479,7 +519,12 @@
       entrenamientos constarán de fases con mayor exigencia.
     \item
       La duración y velocidad devueltas serán inversamente
-      proporcionales al peso.
+      proporcionales al peso del corredor, de acuerdo a los criterios de
+      salud vigentes.
+    \item
+      La frecuencia semanal del plan de entrenamiento se corresponderá
+      con la ingresada por el corredor al momento de dar la
+      especificación de sus objetivos.
     \end{itemize}
   \item
     Tareas:
@@ -495,6 +540,9 @@
     \item
       Codificar las reglas de asignación de planes en base a los
       parámetros indicados en el criterio.
+    \item
+      Codificar la lógica para un asignador de fases a días de semana de
+      acuerdo a la frecuencia ingresada.
     \end{itemize}
   \end{itemize}
 \item
@@ -528,7 +576,9 @@
 
     \begin{itemize}
     \item
-      Investigar cómo mostrar los datos por la interfaz del celular.
+      Investigar cómo mostrar datos numéricos de velocidad y duración
+      por la interfaz del celular, y como actualizar la vista cuando
+      estos cambian.
     \item
       Investigar un algoritmo para lograr calcular la velocidad promedio
       a medida que llegan los datos.
@@ -539,7 +589,8 @@
     \item
       Crear una vista para mostrar los datos
     \item
-      Implementar la lógica para calcular los datos.
+      Implementar la lógica para calcular los datos de velocidad
+      promedio.
     \end{itemize}
   \end{itemize}
 \item
@@ -556,8 +607,11 @@
 
     \begin{itemize}
     \item
-      El app genera una notificación auditiva cuando se termine el
-      tiempo de la fase actual.
+      La aplicación genera una notificación auditiva cuando se termine
+      el tiempo de la fase actual y se pase a otra.
+    \item
+      La aplicación genera una notificación cuando se terminó la última
+      fase del entrenamiento.
     \item
       No se genera esa notificación particular por otro motivo.
     \end{itemize}
@@ -593,31 +647,35 @@
       automática.
     \item
       Si se pierde señal de geolocalización, se notifica al usuario.
+    \item
+      El atleta puede ver un \emph{timestamp} en cada lugar donde paso.
     \end{itemize}
   \item
     Tareas:
 
     \begin{itemize}
     \item
+      Investigar como obtener el tiempo actual del celular.
+    \item
       Implementar la lógica para obtener la posición actual del teléfono
     \item
-      Incorporar el uso de mapas en la aplicación
+      Incorporar el uso de mapas de otras fuentes en la aplicación.
     \item
       Agregar una vista con un mapa en la pantalla.
     \item
       Implementar lógica para centrar ese mapa en una posición indicada.
     \item
       Investigar qué pasa cuando se pasa la aplicación al background y
-      cuando vuelve.
+      cuando vuelve, implementar la lógica que mantenga actualizando la
+      aplicación incluso en background.
     \item
       Testear que efectivamente la posición se actualice al desplazar el
       teléfono
     \item
-      Testear que el mapa se centre correctamente
+      Testear que el mapa se centre correctamente.
     \item
-      Testear qué ocurre cuando se manda la aplicación al background.
-    \item
-      Implementar la lógica para dibujar un recorrido en el mapa
+      Implementar la lógica para dibujar un recorrido en el mapa dados
+      los puntos y un \emph{timestamp} de los mismos.
     \end{itemize}
   \end{itemize}
 \end{enumerate}
