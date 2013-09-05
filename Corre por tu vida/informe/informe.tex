@@ -1,0 +1,158 @@
+%BEGIN COPYPASTE EL INFORME DEL INFO
+\documentclass[10pt, a4paper,english,spanish]{article}
+\usepackage{subfig}
+
+\parindent=20pt
+\parskip=8pt
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+
+\usepackage{ccfonts,eulervm} 
+\usepackage[T1]{fontenc}
+\usepackage{epigraph}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[activeacute, spanish,english]{babel}
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{afterpage}
+\usepackage{caratula}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{dashrule}
+\usepackage{pdflscape}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+
+\floatname{algorithm}{Algoritmo}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposici\'on}
+\newtheorem{corollary}[theorem]{Corolario}
+
+\newcommand{\Var}{\textbf{var }}
+\newcommand{\True}{\textbf{true }}
+\newcommand{\False}{\textbf{false }}
+\newcommand{\Break}{\textbf{break }}
+\newcommand{\Continue}{\textbf{continue }}
+\newcommand{\Param}{\textbf{param }}
+
+
+
+
+\parindent 0em
+%\algrenewcommand{\algorithmiccomment}[1]{//\textit{#1} }
+
+\lstset{language=sql,numbers=left,tabsize=2,
+	morekeywords={BEGIN,DECLARE,FOR,CREATE,PROCEDURE,RAISEERROR,EACH,ROW,BEFORE,AFTER,MINUS,IF},
+	breaklines=true,breakatwhitespace=true}
+
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\addtolength{\headheight}{1pt}
+\lhead{BD - TP1}
+\rhead{Grupo 1}
+\cfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\hblacksquare}{\hfill \blacksquare}
+%FIN COPYPASTE EL INFORME DEL INFO
+\begin{document}
+
+\materia{Ingenier\'ia del Software 2}
+\submateria{Segundo Cuatrim\'estre de 2013}
+\titulo{Trabajo Pr\'actico 1}
+\subtitulo{User Stories - Tutor: Nicol\'as Rinaldi}
+\grupo{Grupo 1}
+\integrante{Juli\'an Sackmann}{540/09}{jsackmann@gmail.com}
+\integrante{Juan Pablo Darago}{272/10}{jpdarago@gmail.com}
+\integrante{Vanesa Stricker}{159/09}{vanesastricker@gmail.com}
+
+\maketitle
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\section{Sobre la herramienta}
+
+Para el armado del Product y Sprint Backlogs utizamos la herramienta Agilefant,
+accesible mediante la URL \url{http://agilefant.monits.com}. Se
+dispone de un usuario para el tutor, el cual tiene los siguientes datos de acceso.
+
+\begin{itemize}
+	\item Nombre de usuario: nrinaldi
+	\item Contrase\~na: monits
+\end{itemize}
+
+\section{Product backlog}
+
+Incluimos a continuaci\'on las \textit{user stories} con su valor, \textit{story points} (que usamos
+como medida de su dificultad), criterio de aceptaci\'on y tareas asociadas. Estas son las 
+correspondientes al \textit{product backlog}.
+
+\include{UserStories}
+
+\section{Sprint backlog}
+
+A continuaci\'on detallamos las \textit{user stories} que incluimos en el actual \textit{sprint}. Las
+mismas son:
+
+\begin{itemize}
+	\item 3) Como atleta quiero que la aplicación siga mi fase dentro del plan para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
+	\item 14) Como corredor quiero poder ver la velocidad promedio y la duración de cada fase de un entrenamiento para saber el criterio con el que la aplicación mide mi performance corriendo.
+	\item 16) Como atleta quiero poder ver mi posición en el mapa en tiempo real. 
+\end{itemize}
+
+y a continuaci\'on incluimos el detalles de las tareas involucradas y la dificultad asociada a cada una.
+
+\begin{itemize}
+	\itemsep 0em
+	\item Investigar cómo reproducir una canción en cada formato estándar (mp3,
+	wav, etc).
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Investigar cómo guardar canciones en el teléfono.
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Codificar la lógica para que si la velocidad no esta en el rango, se
+	envíe una alerta.
+	\item[] \hfill \textit{Dificultad: 5}
+	\item Testear para los 3 tipos de condiciones de marcha válida e inválida.
+	\item[] \hfill \textit{Dificultad: 2}
+	\item Investigar cómo mostrar datos numéricos de velocidad y duración por la interfaz del celular, y como actualizar
+	la vista cuando estos cambian.
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Investigar un algoritmo para lograr calcular la velocidad promedio a medida que llegan los datos.
+	\item[] \hfill \textit{Dificultad: 2}
+	\item Testear que el promedio calculado es correcto incluso considerando actualizaciones de velocidad y tiempo poco frecuentes 
+		(por ejemplo en un modo de batería bajo).
+	\item[] \hfill \textit{Dificultad: 5}
+	\item Crear una vista para mostrar los datos.
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Implementar la lógica para calcular los datos de posición actual
+	\item[] \hfill \textit{Dificultad: 5}
+	\item Implementar la lógica para obtener la posición actual del teléfono.
+	\item[] \hfill \textit{Dificultad: 8}
+	\item Incorporar el uso de mapas de otras fuentes dentro de la aplicación
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Agregar una vista con un mapa en la pantalla.
+	\item[] \hfill \textit{Dificultad: 5}
+	\item Implementar lógica para centrar ese mapa en una posición indicada.
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Investigar qué pasa cuando se pasa la aplicación al \textit{background} y cuando vuelve, 
+			implementar la lógica que mantenga actualizando a la aplicación incluso en background.
+	\item[] \hfill \textit{Dificultad: 3}
+	\item Testear que efectivamente la posición se actualice al desplazar el teléfono.
+	\item[] \hfill \textit{Dificultad: 2}
+	\item Testear que el mapa se centre correctamente.
+	\item[] \hfill \textit{Dificultad: 2}
+	\item Implementar la lógica para dibujar un recorrido en el mapa dados los puntos y un \textit{timestamp} para cada uno.
+	\item[] \hfill \textit{Dificultad: 5}
+\end{itemize}
+
+\end{document}

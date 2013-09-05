@@ -1,0 +1,623 @@
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Como atleta quiero~tener disponible la lista de entrenamientos que ya
+  concluí
+
+  \begin{itemize}
+  \item
+    Story Points:~8
+  \item
+    Value:~5
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede ver una lista donde tiene cada entrenamiento.
+    \item
+      Al elegir uno de ellos con su celular, se mostrará el detalle del
+      mismo
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      Concebir cómo representar un entrenamiento.
+    \item
+      Investigar opciones para mostrar la información de cada
+      entrenamiento.
+    \item
+      Crear una vista con una table view para mostrar la lista de
+      entrenamientos concluidos.
+    \item
+      Crear una vista para mostrar el detalle de entrenamiento.
+    \item
+      Agregar funcionalidad para que al seleccionar un entrenamiento de
+      la lista de entrenamiento se redireccione a la vista de detalle.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ver estadísticas de los entrenamientos que ya
+  hice
+
+  \begin{itemize}
+  \item
+    Story Points: 13
+  \item
+    Value:~5
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \item
+      El atleta puede ver para una fase de un entrenamiento realizado el
+      recorrido que hizo y verlo en un mapa similar al que tiene
+      disponible cuando hace el recorrido en una fase.
+    \item
+      El atleta puede ver para cada fase de un entrenamiento,
+      estadisticas sobre su velocidad y distancia.
+    \item
+      El atleta puede ver cuánta distancia recorrió para cada
+      entrenamiento, cuanto tardo en cada uno, y cual fue su velocidad
+      máxima.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Investigar si hay una librería que saca estadísticas sola.
+    \item
+      Codificar las estadísticas.
+    \item
+      Testear que las estadísticas sean correctas.
+    \item
+      Probar de intentar sacar estadísticas de datos absurdos.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta~quiero que la aplicación siga mi fase dentro del plan para
+  que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
+
+  \begin{itemize}
+  \item
+    Story Points: 8
+  \item
+    Value:~21
+  \item
+    Criterio de aceptación:
+
+    \begin{itemize}
+    \item
+      El atleta debe poder saber en que fase de que entrenamiento esta.
+    \item
+      El atleta debe recibir una notificación de que debe aumentar la
+      marcha si está yendo más lento que el plan.
+    \item
+      El atleta debe recibir una notificación de que debe disminuir la
+      marcha si está yendo más despacio que el plan.
+    \item
+      El atleta debe recibir una notificación en intervalos regulares si
+      se está manteniendo en una marcha aceptable.
+    \item
+      Cada alerta por marcha inválida se repetirá a intervalos regulares
+      mientras persista la condición.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Investigar cómo reproducir una canción en cada formato estándar
+      (mp3, wav, etc).
+    \item
+      Investigar cómo guardar canciones en el teléfono.
+    \item
+      Codificar la lógica para que si la velocidad no esta en el rango,
+      se envíe una alerta.
+    \item
+      Testear para los 3 tipos de condiciones de marcha válida e
+      inválida.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder publicar los recorridos de los entrenamientos
+  en redes sociales y aplicaciones de geolocalización.
+
+  \begin{itemize}
+  \item
+    Story Points: 10
+  \item
+    Value:~1
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      El atleta puede seleccionar en qué red social o aplicación
+      publicar.
+    \item
+      El atleta puede seleccionar qué recorrido puede publicar.
+    \item
+      El atleta puede escribir un mensaje.
+    \item
+      La publicación es visible por los demás miembros de la red social
+      de acuerdo a las reglas de privacidad de la misma.
+    \item
+      Solo los datos explícitamente indicados por el usuario son
+      publicados en la red social correspondiente.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      Investigar como funcionan la APIs de Facebook
+    \item
+      Investigar como funcionan la APIs de Google+
+    \item
+      Investigar como funcionan la APIs de Foursquare
+    \item
+      Investigar como funcionan la APIs de Nike Run
+    \item
+      Investigar como funcionan la APIs de Hi5
+    \item
+      Investigar como funcionan la APIs de MySpace.
+    \item
+      Codificar las funciones de publicación que hacen uso de cada API
+    \item
+      Investigar opciones de privacidad para proteger los datos del
+      teléfono.
+    \end{itemize}
+  \end{itemize}
+\item
+  ~Como atleta~quiero poder ingresar los datos de mi estado físico.
+
+  \begin{itemize}
+  \item
+    Story Points: 5
+  \item
+    Value:~8
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      El atleta podrá ingresar su peso en kilogramos.
+    \item
+      El atleta podrá ingresar su altura en cm.
+    \item
+      El atleta podrá especificar mayores detalles usando categorías
+      basadas en si ya corrió una carrera o no, ya corrió un maratón o
+      no, su mejor marca de distancia en una carrera y en un maratón.
+    \item
+      La aplicación guardará registro del valor actual de ambos datos.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Investigar cómo crear un formulario y guardar los datos en la
+      aplicación
+    \item
+      Investigar cómo validar los campos de acuerdo al tipo de datos
+      pedidos.
+    \item
+      Pensar cómo representar esos datos del usuario
+    \item
+      Testear ingresando datos inválidos / absurdos para verificar la
+      consistencia de los mismos dentro de la aplicación.
+    \item
+      Documentar límites de las validaciones
+    \end{itemize}
+  \end{itemize}
+\item
+  ~Como atleta~quiero poder ingresar mi frecuencia semanal con la que
+  puedo entrenar.
+
+  \begin{itemize}
+  \item
+    Story Points:~1
+  \item
+    Value:~5
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      El atleta debe ingresar la frecuencia semanal con la que puede
+      entrenar.
+    \item
+      Los valores ingresados deben ser una cantidad de días entre 1 y 7.
+    \item
+      La aplicación guardará registro del valor.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Investigar implementación de fechas / calendarios en iOS
+    \item
+      Testear con datos inválidos.
+    \item
+      Crear una vista para que el usuario seleccione la frecuencia
+      semanal.
+    \item
+      Guardar la información ingresada por el usuario
+    \end{itemize}
+  \end{itemize}
+\item
+  ~Como atleta~quiero poder ingresar el objetivo de mi entrenamiento.
+
+  \begin{itemize}
+  \item
+    Story Points: 8
+  \item
+    Value:~13
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      El atleta debe ingresar sus objetivos propuestos entre las
+      opciones:
+
+      \begin{itemize}
+      \item
+        Correr 5 km sin tiempo.
+      \item
+        Terminar un maratón olímpico.
+      \item
+        Correr 7 km en 35 minutos.
+      \end{itemize}
+    \end{itemize}
+
+    y otras opciones y posibilidades decididas durante la implementación
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Codificar la lista de tareas.
+    \item
+      Investigar forma de agregar elementos a la lista si se fuera a
+      actualizar.
+    \item
+      Testear agregar objetivos.
+    \item
+      Investigar que otros objetivos posibles serían interesantes para
+      un potencial usuario.
+    \end{itemize}
+  \end{itemize}
+\item
+  ~Como atleta~quiero poder ingresar el plazo estipulado para mi
+  entrenamiento si así lo deseo.
+
+  \begin{itemize}
+  \item
+    Story Points:~2
+  \item
+    Value:~5
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede elegir un plazo estipulado para la finalización de
+      cada uno de sus objetivos.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      Investigar que tipo de granularidad y que tipo de duraciones se
+      pueden soportar: intervalos válidos, etc.
+    \item
+      Investigar posibles interfaces de usuario para ingresar tiempos,
+      por ejemplo utilizar un calendario para poner una fecha de
+      finalización.
+    \item
+      Codificar validacion de plazos si se utilizan fechas.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta~quiero que las notificaciones de velocidad de la
+  aplicación sean acordes al de batería seleccionado.
+
+  \begin{itemize}
+  \item
+    Story Points: 8
+  \item
+    Value:~5
+  \item
+    Criterio de aceptación:
+
+    \begin{itemize}
+    \item
+      Si el atleta eligió un consumo bajo, las notificaciones son
+      pitidos y ocurren cada 1 minuto.
+    \item
+      Si el atleta eligió un consumo alto de batería, las notificaciones
+      son temas musicales preelegidos por la app y ocurren cada 10
+      segundos.
+    \end{itemize}
+  \item
+    Tareas:
+  \item
+    Investigar cómo obtener la velocidad actual a la que se desplaza el
+    teléfono.
+  \item
+    Aproximar el consumo de batería de las actualizaciones en función de
+    la frecuencia de la misma.
+  \item
+    Investigar como controlar la frecuencia de muestreo de velocidad del
+    dispositivo.
+  \item
+    Escribir el código que permita modificar la frecuencia de muestreo.
+  \item
+    Escribir el código que obtenga la velocidad del usuario.
+  \end{itemize}
+\item
+  Como atleta~quiero que las actualizaciones de posición sean acordes al
+  nivel de batería seleccionado.
+
+  \begin{itemize}
+  \item
+    Story Points: 8
+  \item
+    Value:~2
+  \item
+    Criterio de aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      La posición se actualiza cada 10 segundos si el nivel de consumo
+      batería elegido es alto.
+    \item
+      La posición se actualiza cada minuto si el nivel de consumo de
+      batería es bajo.
+    \item
+      Cuanto mayor es el nivel de batería, mayor sera la frecuencia de
+      actualizaciones.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      Investigar si se puede, y en caso de que se pueda como,
+      seleccionar el nivel de actualización del GPS.
+    \item
+      Investigar cuanto consume la actualización del GPS en función de
+      la frecuencia de refresco establecida.
+    \item
+      Codificar la funcionalidad de ajuste de frecuencia de
+      actualizaciones del GPS.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ajustar el consumo de batería
+
+  \begin{itemize}
+  \item
+    Story Points: 3
+  \item
+    Value:~2
+  \item
+    Criterio de aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede seleccionar dentro de los niveles disponibles,
+      como mínimo bajo, medio y alto
+    \item
+      La aplicación debe poder correr más tiempo bajo un plan de consumo
+      bajo que en uno alto.
+    \item
+      El atleta puede determinar que impacto tiene en las
+      funcionalidades de la aplicación el cambio de consumo de batería.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      Investigar que niveles de batería permite el dispositivo.
+    \item
+      Programar una opción seleccionable para cada nivel de batería y
+      que sea accesible por los demás módulos
+    \item
+      Documentar para el usuario cual es el impacto de cada nivel de
+      batería en la funcionalidad de la aplicación y en la duración del
+      teléfono (usando estimativos de ser necesario).
+    \item
+      Incluir esta documentación como ayuda dentro de la aplicación
+    \end{itemize}
+  \end{itemize}
+\item
+  ~Como atleta quiero que la aplicación me de un plan de entrenamiento
+  en base a los datos.
+
+  \begin{itemize}
+  \item
+    Story Points: 13
+  \item
+    Value:~21
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      Si el atleta estableció como objetivo que desea correr una
+      maratón, el sistema creará un plan concentrado en larga duración y
+      velocidad constante.
+    \item
+      Si el atleta estableció que desea correr una determinada cantidad
+      de kilómetros en un cierto tiempo, el sistema creará un plan con
+      entrenamientos de velocidad progresivamente más difíciles hasta
+      alcanzar el objetivo.
+    \item
+      Si el atleta no estableció requerimientos ni de distancia ni de
+      tiempo, el programa devolverá una serie de entrenamientos
+      recreativos.
+    \item
+      Si el atleta se encuentra en buen estado físico, los
+      entrenamientos constarán de fases con mayor exigencia.
+    \item
+      La duración y velocidad devueltas serán inversamente
+      proporcionales al peso.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Determinar distancias, velocidades y duraciones para las fases
+      acordes a un plan de entrenamiento, peso y objetivos, consultando
+      a médicos y entrenadores físicos posiblemente.
+    \item
+      Determinar cómo leer del celular las opciones almacenadas por el
+      corredor.
+    \item
+      Codificar las reglas de asignación de planes en base a los
+      parámetros indicados en el criterio.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como corredor quiero poder ver la velocidad promedio y la duración de
+  cada fase de un entrenamiento para saber el criterio con el que la
+  aplicación mide mi performance corriendo.
+
+  \begin{itemize}
+  \item
+    Story Points:~8
+  \item
+    Value:~13
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      El atleta debe poder elegir un entrenamiento de los que la
+      aplicación ha preparado.
+    \item
+      El atleta debe poder examinar las fases de un entrenamiento.
+    \item
+      El atleta debe ver para cada fase un rango de velocidades en km/h
+      que son aceptables.
+    \item
+      El atleta debe poder ver para cada fase, cuanto tiempo dura la
+      misma en minutos.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Investigar cómo mostrar los datos por la interfaz del celular.
+    \item
+      Investigar un algoritmo para lograr calcular la velocidad promedio
+      a medida que llegan los datos.
+    \item
+      Testear que el promedio calculado es correcto incluso considerando
+      actualizaciones de velocidad y tiempo poco frecuentes (por ejemplo
+      en un modo de batería bajo).
+    \item
+      Crear una vista para mostrar los datos
+    \item
+      Implementar la lógica para calcular los datos.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero que la aplicación me avise de la próxima fase del
+  plan si ya pasó el tiempo.
+
+  \begin{itemize}
+  \item
+    Story Points: 8
+  \item
+    Value:~21
+  \item
+    Criterio de aceptación
+
+    \begin{itemize}
+    \item
+      El app genera una notificación auditiva cuando se termine el
+      tiempo de la fase actual.
+    \item
+      No se genera esa notificación particular por otro motivo.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Investigar cómo generar alertas auditivas sencillas.
+    \item
+      Investigar cómo medir el paso del tiempo en el dispositivo (o al
+      menos generar acciones a intervalos de tiempo regular)
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ver mi posición en el mapa en tiempo real.
+
+  \begin{itemize}
+  \item
+    Story Points: 13
+  \item
+    Value:~21
+  \item
+    Criterio de aceptación:
+
+    \begin{itemize}
+    \item
+      El atleta puede ver su posición actualizada a intervalos regulares
+      en la pantalla.
+    \item
+      Si se apaga la pantalla o bloquea el teléfono, al reanudar la
+      aplicación la actualización de la posición se reanuda en forma
+      automática.
+    \item
+      Si se pierde señal de geolocalización, se notifica al usuario.
+    \end{itemize}
+  \item
+    Tareas:
+
+    \begin{itemize}
+    \item
+      Implementar la lógica para obtener la posición actual del teléfono
+    \item
+      Incorporar el uso de mapas en la aplicación
+    \item
+      Agregar una vista con un mapa en la pantalla.
+    \item
+      Implementar lógica para centrar ese mapa en una posición indicada.
+    \item
+      Investigar qué pasa cuando se pasa la aplicación al background y
+      cuando vuelve.
+    \item
+      Testear que efectivamente la posición se actualice al desplazar el
+      teléfono
+    \item
+      Testear que el mapa se centre correctamente
+    \item
+      Testear qué ocurre cuando se manda la aplicación al background.
+    \item
+      Implementar la lógica para dibujar un recorrido en el mapa
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
