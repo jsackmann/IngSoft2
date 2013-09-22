@@ -39,6 +39,7 @@
         [self setUserWantsLocation:NO];
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:userLocation.coordinate.latitude longitude:userLocation.coordinate.longitude zoom:16.0];
         mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+        [self.view layoutIfNeeded];
         self.view = mapView;
         mapView.myLocationEnabled = YES;
         mapView.settings.myLocationButton = YES;
@@ -46,6 +47,26 @@
         [mapView setDelegate:self];
         [mapView animateToCameraPosition:camera];
     }
+    [self drawLine];
+}
+
+- (void)drawLine
+{
+    GMSMutablePath *path = [GMSMutablePath path];
+    [path addCoordinate:CLLocationCoordinate2DMake(-34.60695, -58.380725)];
+    [path addCoordinate:CLLocationCoordinate2DMake(-34.60795, -58.380725)];
+    [path addCoordinate:CLLocationCoordinate2DMake(-34.60795, -58.382)];
+    [path addCoordinate:CLLocationCoordinate2DMake(-34.60695, -58.382)];
+//    [path addCoordinate:CLLocationCoordinate2DMake(-34.60695, -58.380725)];
+    
+    GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
+    polyline.map = mapView;
+    
+    polyline.strokeColor = [UIColor redColor];
+    polyline.strokeWidth = 10.f;
+    polyline.geodesic = YES;
+    polyline.map = mapView;
+    polyline.zIndex = 100000000;
 }
 
 @end
