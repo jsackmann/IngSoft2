@@ -15,4 +15,6 @@
 @property NSInteger maxSpeed;
 @property NSInteger minSpeed;
 
+@property NSTimeInterval duration;
+
 @end

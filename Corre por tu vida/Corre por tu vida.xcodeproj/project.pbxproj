@@ -47,6 +47,8 @@
 		A4C24F7A17F2478300383993 /* GoalBasedPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7917F2478300383993 /* GoalBasedPlanner.m */; };
 		A4C24F7D17F249A500383993 /* TrainingPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7C17F249A500383993 /* TrainingPhase.m */; };
 		A4C24F8317F24BB300383993 /* SpeedInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F8217F24BB300383993 /* SpeedInterval.m */; };
+		A4C24F8617F24E8200383993 /* Training.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F8517F24E8100383993 /* Training.m */; };
+		A4C24F8917F2508B00383993 /* TrainingIterator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F8817F2508B00383993 /* TrainingIterator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,10 @@
 		A4C24F7C17F249A500383993 /* TrainingPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainingPhase.m; path = model/TrainingPhase.m; sourceTree = "<group>"; };
 		A4C24F8117F24BB300383993 /* SpeedInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeedInterval.h; path = model/SpeedInterval.h; sourceTree = "<group>"; };
 		A4C24F8217F24BB300383993 /* SpeedInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeedInterval.m; path = model/SpeedInterval.m; sourceTree = "<group>"; };
+		A4C24F8417F24E8100383993 /* Training.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Training.h; path = model/Training.h; sourceTree = "<group>"; };
+		A4C24F8517F24E8100383993 /* Training.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Training.m; path = model/Training.m; sourceTree = "<group>"; };
+		A4C24F8717F2508B00383993 /* TrainingIterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrainingIterator.h; path = model/TrainingIterator.h; sourceTree = "<group>"; };
+		A4C24F8817F2508B00383993 /* TrainingIterator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainingIterator.m; path = model/TrainingIterator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,10 @@
 			children = (
 				A4C24F6E17F2417B00383993 /* Planner.h */,
 				A4C24F8117F24BB300383993 /* SpeedInterval.h */,
+				A4C24F8417F24E8100383993 /* Training.h */,
+				A4C24F8717F2508B00383993 /* TrainingIterator.h */,
+				A4C24F8817F2508B00383993 /* TrainingIterator.m */,
+				A4C24F8517F24E8100383993 /* Training.m */,
 				A4C24F8217F24BB300383993 /* SpeedInterval.m */,
 				A4C24F7817F2478200383993 /* GoalBasedPlanner.h */,
 				A4C24F7917F2478300383993 /* GoalBasedPlanner.m */,
@@ -393,6 +403,8 @@
 				A4C24F7A17F2478300383993 /* GoalBasedPlanner.m in Sources */,
 				A4C24F7D17F249A500383993 /* TrainingPhase.m in Sources */,
 				A4C24F8317F24BB300383993 /* SpeedInterval.m in Sources */,
+				A4C24F8617F24E8200383993 /* Training.m in Sources */,
+				A4C24F8917F2508B00383993 /* TrainingIterator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
