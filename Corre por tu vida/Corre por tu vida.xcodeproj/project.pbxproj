@@ -40,6 +40,13 @@
 		A4B6A0D717D3C96600C8E43B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B6A0D617D3C96600C8E43B /* OpenGLES.framework */; };
 		A4B6A0D917D3C97000C8E43B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B6A0D817D3C97000C8E43B /* QuartzCore.framework */; };
 		A4B6A0DB17D3C97A00C8E43B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4B6A0DA17D3C97A00C8E43B /* SystemConfiguration.framework */; };
+		A4C24F6D17F240C400383993 /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F6C17F240C400383993 /* Plan.m */; };
+		A4C24F7117F242A200383993 /* GoalPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7017F242A200383993 /* GoalPlan.m */; };
+		A4C24F7417F246C100383993 /* PersonDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7317F246C100383993 /* PersonDescription.m */; };
+		A4C24F7717F2475200383993 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7617F2475200383993 /* Person.m */; };
+		A4C24F7A17F2478300383993 /* GoalBasedPlanner.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7917F2478300383993 /* GoalBasedPlanner.m */; };
+		A4C24F7D17F249A500383993 /* TrainingPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F7C17F249A500383993 /* TrainingPhase.m */; };
+		A4C24F8317F24BB300383993 /* SpeedInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C24F8217F24BB300383993 /* SpeedInterval.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +102,21 @@
 		A4B6A0D617D3C96600C8E43B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A4B6A0D817D3C97000C8E43B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4B6A0DA17D3C97A00C8E43B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A4C24F6B17F240C400383993 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Plan.h; path = model/Plan.h; sourceTree = "<group>"; };
+		A4C24F6C17F240C400383993 /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Plan.m; path = model/Plan.m; sourceTree = "<group>"; };
+		A4C24F6E17F2417B00383993 /* Planner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Planner.h; path = model/Planner.h; sourceTree = "<group>"; };
+		A4C24F6F17F242A200383993 /* GoalPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoalPlan.h; path = model/GoalPlan.h; sourceTree = "<group>"; };
+		A4C24F7017F242A200383993 /* GoalPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoalPlan.m; path = model/GoalPlan.m; sourceTree = "<group>"; };
+		A4C24F7217F246C100383993 /* PersonDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonDescription.h; path = model/PersonDescription.h; sourceTree = "<group>"; };
+		A4C24F7317F246C100383993 /* PersonDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonDescription.m; path = model/PersonDescription.m; sourceTree = "<group>"; };
+		A4C24F7517F2475200383993 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = model/Person.h; sourceTree = "<group>"; };
+		A4C24F7617F2475200383993 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = model/Person.m; sourceTree = "<group>"; };
+		A4C24F7817F2478200383993 /* GoalBasedPlanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoalBasedPlanner.h; path = model/GoalBasedPlanner.h; sourceTree = "<group>"; };
+		A4C24F7917F2478300383993 /* GoalBasedPlanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoalBasedPlanner.m; path = model/GoalBasedPlanner.m; sourceTree = "<group>"; };
+		A4C24F7B17F249A500383993 /* TrainingPhase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrainingPhase.h; path = model/TrainingPhase.h; sourceTree = "<group>"; };
+		A4C24F7C17F249A500383993 /* TrainingPhase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrainingPhase.m; path = model/TrainingPhase.m; sourceTree = "<group>"; };
+		A4C24F8117F24BB300383993 /* SpeedInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpeedInterval.h; path = model/SpeedInterval.h; sourceTree = "<group>"; };
+		A4C24F8217F24BB300383993 /* SpeedInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpeedInterval.m; path = model/SpeedInterval.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,21 +203,11 @@
 		A4523C8F17C7CCA50047A5E1 /* Corre por tu vida */ = {
 			isa = PBXGroup;
 			children = (
+				A4C24F6717F23FD400383993 /* controller */,
+				A4C24F6617F23FC600383993 /* model */,
 				A4523C9817C7CCA60047A5E1 /* AppDelegate.h */,
 				A4523C9917C7CCA60047A5E1 /* AppDelegate.m */,
 				A4523CA117C7CCA60047A5E1 /* MainStoryboard.storyboard */,
-				A4523CA417C7CCA60047A5E1 /* ViewController.h */,
-				A4523CA517C7CCA60047A5E1 /* ViewController.m */,
-				A400CA1F17F0D967001E0742 /* EntryViewController.h */,
-				A400CA2017F0D967001E0742 /* EntryViewController.m */,
-				A400CA2217F0DCD2001E0742 /* PlanListViewController.h */,
-				A400CA2317F0DCD2001E0742 /* PlanListViewController.m */,
-				A400CA2517F0DFC8001E0742 /* TrainingListViewController.h */,
-				A400CA2617F0DFC8001E0742 /* TrainingListViewController.m */,
-				A400CA2817F0E13B001E0742 /* ProfileViewController.h */,
-				A400CA2917F0E13B001E0742 /* ProfileViewController.m */,
-				A400CA2B17F0E1D6001E0742 /* PhaseListViewController.h */,
-				A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */,
 			);
 			path = "Corre por tu vida";
 			sourceTree = "<group>";
@@ -213,6 +225,47 @@
 			);
 			name = "Supporting Files";
 			path = "Corre por tu vida";
+			sourceTree = "<group>";
+		};
+		A4C24F6617F23FC600383993 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A4C24F6E17F2417B00383993 /* Planner.h */,
+				A4C24F8117F24BB300383993 /* SpeedInterval.h */,
+				A4C24F8217F24BB300383993 /* SpeedInterval.m */,
+				A4C24F7817F2478200383993 /* GoalBasedPlanner.h */,
+				A4C24F7917F2478300383993 /* GoalBasedPlanner.m */,
+				A4C24F7B17F249A500383993 /* TrainingPhase.h */,
+				A4C24F7C17F249A500383993 /* TrainingPhase.m */,
+				A4C24F6B17F240C400383993 /* Plan.h */,
+				A4C24F6C17F240C400383993 /* Plan.m */,
+				A4C24F7517F2475200383993 /* Person.h */,
+				A4C24F7617F2475200383993 /* Person.m */,
+				A4C24F6F17F242A200383993 /* GoalPlan.h */,
+				A4C24F7017F242A200383993 /* GoalPlan.m */,
+				A4C24F7217F246C100383993 /* PersonDescription.h */,
+				A4C24F7317F246C100383993 /* PersonDescription.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		A4C24F6717F23FD400383993 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				A4523CA417C7CCA60047A5E1 /* ViewController.h */,
+				A4523CA517C7CCA60047A5E1 /* ViewController.m */,
+				A400CA1F17F0D967001E0742 /* EntryViewController.h */,
+				A400CA2017F0D967001E0742 /* EntryViewController.m */,
+				A400CA2217F0DCD2001E0742 /* PlanListViewController.h */,
+				A400CA2317F0DCD2001E0742 /* PlanListViewController.m */,
+				A400CA2517F0DFC8001E0742 /* TrainingListViewController.h */,
+				A400CA2617F0DFC8001E0742 /* TrainingListViewController.m */,
+				A400CA2817F0E13B001E0742 /* ProfileViewController.h */,
+				A400CA2917F0E13B001E0742 /* ProfileViewController.m */,
+				A400CA2B17F0E1D6001E0742 /* PhaseListViewController.h */,
+				A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +386,13 @@
 				A400CA2717F0DFC8001E0742 /* TrainingListViewController.m in Sources */,
 				A400CA2A17F0E13B001E0742 /* ProfileViewController.m in Sources */,
 				A400CA2D17F0E1D7001E0742 /* PhaseListViewController.m in Sources */,
+				A4C24F6D17F240C400383993 /* Plan.m in Sources */,
+				A4C24F7117F242A200383993 /* GoalPlan.m in Sources */,
+				A4C24F7417F246C100383993 /* PersonDescription.m in Sources */,
+				A4C24F7717F2475200383993 /* Person.m in Sources */,
+				A4C24F7A17F2478300383993 /* GoalBasedPlanner.m in Sources */,
+				A4C24F7D17F249A500383993 /* TrainingPhase.m in Sources */,
+				A4C24F8317F24BB300383993 /* SpeedInterval.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
