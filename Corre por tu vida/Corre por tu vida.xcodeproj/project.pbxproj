@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A400CA2117F0D967001E0742 /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2017F0D967001E0742 /* EntryViewController.m */; };
+		A400CA2417F0DCD2001E0742 /* PlanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2317F0DCD2001E0742 /* PlanListViewController.m */; };
+		A400CA2717F0DFC8001E0742 /* TrainingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2617F0DFC8001E0742 /* TrainingListViewController.m */; };
+		A400CA2A17F0E13B001E0742 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2917F0E13B001E0742 /* ProfileViewController.m */; };
+		A400CA2D17F0E1D7001E0742 /* PhaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */; };
 		A4523C8A17C7CCA50047A5E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4523C8917C7CCA50047A5E1 /* UIKit.framework */; };
 		A4523C8C17C7CCA50047A5E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4523C8B17C7CCA50047A5E1 /* Foundation.framework */; };
 		A4523C8E17C7CCA50047A5E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4523C8D17C7CCA50047A5E1 /* CoreGraphics.framework */; };
@@ -48,6 +53,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A400CA1F17F0D967001E0742 /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
+		A400CA2017F0D967001E0742 /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
+		A400CA2217F0DCD2001E0742 /* PlanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanListViewController.h; sourceTree = "<group>"; };
+		A400CA2317F0DCD2001E0742 /* PlanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanListViewController.m; sourceTree = "<group>"; };
+		A400CA2517F0DFC8001E0742 /* TrainingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingListViewController.h; sourceTree = "<group>"; };
+		A400CA2617F0DFC8001E0742 /* TrainingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingListViewController.m; sourceTree = "<group>"; };
+		A400CA2817F0E13B001E0742 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		A400CA2917F0E13B001E0742 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		A400CA2B17F0E1D6001E0742 /* PhaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaseListViewController.h; sourceTree = "<group>"; };
+		A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhaseListViewController.m; sourceTree = "<group>"; };
 		A4523C8617C7CCA50047A5E1 /* Corre por tu vida.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Corre por tu vida.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4523C8917C7CCA50047A5E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A4523C8B17C7CCA50047A5E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -124,6 +139,7 @@
 			children = (
 				A4523C8F17C7CCA50047A5E1 /* Corre por tu vida */,
 				A4523C8817C7CCA50047A5E1 /* Frameworks */,
+				A4523C9017C7CCA50047A5E1 /* Supporting Files */,
 				A4523C8717C7CCA50047A5E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -170,7 +186,16 @@
 				A4523CA117C7CCA60047A5E1 /* MainStoryboard.storyboard */,
 				A4523CA417C7CCA60047A5E1 /* ViewController.h */,
 				A4523CA517C7CCA60047A5E1 /* ViewController.m */,
-				A4523C9017C7CCA50047A5E1 /* Supporting Files */,
+				A400CA1F17F0D967001E0742 /* EntryViewController.h */,
+				A400CA2017F0D967001E0742 /* EntryViewController.m */,
+				A400CA2217F0DCD2001E0742 /* PlanListViewController.h */,
+				A400CA2317F0DCD2001E0742 /* PlanListViewController.m */,
+				A400CA2517F0DFC8001E0742 /* TrainingListViewController.h */,
+				A400CA2617F0DFC8001E0742 /* TrainingListViewController.m */,
+				A400CA2817F0E13B001E0742 /* ProfileViewController.h */,
+				A400CA2917F0E13B001E0742 /* ProfileViewController.m */,
+				A400CA2B17F0E1D6001E0742 /* PhaseListViewController.h */,
+				A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */,
 			);
 			path = "Corre por tu vida";
 			sourceTree = "<group>";
@@ -187,6 +212,7 @@
 				A4523C9F17C7CCA60047A5E1 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = "Corre por tu vida";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +328,11 @@
 				A4523C9617C7CCA60047A5E1 /* main.m in Sources */,
 				A4523C9A17C7CCA60047A5E1 /* AppDelegate.m in Sources */,
 				A4523CA617C7CCA60047A5E1 /* ViewController.m in Sources */,
+				A400CA2117F0D967001E0742 /* EntryViewController.m in Sources */,
+				A400CA2417F0DCD2001E0742 /* PlanListViewController.m in Sources */,
+				A400CA2717F0DFC8001E0742 /* TrainingListViewController.m in Sources */,
+				A400CA2A17F0E13B001E0742 /* ProfileViewController.m in Sources */,
+				A400CA2D17F0E1D7001E0742 /* PhaseListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +442,7 @@
 				GCC_PREFIX_HEADER = "Corre por tu vida/Corre por tu vida-Prefix.pch";
 				INFOPLIST_FILE = "Corre por tu vida/Corre por tu vida-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -426,6 +458,7 @@
 				GCC_PREFIX_HEADER = "Corre por tu vida/Corre por tu vida-Prefix.pch";
 				INFOPLIST_FILE = "Corre por tu vida/Corre por tu vida-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

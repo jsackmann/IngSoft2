@@ -21,6 +21,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tabBarItem setTitle:@"Mapa"];
     locationManager = [[CLLocationManager alloc] init];
     [self showCurrentLocation];
 }
