@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TrainingIterator.h"
 
 @interface TrainingListViewController : UITableViewController
+
+
+@property (strong, nonatomic) NSArray *trainings;
+- (IBAction)follow:(id)sender;
 
 @end

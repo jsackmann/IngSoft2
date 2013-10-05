@@ -7,6 +7,10 @@
 //
 
 #import "TrainingListViewController.h"
+#import "PhaseListViewController.h"
+//This Classes are imported only for mock trainings
+#import "Training.h"
+#import "TrainingPhase.h"
 
 @interface TrainingListViewController ()
 
@@ -17,6 +21,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#warning Hay que definir un seguimiento (follow up) 
+    //Mock a training iterator for a training with only one phase
+    TrainingPhase *phase = [[TrainingPhase alloc] initWithDuration:60000 minimunVelocity:5 maximumVelocity:10];
+    Training *training = [[Training alloc] init:[NSArray arrayWithObject:phase]];
+    TrainingIterator *trainingIterator = [[TrainingIterator alloc] init:training];
+    self.trainings = [NSArray arrayWithObject:trainingIterator];
 }
 
 #pragma mark - Table view data source
@@ -52,6 +62,23 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"phaseList"]) {
+        PhaseListViewController *phaseListVC = segue.destinationViewController;
+        NSArray *phases = [[self.trainings objectAtIndex:[self.tableView indexPathForSelectedRow].row] phases];
+        [phaseListVC setPhases:phases];
+    }
+    
+}
+
+- (IBAction)follow:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    TrainingIterator *selectedTraining = [self.trainings objectAtIndex:indexPath.row];
+    
+    
 }
 
 @end

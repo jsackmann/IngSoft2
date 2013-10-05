@@ -10,7 +10,7 @@
 
 @implementation GoalBasedPlanner 
 
-- (Plan*)createPlan:(NSArray *)goalPlan start:(NSDate *)start end:(NSDate *)end availability:(NSInteger)availability description:(PersonDescription *)personDescription
+- (Plan*)createPlan:(NSArray *)goalPlan start:(NSDate *)start end:(NSDate *)end availability:(NSInteger)availability description:(PersonProfile *)personProfile
 {
     
 //    mockear el metodo

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "Planner.h"
+#import "PersonProfile.h"
 
 @interface GoalBasedPlanner : NSObject <Planner>
 
-- (Plan*)createPlan:(NSArray *)goalPlan start:(NSDate *)start end:(NSDate *)end availability:(NSInteger)availability description:(PersonDescription *)personDescription;
+- (Plan*)createPlan:(NSArray *)goalPlan start:(NSDate *)start end:(NSDate *)end availability:(NSInteger)availability description:(PersonProfile *)personProfile;
 
 @end

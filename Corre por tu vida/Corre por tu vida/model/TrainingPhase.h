@@ -10,6 +10,13 @@
 
 @interface TrainingPhase : NSObject
 
+//duration is in milliseconds
+@property (nonatomic) NSInteger duration;
 
+//velocity is in kilometers per hour
+@property (nonatomic) NSInteger minimumVelocity;
+@property (nonatomic) NSInteger maximumVelocity;
+
+- (id)initWithDuration:(NSInteger)duration minimunVelocity:(NSInteger)minimum maximumVelocity:(NSInteger)maximum;
 
 @end

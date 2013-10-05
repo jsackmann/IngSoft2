@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "Training.h"
+#import "TrainingPhase.h"
 
 @interface TrainingIterator : NSObject
 
+@property (nonatomic, strong) Training *training;
+@property (nonatomic, strong) TrainingPhase *currentPhase;
 
+- (id)init:(Training*)training;
+
+- (TrainingPhase*)currentPhase;
+- (void)nextPhase;
+- (BOOL)hasNextPhase;
 
 @end

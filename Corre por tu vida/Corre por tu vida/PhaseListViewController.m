@@ -7,6 +7,7 @@
 //
 
 #import "PhaseListViewController.h"
+#import "PhaseDetailViewController.h"
 
 @interface PhaseListViewController ()
 
@@ -28,7 +29,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return [self.phases count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,6 +54,15 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"phaseDetail"]) {
+        PhaseDetailViewController *phaseDetailVC = segue.destinationViewController;
+        TrainingPhase *phase = [self.phases objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        [phaseDetailVC setPhase:phase];
+    }
 }
 
 @end

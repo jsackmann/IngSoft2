@@ -10,4 +10,6 @@
 
 @interface PhaseListViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *phases;
+
 @end

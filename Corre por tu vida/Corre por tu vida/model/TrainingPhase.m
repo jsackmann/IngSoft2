@@ -10,4 +10,15 @@
 
 @implementation TrainingPhase
 
+- (id)initWithDuration:(NSInteger)duration minimunVelocity:(NSInteger)minimum maximumVelocity:(NSInteger)maximum;
+{
+    self = [super init];
+    if (self) {
+        self.duration = duration;
+        self.minimumVelocity = minimum;
+        self.maximumVelocity = maximum;
+    }
+    return self;
+}
+
 @end

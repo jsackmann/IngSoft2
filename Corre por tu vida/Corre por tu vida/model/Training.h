@@ -10,8 +10,8 @@
 
 @interface Training : NSObject
 
-@property NSArray fases;
+@property NSArray *phases;
 
-- (NSArray)GimmePhasesNigga;
+- (id)init:(NSArray*)phases;
 
 @end
