@@ -9,7 +9,7 @@ ya concluí
 		- Al elegir uno de ellos con su celular, se mostrará el detalle del mismo
 	
 2) Como atleta quiero poder ver estadísticas de los entrenamientos que
-ya hice
+ya hice anteriormente.
 
 	* Story Points: 13
 
@@ -375,3 +375,7 @@ correr bajo el plan obtenido.
 		
 		- Investigar maneras de ordenar la lista según relevancia de
 		entrenamientos.
+
+17) Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal, quiero tener un documento detallado del diseño de la aplicación
+
+18) Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal, quiero tener un documento detallado del diseño de la aplicación.
