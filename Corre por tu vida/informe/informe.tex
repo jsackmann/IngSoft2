@@ -176,15 +176,18 @@ Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el
 \subsection{Diagrama de clases}
 
 \subsubsection{Consideraciones Generales}
-La figura \ref{diag_diseño} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. No incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. 
+La figura \ref{diag_diseño} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. No incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
 
 Del mismo modo, tampoco incluimos clases tales como 
 \begin{itemize}
 	\item unReal
-	\item unaFecha
 	\item unEntero
+	\item unBoolean
+	\item unaFecha
 \end{itemize}
 porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier librería standard.
+
+
 
 \subsubsection{\texttt{ServicioDeEstado}}
 El objeto \texttt{ServicioDeEstado} tiene como principal función la de informar a los distintos componentes del programa el estado actual del teléfono en movimiento. A intervalos de tiempo regulares, configurados en última instancia por el consumo seleccionado de la batería, un objeto \texttt{ServicioDeEstado} le manda a todos los objetos a los que se hayan suscripto a él un paquete de actualización que incluye la velocidad a la que se está moviendo el dispositivo y su posición actual.
@@ -200,6 +203,20 @@ Esto corresponde al patrón \texttt{observer}. El propósito de esta decisión d
 Dado que esto corresponde con el patrón observer, decidimos utilizarlo para resolver el problema \cite{Gamma}.
 
 Se pueden observar ejemplos de uso de el \texttt{ServicioDeEstados} en los diagramas de secuencia \ref{diag_seq_crearServicioDeEstado} y \ref{diag_seq_actualizacionSeguimiento}. 
+
+\subsubsection{\texttt{Seguimiento}}
+Un objeto \texttt{Seguimineto} tiene como funcionalidad principal la de mantener el estado de la fase actual del entrenamiento en curso. Para eso se apoya en otro objeto, el \texttt{IteradorEntrenamiento} que, como su nombre lo indica, es un iterador de un objeto \texttt{Entrenamiento}, que mantiene cuál es la fase actual. 
+
+El patrón correspondiente a esto es el \texttt{iterator} (\cite{Gamma}). Decdimos utilizarlo puesto que consideramos que no es necesario que el seguimiento conozca al entrenamiento de forma total, sino que simplemente pueda iterar sus fases como corresponda. Esto reduce el acoplamiento entre el \texttt{Seguimiento} y el \texttt{Entrenamiento}, disminuyendo el impacto de futuras modificaciones a alguna de las antedichas clases.
+
+El \texttt{Seguimiento} encapsula, por ejemplo, el cálculo de velocidad tentativa y además se ocupa de realizar las notificaciones auditivas funcionales a informar al corredor los cambios de velocidad necesarios y el cambio de fase dentro de un entrenamiento.
+
+\subsubsection{\texttt{Configurador}}
+El \texttt{Configurador} encapsula la funcionalidad de modificar el comportamiento de la aplicación ante distintas configuraciones de nivel de batería. Al encapsular esta idea, se hace necesario que pueda influir sobre los objetos que realizan mediciones, para personalizar un \emph{trade-off} entre precisión y consumo. 
+
+Para lograr esto, se utilizó el patrón \texttt{Factory} (\cite{Gamma}) para generar distintos objetos \texttt{Posicionador}, \texttt{Timer}, \texttt{Notificador} y \texttt{MedidorDeVelocidad}. Nuestro adaptación de este patrón al problema particular del TP fue realizar tres subclases de configurador, una para cada tipo de batería. Esto provee extensibilidad, ya que si se quisiera agregar otra configuración de batería, sólo sería necesario crear una nueva clase que implemente la interfaz definida por \texttt{Configurador}. 
+
+Entendemos que esto no es la mejor forma de resolverlo, ya que dificulta el cambio dinámico de estado de batería, puesto que hay que destruir el configurador y crearlo de nuevo. Podría mejorarse implementando un patrón \texttt{Decorator} (sea recursivo o iterando sobre una lista de métodos a aplicar). Sin embargo, dado que el usuario no puede cambiar la configuración de la batería mientras corre y que sea de la forma actual o con \texttt{Decorator} hay que destruir y crear un nuevo \texttt{Posicionador}, \texttt{Timer}, etc. decidimos dejarlo con el diseño actual, que es mucho más sencillo y, por ende, fácil de entender.
 
 
 \subsection{Diagramas de secuencia}
