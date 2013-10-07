@@ -12,6 +12,7 @@
 		A400CA2717F0DFC8001E0742 /* TrainingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2617F0DFC8001E0742 /* TrainingListViewController.m */; };
 		A400CA2A17F0E13B001E0742 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2917F0E13B001E0742 /* ProfileViewController.m */; };
 		A400CA2D17F0E1D7001E0742 /* PhaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */; };
+		A40B1B791803643D003F0651 /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A40B1B781803643D003F0651 /* images.jpeg */; };
 		A4523C8A17C7CCA50047A5E1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4523C8917C7CCA50047A5E1 /* UIKit.framework */; };
 		A4523C8C17C7CCA50047A5E1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4523C8B17C7CCA50047A5E1 /* Foundation.framework */; };
 		A4523C8E17C7CCA50047A5E1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4523C8D17C7CCA50047A5E1 /* CoreGraphics.framework */; };
@@ -82,6 +83,7 @@
 		A400CA2917F0E13B001E0742 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		A400CA2B17F0E1D6001E0742 /* PhaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhaseListViewController.h; sourceTree = "<group>"; };
 		A400CA2C17F0E1D6001E0742 /* PhaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhaseListViewController.m; sourceTree = "<group>"; };
+		A40B1B781803643D003F0651 /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpeg; path = ../../../../../Downloads/images.jpeg; sourceTree = "<group>"; };
 		A4523C8617C7CCA50047A5E1 /* Corre por tu vida.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Corre por tu vida.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4523C8917C7CCA50047A5E1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A4523C8B17C7CCA50047A5E1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -192,6 +194,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A40B1B7A18036495003F0651 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A40B1B781803643D003F0651 /* images.jpeg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A4523C7D17C7CCA50047A5E1 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				A4523CA117C7CCA60047A5E1 /* MainStoryboard.storyboard */,
+				A40B1B7A18036495003F0651 /* Resources */,
 				A4C24F6717F23FD400383993 /* controller */,
 				A4C24F6617F23FC600383993 /* model */,
 				A4523C9817C7CCA60047A5E1 /* AppDelegate.h */,
@@ -404,6 +415,7 @@
 				A4523CA017C7CCA60047A5E1 /* Default-568h@2x.png in Resources */,
 				A4523CA317C7CCA60047A5E1 /* MainStoryboard.storyboard in Resources */,
 				A4B6A0C317D3C8C500C8E43B /* GoogleMaps.bundle in Resources */,
+				A40B1B791803643D003F0651 /* images.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
