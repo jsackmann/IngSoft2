@@ -66,6 +66,25 @@ Este diagrama muestra cómo es el proceso de finalización de un seguimiento cua
 Acto seguido, el controlador informa al \texttt{StoreEstadisticasGenerales} que guarde las estadísticas generales que se estuvieron actualizando durante el entrenamiento (mediante el mensaje \emph{guardar ()}) y procede a crear un nuevo objeto \texttt{EntrenamientoConcluido} para almacenarlo en su correspondiente \texttt{StoreEntrenamientoConcluido}. Para eso, obtiene el \texttt{Recorrido} del \texttt{GeneradorDeRecorridos} y, usando sus colaboradores internos \texttt{Plan} y \texttt{CollectionEstadisticasEntrenamiento}, llama al \emph{new (unPlan, unaColeccionDeEstadisticas, unRecorrido)} de la clase \texttt{claseEntrenamientoConcluido}. Esto le devuelve un objeto \texttt{EntrenamientoConcluido}, que agrega al \texttt{StoreEntrenamientoConcluido}.
 
 \subsubsection{Listado de estadísticas del usuario}
+% \begin{center}
+%         \includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+
+
+
+Este diagrama explica el proceso que ocurre al mostrar las estadísticas particulares de los entrenamientos y las generales. En este caso, el usuario decide ver las estadísticas de un entrenamiento (como se ve en el diagrama de clases, la única disponible es la velocidad máxima del entrenamiento).
+
+
+En primer lugar el \texttt{ControladorListaEstadísticas} le pide las \emph{estadísticasGuardadas ()} a los dos store: \texttt{storeEntrenamientoConcluido} y \texttt{storeEstadísticasGenerales}. Luego, el usuario selecciona {unEntrenamientoConcluido}, con lo cual debería cambiarse de vista a la de las estadísticas de ese entrenamiento. Es así que se crea un \texttt{ControladorEstadística} a partir del entrenamiento concluido que seleccionó el usuario. Este contralador envía el mensaje \emph{estadísticas ()}, que retorna una \texttt{VelocidadMáximaEntrenamiento}. A continuación, el contralador manda el mensaje \emph{resultado ()} a \texttt{VelocidadMáximaEntrenamiento} y recibe el resultado correspondiente. 
+% \begin{center}
+%         \includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+
+
+Este diagrama explica el proceso que ocurre al mostrar las estadísticas particulares de los entrenamientos y las generales. En este caso, el usuario decide ver las estadísticas de un entrenamiento (como se ve en el diagrama de clases, la única disponible es la velocidad máxima del entrenamiento).
+
+
+En primer lugar el \texttt{ControladorListaEstadísticas} le pide las \emph{estadísticasGuardadas ()} a los dos store: \texttt{storeEntrenamientoConcluido} y \texttt{storeEstadísticasGenerales}. Luego, el usuario selecciona {unEntrenamientoConcluido}, con lo cual debería cambiarse de vista a la de las estadísticas de ese entrenamiento. Es así que se crea un \texttt{ControladorEstadística} a partir del entrenamiento concluido que seleccionó el usuario. Este contralador envía el mensaje \emph{estadísticas ()}, que retorna una \texttt{VelocidadMáximaEntrenamiento}. A continuación, el contralador manda el mensaje \emph{resultado ()} a \texttt{VelocidadMáximaEntrenamiento} y recibe el resultado correspondiente. 
 
 \subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
 % \begin{center}

@@ -31,6 +31,9 @@
 
 ## En imágenes
 
+![Pantalla de Fases](pantalla_seguimiento.png)
+![Seguimiento de aplicación](pantalla_seguimiento_ensecu.png)
+
 # ¡DEMO!
 
 # Diseño
@@ -47,8 +50,7 @@
 
 ## Diagramas de clases y secuencia
 
-* Por su tamaño, veamoslo en <http://cacoo.com>
-* También van a estar disponibles al momento de la corrección en la herramienta.
+* Por su tamaño, veamoslo en <https://cacoo.com/diagrams/3Bk8unCXdWQ8DFU0#>
 
 # Retrospectiva
 
@@ -63,7 +65,8 @@
 	* Confusión en que tareas había que hacer.
 	* Falta de tareas y _stories_ del lado del desarrollador.
 	* Asignación por demás de horas.
-	* Predicción incorrecta de _story points_.
+	* Predicción incorrecta de _story points_ y duraciones.
+	* Separación demasiado fuerte entre tareas de programación y diseño.
 
 ## Retrospectiva sobre el Diseño
 
@@ -76,5 +79,6 @@
 	* Asignación de responsabilidades a los objetos resultó difícil.
 	* Falta de conocimiento de dominio para hacer diseño de planes.
 	* Complicado separar entre _MVC_ de la plataforma y diseño de objetos de negocio.
+	* Tendencia hacia _Big Design Up Front_, poco ágil.
 
 # Muchas gracias!

@@ -1,77 +1,33 @@
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi})}
 \item
-  Como atleta quiero~tener disponible la lista de entrenamientos que ya
-  concluí
+  Como atleta quiero que la aplicación siga mi fase dentro del plan para
+  que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
 
   \begin{itemize}
   \item
-    Story Points:~8
+    Business Value: 34
   \item
-    Value:~5
+    Story Points: 8
   \item
     Criterio de Aceptación:
 
     \begin{itemize}
     \itemsep1pt\parskip0pt\parsep0pt
     \item
-      El atleta puede ver una lista donde tiene cada entrenamiento.
+      El atleta debe poder saber que plan y que entrenamiento esta
+      actualmente siguiendo.
     \item
-      Al elegir uno de ellos con su celular, se mostrará el detalle del
-      mismo
-    \end{itemize}
-  \end{itemize}
-\item
-  Como atleta quiero poder ver estadísticas de los entrenamientos que ya
-  hice
-
-  \begin{itemize}
-  \item
-    Story Points: 13
-  \item
-    Value:~5
-  \item
-    Criterio de Aceptación:
-
-    \begin{itemize}
+      El atleta debe poder saber en que fase de que entrenamiento esta
+      en este momento.
     \item
-      El atleta puede ver para una fase de un entrenamiento realizado el
-      recorrido que hizo y verlo en un mapa similar al que tiene
-      disponible cuando hace el recorrido en una fase.
-    \item
-      El atleta puede ver para cada fase de un entrenamiento,
-      estadisticas sobre su velocidad y distancia.
-    \item
-      El atleta puede ver cuánta distancia recorrió para cada
-      entrenamiento, cuanto tardo en cada uno, y cual fue su velocidad
-      máxima.
-    \item
-      Todos estos datos estarán disponibles para el atleta para cada
-      entrenamiento en el detalle de los mismos que obtiene al
-      seleccionarlo en la lista.
-    \end{itemize}
-  \end{itemize}
-\item
-  Como atleta~quiero que la aplicación siga mi fase dentro del plan para
-  que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
-
-  \begin{itemize}
-  \item
-    Story Points: 8
-  \item
-    Value:~21
-  \item
-    Criterio de aceptación:
-
-    \begin{itemize}
-    \item
-      El atleta debe poder saber en que fase de que entrenamiento esta.
+      El atleta debe saber a que velocidad esta corriendo actualmente.
     \item
       El atleta debe recibir una notificación de que debe aumentar la
-      marcha si está yendo más lento que el plan.
+      marcha si está yendo más lento que la fase.
     \item
       El atleta debe recibir una notificación de que debe disminuir la
-      marcha si está yendo más despacio que el plan.
+      marcha si está yendo más despacio que la fase.
     \item
       El atleta debe recibir una notificación en intervalos regulares si
       se está manteniendo en una marcha aceptable.
@@ -79,251 +35,58 @@
       Cada alerta por marcha inválida se repetirá a intervalos regulares
       mientras persista la condición.
     \item
-      En la interfaz gráfica debe aparecer un detalle de la razón de la
-      marcha inválida (es decir, debe indicar si esta yendo más lento o
-      rápido, y la diferencia entre la marcha ideal y la que lleva).
-    \end{itemize}
-  \item
-    Tareas:
-
-    \begin{itemize}
-    \item
-      Investigar cómo reproducir una canción en cada formato estándar
-      (mp3, wav, etc) dado.
-    \item
-      Codificar la lógica para que según el tipo de alerta se eliga un
-      sonido a reproducir (potencialmente leyendo de almacenamiento el
-      mismo) y se lo reproduzca.
-    \item
-      Codificar la lógica para según el tipo de alerta se eliga una
-      canción aleatoria de las disponibles, se la lea de disco y
-      reproduzca.
-    \item
-      Codificar la lógica para que si la velocidad no esta en el rango,
-      se envíe una alerta y se muestre en pantalla la diferencia y según
-      ese rango, cuan ``grave'' es el nivel de alerta.
-    \item
-      Testear para los 3 tipos de condiciones de marcha válida e
-      inválida.
+      En la interfaz gráfica debe aparecer la velocidad a la que el
+      atleta debiera correr para llegar a la distancia implícita
+      requerida (resultado de multiplicar la velocidad media de la fase
+      por la duración de la misma).
     \end{itemize}
   \end{itemize}
 \item
-  Como atleta quiero poder publicar los recorridos de los entrenamientos
-  en redes sociales y aplicaciones de geolocalización.
+  Como atleta quiero poder ver mi posición en el mapa en tiempo real
+  mientras estoy en un seguimiento
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
-    Story Points: 10
-  \item
-    Value:~1
-  \item
-    Criterio de aceptación
-
-    \begin{itemize}
-    \item
-      El atleta puede seleccionar en qué red social o aplicación
-      publicar.
-    \item
-      El atleta puede seleccionar qué recorrido puede publicar.
-    \item
-      El atleta puede escribir un mensaje a agregar además de los datos
-      de su entrenamiento.
-    \item
-      La publicación es visible por los demás miembros de la red social
-      de acuerdo a las reglas de privacidad de la misma.
-    \item
-      Solo los datos explícitamente indicados por el usuario son
-      publicados en la red social correspondiente.
-    \item
-      El atleta puede decidir si quiere que se muestre el recorrido que
-      realizó, la velocidad con la que corrió, etc., para cada tipo de
-      dato a compartir.
-    \end{itemize}
-  \end{itemize}
-\item
-  ~Como atleta~quiero poder ingresar los datos de mi estado físico.
-
-  \begin{itemize}
-  \item
-    Story Points: 5
-  \item
-    Value:~8
-  \item
-    Criterio de aceptación
-
-    \begin{itemize}
-    \item
-      El atleta podrá ingresar su peso en kilogramos.
-    \item
-      El atleta podrá ingresar su altura en cm.
-    \item
-      El atleta podrá especificar mayores detalles usando categorías
-      basadas en si ya corrió una carrera o no, ya corrió un maratón o
-      no, su mejor marca de distancia en una carrera y en un maratón.
-    \item
-      La aplicación guardará registro del valor actual de ambos datos.
-    \end{itemize}
-  \end{itemize}
-\item
-  ~Como atleta~quiero poder ingresar mi frecuencia semanal con la que
-  puedo entrenar.
-
-  \begin{itemize}
-  \item
-    Story Points:~1
-  \item
-    Value:~5
-  \item
-    Criterio de aceptación
-
-    \begin{itemize}
-    \item
-      El atleta debe ingresar la frecuencia semanal con la que puede
-      entrenar.
-    \item
-      Los valores ingresados deben ser una cantidad de días entre 1 y 7.
-    \item
-      La aplicación guardará registro del valor ingresado.
-    \end{itemize}
-  \end{itemize}
-\item
-  ~Como atleta~quiero poder ingresar el objetivo de mi entrenamiento.
-
-  \begin{itemize}
-  \item
-    Story Points: 8
-  \item
-    Value:~13
-  \item
-    Criterio de aceptación
-
-    \begin{itemize}
-    \item
-      El atleta debe ingresar sus objetivos propuestos entre las
-      opciones:
-
-      \begin{itemize}
-      \item
-        Correr 5 km sin tiempo.
-      \item
-        Terminar un maratón olímpico.
-      \item
-        Correr 7 km en 35 minutos.
-      \end{itemize}
-    \end{itemize}
-
-    y otras opciones y posibilidades decididas durante la implementación
-  \end{itemize}
-\item
-  ~Como atleta~quiero poder ingresar el plazo estipulado para mi
-  entrenamiento si así lo deseo.
-
-  \begin{itemize}
-  \item
-    Story Points:~2
-  \item
-    Value:~5
-  \item
-    Criterio de aceptación
-
-    \begin{itemize}
-    \item
-      El atleta puede elegir un plazo estipulado para la finalización de
-      cada uno de sus objetivos.
-    \item
-      Investigar que tipo de granularidad y que tipo de duraciones se
-      pueden soportar: intervalos válidos, etc.
-    \end{itemize}
-  \end{itemize}
-\item
-  Como atleta~quiero que las notificaciones de velocidad de la
-  aplicación sean acordes al de batería seleccionado.
-
-  \begin{itemize}
-  \item
-    Story Points: 8
-  \item
-    Value:~5
-  \item
-    Criterio de aceptación:
-
-    \begin{itemize}
-    \item
-      Si el atleta eligió un consumo bajo, las notificaciones son
-      pitidos y ocurren cada 1 minuto.
-    \item
-      Si el atleta eligió un consumo alto de batería, las notificaciones
-      son temas musicales preelegidos por la app y ocurren cada 10
-      segundos.
-    \item
-      Para otros niveles de batería se determinará también una
-      frecuencia de notificaciones y calidad de las mismas en el momento
-      de la implementación.
-    \end{itemize}
-  \end{itemize}
-\item
-  Como atleta~quiero que las actualizaciones de posición sean acordes al
-  nivel de batería seleccionado.
-
-  \begin{itemize}
-  \item
-    Story Points: 8
-  \item
-    Value:~2
-  \item
-    Criterio de aceptación:
-
-    \begin{itemize}
-    \itemsep1pt\parskip0pt\parsep0pt
-    \item
-      La posición se actualiza cada 10 segundos si el nivel de consumo
-      batería elegido es alto.
-    \item
-      La posición se actualiza cada minuto si el nivel de consumo de
-      batería es bajo.
-    \item
-      Para los demás niveles de batería también se indicará una
-      frecuencia de actualización de posición al momento de la
-      implementación.
-    \end{itemize}
-  \end{itemize}
-\item
-  Como atleta quiero poder ajustar la opción de consumo de batería.
-
-  \begin{itemize}
-  \item
-    Story Points: 3
-  \item
-    Value:~2
-  \item
-    Criterio de aceptación:
-
-    \begin{itemize}
-    \itemsep1pt\parskip0pt\parsep0pt
-    \item
-      El atleta puede seleccionar dentro de los niveles disponibles,
-      como mínimo bajo, medio y alto.
-    \item
-      La aplicación debe poder correr más tiempo bajo un plan de consumo
-      bajo que en uno alto.
-    \item
-      El atleta puede determinar que impacto tiene en las
-      funcionalidades de la aplicación el cambio de consumo de batería.
-    \end{itemize}
-  \end{itemize}
-\item
-  ~Como atleta quiero que la aplicación me de un plan de entrenamiento
-  en base a los datos.
-
-  \begin{itemize}
+    Business Value: 34
   \item
     Story Points: 13
   \item
-    Value:~21
-  \item
-    Criterio de aceptación
+    Criterio de Aceptación:
 
     \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede ver su posición actualizada a intervalos regulares
+      en la pantalla.
+    \item
+      Si se apaga la pantalla o bloquea el teléfono, al reanudar la
+      aplicación la actualización de la posición se reanuda en forma
+      automática.
+    \item
+      Si se pierde señal de geolocalización, se notifica al usuario.
+    \item
+      El atleta puede ver un \emph{timestamp} en cada lugar donde se
+      actualizó su posición.
+    \item
+      El atleta puede desactivar geolocalización si lo desea.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero que la aplicación me de un plan de entrenamiento en
+  base a los datos ingresados.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
       Si el atleta estableció como objetivo que desea correr una
       maratón, el sistema creará un plan concentrado en larga duración y
@@ -342,75 +105,157 @@
       entrenamientos constarán de fases con mayor exigencia.
     \item
       La duración y velocidad devueltas serán inversamente
-      proporcionales al peso del corredor, de acuerdo a los criterios de
-      salud vigentes.
-    \item
-      La frecuencia semanal del plan de entrenamiento se corresponderá
-      con la ingresada por el corredor al momento de dar la
-      especificación de sus objetivos.
+      proporcionales al peso.
     \end{itemize}
   \end{itemize}
 \item
-  Como corredor quiero poder ver la velocidad promedio y la duración de
-  cada fase de un entrenamiento para saber el criterio con el que la
-  aplicación mide mi performance corriendo.
+  Como corredor quiero poder inicializar el seguimiento de un
+  entrenamiento de los que me dio la aplicación para poder empezar a
+  correr bajo el plan obtenido.
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
-    Story Points:~8
+    Business Value: 21
   \item
-    Value:~13
+    Story Points: 13
   \item
-    Criterio de aceptación
+    Criterio de Aceptación:
 
     \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
-      El atleta debe poder elegir un entrenamiento de los que la
-      aplicación ha preparado.
+      El atleta puede elegir un plan de la lista de disponibles.
     \item
-      El atleta debe poder examinar las fases de un entrenamiento.
+      El atleta puede seleccionar que el plan empiece a correr, y el
+      mismo empezara el seguimiento en la primer fase.
     \item
-      El atleta debe ver para cada fase un rango de velocidades en km/h
-      que son aceptables.
+      El atleta puede detener el entrenamiento en cualquier momento.
     \item
-      El atleta debe poder ver para cada fase, cuanto tiempo dura la
-      misma en minutos.
-    \end{itemize}
-  \item
-    Tareas:
-
-    \begin{itemize}
+      El seguimiento termina de acuerdo a las fases del plan.
     \item
-      Investigar cómo mostrar datos numéricos de velocidad y duración
-      por la interfaz del celular, y como actualizar la vista cuando
-      estos cambian.
-    \item
-      Investigar un algoritmo para lograr calcular la velocidad promedio
-      a medida que llegan los datos.
-    \item
-      Testear que el promedio calculado es correcto incluso considerando
-      actualizaciones de velocidad y tiempo poco frecuentes (por ejemplo
-      en un modo de batería bajo).
-    \item
-      Crear una vista para mostrar los datos
-    \item
-      Implementar la lógica para calcular los datos de velocidad
-      promedio.
+      El atleta puede elegir un entrenamiento si este esta disponible,
+      es decir si el plazo para el objetivo no ha expirado.
     \end{itemize}
   \end{itemize}
 \item
-  Como atleta quiero que la aplicación me avise de la próxima fase del
-  plan si ya pasó el tiempo.
+  Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal,
+  quiero tener un documento detallado del diseño de la aplicación
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El diagrama corresponderá al diseño orientado a objetos de la
+      aplicación.
+    \item
+      Se incluirá un diagrama de clases mostrando la taxonomía de los
+      objetos a implementar.
+    \item
+      Se incluirá un diagrama de secuencia para mostrar pasos
+      algorítmicos de interés.
+    \item
+      El mismo utilizará la sintaxis de la materia Ingeniería del
+      Software II de la carrera de Ciencias de la Computación de la UBA.
+    \item
+      Se incluirá un informe detallado de las decisiones de diseño
+      tomadas.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ver estadísticas de los entrenamientos que ya
+  hice
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede entrar a ``Mis estadísticas'' desde el menú
+      principal.
+    \item
+      En ``Mis estadísticas'' tendrá una lista de los entrenamientos que
+      ya realizó.
+    \item
+      Al elegir uno de estos entrenamientos de la lista se mostrará el
+      detalle en otra pantalla.
+    \item
+      El atleta puede ver cuánta distancia recorrió para el
+      entrenamiento elegido, cuanto tardo en cada uno, y cual fue su
+      velocidad máxima.
+    \item
+      El atleta puede ver el recorrido que hizo en el entrenamiento en
+      un mapa.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal,
+  quiero tener una demo de funcionalidad básica del producto presentada
+  por los desarrolladores.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
   \item
     Story Points: 8
   \item
-    Value:~21
-  \item
-    Criterio de aceptación
+    Criterio de Aceptación:
 
     \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      La demo debe permitir realizar el seguimiento de un entrenamiento,
+      indicando para una fase si se debe aumentar o disminuir la
+      velocidad.
+    \item
+      La demo debe incluir una presentación de funcionalidad y un
+      informe de funcionalidades
+    \item
+      La demo debe mostrar el recorrido en un mapa.
+    \item
+      La demo debe correr en el entorno movil de iOS.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero que la aplicación siga en que fase del
+  entrenamiento me encuentro y me avise si esta cambia
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 8
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      En un seguimiento, se lleva cuenta de cual es la fase actual según
+      la duración.
+    \item
+      Cuando el tiempo de la fase actual se acaba, el entrenamiento pasa
+      a la siguiente fase o termina si no hay.
+    \item
+      Los datos de seguimiento se actualizan cuando se actualiza la
+      fase.
     \item
       La aplicación genera una notificación auditiva cuando se termine
       el tiempo de la fase actual y se pase a otra.
@@ -422,102 +267,322 @@
     \end{itemize}
   \end{itemize}
 \item
-  Como atleta quiero poder ver mi posición en el mapa en tiempo real.
+  Como atleta quiero poder ingresar el objetivo de mi entrenamiento.
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
-    Story Points: 13
+    Business Value: 13
   \item
-    Value:~21
+    Story Points: 8
   \item
-    Criterio de aceptación:
+    Criterio de Aceptación:
 
     \begin{itemize}
     \item
-      El atleta puede ver su posición actualizada a intervalos regulares
-      en la pantalla.
+      El atleta al ingresar a ``Crear plan'' tendrá la opción
+      ``objetivo''
     \item
-      Si se apaga la pantalla o bloquea el teléfono, al reanudar la
-      aplicación la actualización de la posición se reanuda en forma
-      automática.
+      El atleta recibirá una lista de objetivos posibles.
     \item
-      Si se pierde señal de geolocalización, se notifica al usuario.
+      El atleta debe ingresar sus objetivos propuestos entre las
+      opciones:
     \item
-      El atleta puede ver un \emph{timestamp} en cada lugar donde se
-      actualizó su posición.
+      \begin{itemize}
+      \itemsep1pt\parskip0pt\parsep0pt
+      \item
+        Correr 5 km sin tiempo.
+      \end{itemize}
     \item
-      El atleta puede desactivar geolocalización si lo desea
-    \end{itemize}
-  \item
-    Tareas:
-
-    \begin{itemize}
+      \begin{itemize}
+      \itemsep1pt\parskip0pt\parsep0pt
+      \item
+        Terminar un maratón olímpico.
+      \end{itemize}
     \item
-      Investigar como obtener el tiempo actual del celular.
+      \begin{itemize}
+      \itemsep1pt\parskip0pt\parsep0pt
+      \item
+        Correr 7 km en 35 minutos. y otras opciones y posibilidades
+        decididas durante la implementación
+      \end{itemize}
     \item
-      Implementar la lógica para obtener la posición actual del teléfono
-    \item
-      Incorporar el uso de mapas de otras fuentes en la aplicación.
-    \item
-      Agregar una vista con un mapa en la pantalla.
-    \item
-      Implementar lógica para centrar ese mapa en una posición indicada.
-    \item
-      Investigar qué pasa cuando se pasa la aplicación al background y
-      cuando vuelve, implementar la lógica que mantenga actualizando la
-      aplicación incluso en background.
-    \item
-      Testear que efectivamente la posición se actualice al desplazar el
-      teléfono
-    \item
-      Testear que el mapa se centre correctamente.
-    \item
-      Implementar la lógica para dibujar un recorrido en el mapa dados
-      los puntos y un \emph{timestamp} de los mismos.
-    \item
-      Si se pierde la señal de geolocalización, se notifica al usuario.
+      Los objetivos corresponderán a una distancia a recorrer, y
+      potencialmente un tiempo en el que se debe correr esta distancia.
     \end{itemize}
   \end{itemize}
 \item
-  Como corredor quiero poder inicializar el seguimiento de un
-  entrenamiento de los que me dio la aplicación y que están dentro del
-  plazo para poder empezar a correr bajo el plan obtenido.
+  Como corredor quiero tener estadisticas generales de mi performance
+  como atleta
 
   \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
-    Story Points: 13
+    Business Value: 13
   \item
-    Value:~21
+    Story Points: 8
   \item
-    Criterio de aceptación:
+    Criterio de Aceptación:
 
     \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
-      El atleta puede elegir un plan de la lista de disponibles y cuyo
-      plazo no haya expirado.
+      El atleta podrá entrar a ``Mis estadísticas'' dentro del menu
+      principal.
     \item
-      El atleta puede seleccionar que el plan empiece a correr, y el
-      mismo empezara el seguimiento en la primer fase.
+      El atleta podrá entrar a ``Estadísticas generales'' dentro de la
+      vista de estadísticas.
     \item
-      El atleta puede detener el entrenamiento en cualquier momento.
+      Las estadísticas generales se calcularán en base a todos los
+      entrenamientos del usuario.
     \item
-      El seguimiento termina de acuerdo a las fases del plan.
+      Estas estadísticas estarán presentadas cuando el atleta presione
+      ``Estadísticas generales'' en una nueva vista.
+    \item
+      Cada estadística sera presentada con una descripción del valor
+      obtenido.
+    \item
+      Estas estadísticas contendran como mínimo: Kilometros totales
+      recorridos y velocidad máxima histórica.
     \end{itemize}
+  \end{itemize}
+\item
+  Como corredor quiero poder ver la velocidad promedio y la duración de
+  cada fase de un entrenamiento para saber el criterio con el que la
+  aplicación mide mi performance corriendo.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
   \item
-    Tareas
+    Business Value: 13
+  \item
+    Story Points: 8
+  \item
+    Criterio de Aceptación:
 
     \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
     \item
-      Implementar una vista de seguimientos filtrados por plazo.
+      El atleta podrá entrar a los planes que tiene creados.
     \item
-      Implementar que la selección del entrenamiento inicie la
-      aplicación de seguimiento para el mismo.
+      El atleta debe poder ver los entrenamientos que tiene listos
+      dentro de ese plan.
     \item
-      Implementar que se pueda detener un plan de entrenamiento en
-      cualquier momento del mismo.
+      El atleta debe poder elegir un entrenamiento de los que la
+      aplicación ha preparado.
     \item
-      Investigar maneras de ordenar la lista según relevancia de
-      entrenamientos.
+      El atleta debe poder examinar las fases de un entrenamiento.
+    \item
+      El atleta debe poder elegir una fase para ver el detalle de la
+      misma.
+    \item
+      El atleta debe ver para la fase elegida un rango de velocidades en
+      km/h que son aceptables.
+    \item
+      El atleta debe poder ver para la fase elegida cuanto tiempo dura
+      la misma en minutos.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ingresar los datos de mi estado físico.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 8
+  \item
+    Story Points: 5
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta podrá ingresar a ``Mi perfil'' desde el menú principal
+    \item
+      El atleta podrá ingresar su peso en kilogramos.
+    \item
+      El atleta podrá ingresar su altura en cm.
+    \item
+      El atleta podrá especificar mayores detalles usando categorías
+      basadas en si ya corrió una carrera o no, ya corrió un maratón o
+      no, su mejor marca de distancia en una carrera y en un maratón.
+    \item
+      La aplicación guardará registro del valor actual de ambos datos.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ajustar el consumo de batería
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 8
+  \item
+    Story Points: 3
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede entrar a ``Configuración'' desde el menu
+      principal.
+    \item
+      El atleta dispondrá en esta ventana de los distintos tipo de
+      batería disponibles.
+    \item
+      El atleta puede seleccionar dentro de los niveles disponibles,
+      como mínimo bajo, medio y alto.
+    \item
+      La aplicación debe poder correr más tiempo bajo un plan de consumo
+      bajo que en uno alto.
+    \item
+      El atleta puede determinar que impacto tiene en las
+      funcionalidades de la aplicación el cambio de consumo de batería.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ingresar el plazo estipulado para mi
+  entrenamiento si así lo deseo.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 5
+  \item
+    Story Points: 2
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede estipular ``Plazo'' dentro de la selección de
+      ``Crear Plan''
+    \item
+      El atleta puede elegir un plazo estipulado para la finalización de
+      cada uno de sus objetivos.
+    \item
+      Los planes consistirán de una fecha límite en la que se quiere
+      lograr el objetivo.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder ingresar mi frecuencia semanal con la que
+  puedo entrenar.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 5
+  \item
+    Story Points: 1
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta podrá ingresar ``Frecuencia semanal'' dentro de sus
+      datos de ``Mi Perfil''
+    \item
+      El atleta debe ingresar la frecuencia semanal con la que puede
+      entrenar.
+    \item
+      Los valores ingresados deben ser una cantidad de días entre 1 y 7.
+    \item
+      La aplicación guardará registro del valor.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero que las actualizaciones de posición sean acordes al
+  nivel de batería seleccionado.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 5
+  \item
+    Story Points: 8
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      La posición se actualiza cada 10 segundos si el nivel de consumo
+      batería elegido es alto.
+    \item
+      La posición se actualiza cada minuto si el nivel de consumo de
+      batería es bajo.
+    \item
+      Para los demás niveles de batería también se indicará una
+      frecuencia de actualización de posición al momento de la
+      implementación.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero que las notificaciones de velocidad de la
+  aplicación sean acordes al de batería seleccionado.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 5
+  \item
+    Story Points: 8
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      Si el atleta eligió un consumo bajo, las notificaciones son
+      pitidos y ocurren cada 1 minuto.
+    \item
+      Si el atleta eligió un consumo alto de batería, las notificaciones
+      son temas musicales preelegidos por la app y ocurren cada 10
+      segundos.
+    \item
+      Para otros niveles de batería se determinará también una
+      frecuencia de notificaciones y calidad de las mismas en el momento
+      de la implementación.
+    \end{itemize}
+  \end{itemize}
+\item
+  Como atleta quiero poder publicar los recorridos de los entrenamientos
+  en redes sociales y aplicaciones de geolocalización.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 1
+  \item
+    Story Points: 10
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede seleccionar en qué red social o aplicación
+      publicar.
+    \item
+      El atleta puede seleccionar qué recorrido puede publicar.
+    \item
+      El atleta puede escribir un mensaje a agregar además de los datos
+      de su entrenamiento.
+    \item
+      La publicación es visible por los demás miembros de la red social
+      de acuerdo a las reglas de privacidad de la misma.
+    \item
+      Solo los datos explícitamente indicados por el usuario son
+      publicados en la red social correspondiente.
+    \item
+      El atleta puede decidir si quiere que se muestre el recorrido que
+      realizó, la velocidad con la que corrió, etc., para cada tipo de
+      dato a compartir.
     \end{itemize}
   \end{itemize}
 \end{enumerate}

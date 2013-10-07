@@ -1,0 +1,649 @@
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+  Como atleta quiero poder ver mi posición en el mapa en tiempo real
+  mientras estoy en un seguimiento
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 34
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede ver su posición actualizada a intervalos regulares
+      en la pantalla.
+    \item
+      Si se apaga la pantalla o bloquea el teléfono, al reanudar la
+      aplicación la actualización de la posición se reanuda en forma
+      automática.
+    \item
+      Si se pierde señal de geolocalización, se notifica al usuario.
+    \item
+      El atleta puede ver un \emph{timestamp} en cada lugar donde se
+      actualizó su posición.
+    \item
+      El atleta puede desactivar geolocalización si lo desea.
+    \end{itemize}
+  \item
+    Tareas
+  \end{itemize}
+
+  \begin{longtable}[c]{@{}ll@{}}
+  \hline\noalign{\medskip}
+  \begin{minipage}[b]{0.92\columnwidth}\raggedright
+  Tarea
+  \end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedright
+  Tiempo
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Diseñar las pantallas y vistas de la aplicación
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Instalar y preparar el entorno de desarrollo
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Armar proyecto git
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar el lenguaje Objective-C y la plataforma iOS
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar como obtener el tiempo actual del celular
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar la lógica para obtener la posición actual del teléfono
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Agregar una vista con un mapa en la pantalla
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar lógica para centrar ese mapa en una posición indicada
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar qué pasa cuando se pasa la aplicación al background y
+  cuando vuelve, implementar la lógica que mantenga actualizando la
+  aplicación incluso en background.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Testear que el mapa se centre correctamente.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Testear que efectivamente la posición se actualice al desplazar el
+  teléfono.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar la lógica para dibujar un recorrido en el mapa dados los
+  puntos y un timestamp de los mismos.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  3h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline
+  \end{longtable}
+\item
+  Como atleta quiero que la aplicación siga mi fase dentro del plan para
+  que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
+
+  \begin{itemize}
+  \item
+    Business Value: 34
+  \item
+    Story Points: 8
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta debe poder saber que plan y que entrenamiento esta
+      actualmente siguiendo.
+    \item
+      El atleta debe poder saber en que fase de que entrenamiento esta
+      en este momento.
+    \item
+      El atleta debe saber a que velocidad esta corriendo actualmente.
+    \item
+      El atleta debe recibir una notificación de que debe aumentar la
+      marcha si está yendo más lento que la fase.
+    \item
+      El atleta debe recibir una notificación de que debe disminuir la
+      marcha si está yendo más despacio que la fase.
+    \item
+      El atleta debe recibir una notificación en intervalos regulares si
+      se está manteniendo en una marcha aceptable.
+    \item
+      Cada alerta por marcha inválida se repetirá a intervalos regulares
+      mientras persista la condición.
+    \item
+      En la interfaz gráfica debe aparecer la velocidad a la que el
+      atleta debiera correr para llegar a la distancia implícita
+      requerida (resultado de multiplicar la velocidad media de la fase
+      por la duración de la misma).
+    \end{itemize}
+  \item
+    Tareas
+  \end{itemize}
+
+  \begin{longtable}[c]{@{}ll@{}}
+  \hline\noalign{\medskip}
+  \begin{minipage}[b]{0.92\columnwidth}\raggedright
+  Tarea
+  \end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedright
+  Tiempo
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar la lógica para calcular los datos de velocidad promedio
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar un algoritmo para lograr calcular la velocidad promedio a
+  medida que llegan los datos.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Codificar la lógica para obtener la velocidad necesaria para llegar a
+  la velocidad requerida.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Codificar la lógica para que si la velocidad no esta en el rango, se
+  envié una alerta correspondiente a cuan ``grave'' es el nivel de
+  alerta.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  5h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar como reproducir una canción en cada formato estandar (mp3,
+  wav, etc.)
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Codificar la vista para que muestre la velocidad objetivo, duración y
+  distancia recorrida en esta fase
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  5h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear un mock de un entrenamiento de una fase para poder realizar las
+  pruebas de seguimiento de velocidad y actualización de la vista
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear un mock de batería y configurador para testear los tipos de
+  notificaciones y la frecuencia de actualización
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Codificar un sistema de administración de actualizaciones para proveer
+  los datos de posición a los distintos módulos
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Testear para los 3 tipos de condiciones de marcha válida e inválida
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline
+  \end{longtable}
+\item
+  Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal,
+  quiero tener un documento detallado del diseño de la aplicación
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El diagrama corresponderá al diseño orientado a objetos de la
+      aplicación.
+    \item
+      Se incluirá un diagrama de clases mostrando la taxonomía de los
+      objetos a implementar.
+    \item
+      Se incluirá un diagrama de secuencia para mostrar pasos
+      algorítmicos de interés.
+    \item
+      El mismo utilizará la sintaxis de la materia Ingeniería del
+      Software II de la carrera de Ciencias de la Computación de la UBA.
+    \item
+      Se incluirá un informe detallado de las decisiones de diseño
+      tomadas.
+    \end{itemize}
+  \item
+    Tareas:
+  \end{itemize}
+
+  \begin{longtable}[c]{@{}ll@{}}
+  \hline\noalign{\medskip}
+  \begin{minipage}[b]{0.92\columnwidth}\raggedright
+  Tarea
+  \end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedright
+  Tiempo
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Hacer el diagrama de secuencia del sistema de notificaciones en
+  seguimiento
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Realizar el informe dei diseño justificando las decisiones
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  6h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Determinar cuales son y realizar los diagramas de secuencia
+  pertinentes
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  8h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Hacer diagrama de clases para el mecanismo de actualización de datos
+  en un seguimiento
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  8h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Hacer el diagrama de clases de los controladores y su relación con los
+  objetos de negocio
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  8h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Hacer el diagrama de clases para el mecanismo de creación de batería y
+  su impacto
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  3h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Hacer el diagrama para el mecanismo de craeción de planes básicos
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Hacer diagrama de clases para el mecanismo de estadísticas de
+  entrenamientos y sus almacenamientos.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  3h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline
+  \end{longtable}
+\item
+  Como corredor quiero poder inicializar el seguimiento de un
+  entrenamiento de los que me dio la aplicación para poder empezar a
+  correr bajo el plan obtenido.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta puede elegir un plan de la lista de disponibles.
+    \item
+      El atleta puede seleccionar que el plan empiece a correr, y el
+      mismo empezara el seguimiento en la primer fase.
+    \item
+      El atleta puede detener el entrenamiento en cualquier momento.
+    \item
+      El seguimiento termina de acuerdo a las fases del plan.
+    \item
+      El atleta puede elegir un entrenamiento si este esta disponible,
+      es decir si el plazo para el objetivo no ha expirado.
+    \end{itemize}
+  \item
+    Tareas
+  \end{itemize}
+
+  \begin{longtable}[c]{@{}ll@{}}
+  \hline\noalign{\medskip}
+  \begin{minipage}[b]{0.92\columnwidth}\raggedright
+  Tarea
+  \end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedright
+  Tiempo
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar el controlador para que al apretar el boton de iniciar el
+  seguimiento, inicie el seguimiento para el entrenamiento indicado con
+  los datos del mismo
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  5h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar que se pueda detener un plan de entrenamiento en cualquier
+  momento del mismo
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  3h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar maneras de ordenar la lista según relevancia de
+  entrenamientos
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear un mock de un okan ara testear a vsta de entrenamientos e
+  indicar para empezar
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  3h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Utilizar el mock de entrenamientos en el mock de planes para asociar
+  un plan a entrenamientos de prueba
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar la vista para permitir iniciar un entrenamiento y mostrar
+  sus fases y datos, con un botón para iniciar.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar la vista de planes disponibles para el usuario
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Testear que el seguimiento sea inicializado con los datos del
+  entrenamiento seleccionado
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline
+  \end{longtable}
+\item
+  Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal,
+  quiero tener un documento detallado del diseño de la aplicación
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 21
+  \item
+    Story Points: 13
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El diagrama corresponderá al diseño orientado a objetos de la
+      aplicación.
+    \item
+      Se incluirá un diagrama de clases mostrando la taxonomía de los
+      objetos a implementar.
+    \item
+      Se incluirá un diagrama de secuencia para mostrar pasos
+      algorítmicos de interés.
+    \item
+      El mismo utilizará la sintaxis de la materia Ingeniería del
+      Software II de la carrera de Ciencias de la Computación de la UBA.
+    \item
+      Se incluirá un informe detallado de las decisiones de diseño
+      tomadas.
+    \end{itemize}
+  \item
+    Tareas
+  \end{itemize}
+
+  \begin{longtable}[c]{@{}lr@{}}
+  \hline\noalign{\medskip}
+  \begin{minipage}[b]{0.89\columnwidth}\raggedright
+  Tarea
+  \end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\raggedleft
+  Tiempo
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Conseguir dispositivo de prueba
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Preparar la presentación del producto
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Preparar informe de funcionalidades
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  3h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Generar y probar el instalable de la demo para el dispositivo
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Preparar informe de seguimiento de trabajo realizado
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Preparar la charla de presentación
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  2h30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.89\columnwidth}\raggedright
+  Preparar la restrospectiva sobre el proyecto
+  \end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\raggedleft
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline
+  \end{longtable}
+\item
+  Como corredor quiero poder ver la velocidad promedio y la duración de
+  cada fase de un entrenamiento para saber el criterio con el que la
+  aplicación mide mi performance corriendo.
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    Business Value: 13
+  \item
+    Story Points: 8
+  \item
+    Criterio de Aceptación:
+
+    \begin{itemize}
+    \itemsep1pt\parskip0pt\parsep0pt
+    \item
+      El atleta podrá entrar a los planes que tiene creados.
+    \item
+      El atleta debe poder ver los entrenamientos que tiene listos
+      dentro de ese plan.
+    \item
+      El atleta debe poder elegir un entrenamiento de los que la
+      aplicación ha preparado.
+    \item
+      El atleta debe poder examinar las fases de un entrenamiento.
+    \item
+      El atleta debe poder elegir una fase para ver el detalle de la
+      misma.
+    \item
+      El atleta debe ver para la fase elegida un rango de velocidades en
+      km/h que son aceptables.
+    \item
+      El atleta debe poder ver para la fase elegida cuanto tiempo dura
+      la misma en minutos.
+    \end{itemize}
+  \item
+    Tareas
+  \end{itemize}
+
+  \begin{longtable}[c]{@{}ll@{}}
+  \hline\noalign{\medskip}
+  \begin{minipage}[b]{0.92\columnwidth}\raggedright
+  Tarea
+  \end{minipage} & \begin{minipage}[b]{0.08\columnwidth}\raggedright
+  Tiempo
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Implementar modelos Corredor, Plan, Fase y Entrenamiento
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Mockear datos de los modelos
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear una vista para mostrar los datos de las fases de entrenamiento
+  que incluyan la duración y rango de velocidades.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  2h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Investigar como mostrar datos numéricos de velocidad y duración por la
+  interfaz del celular.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear una lista que muestre y permita elegir los planes de
+  entrenamiento
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear una lista para que muestre y permita elegir los entrenamientos
+  del usuario
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Crear una lista que muestre las fases de un entrenamiento
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  1h
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Agregar funcionalidad para que al seleccionar un plan de entrenamiento
+  de la lista, se muestren la lista de los entrenamientos relacionados
+  al plan seleccionado.
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \begin{minipage}[t]{0.92\columnwidth}\raggedright
+  Agregar funcionalidad para que al seleccionar un entrenamiento de la
+  lista se muestren las fases asociadas a ese entrenamiento
+  \end{minipage} & \begin{minipage}[t]{0.08\columnwidth}\raggedright
+  30min
+  \end{minipage}
+  \\\noalign{\medskip}
+  \hline
+  \end{longtable}
+\end{enumerate}
