@@ -22,7 +22,7 @@ Suponiendo que el usuario ya realizó la configuración inicial y tiene algún p
 	\item En esa pantalla (donde se listan las fases correspondientes al entrenamiento) se presiona ``comenzar''.
 \end{itemize}
 
-\subsubsection{Actualización dentro de un seguimiento}
+\subsubsection{Actualización dentro de un seguimiento} \label{unaSeccion}
 % \begin{center}
 % 	\includegraphics[scale=0.5]{images/diagSeq.png}
 % \end{center}
@@ -63,8 +63,19 @@ Para la creación del servicio de estado se nos planteó una disyuntiva:
 
 Este diagrama muestra cómo es el proceso de finalización de un seguimiento cuando concluye un entrenamiento. El \texttt{Seguimiento}, encargado de seguir el proceso de entrenamiento, se da cuenta de que el entrenamiento finalizó (puede haber sido porque el usuario cumplió el tiempo y distancia correspondientes a la última fase del entrenamiento en curso o porque apretó el botón de ``detener'' en la vista de seguimiento) y se le informa al \texttt{ServicioDeEstados} que deje de tomar lecturas del \texttt{Timer}. Para eso, le envía el mensaje \emph{finLectura ()}. 
 
-Acto seguido, el controlador informa al \texttt{StoreEstadisticasGenerales} que guarde las estadísticas generales que se estuvieron actualizando durante el entrenamiento (mediante el mensaje \emph{guardar ()}) y procede a crear un nuevo objeto \texttt{EntrenamientoConcluido} para almacenarlo en su correspondiente \texttt{StoreEntrenamientoConcluido}. Para eso, obtiene el \texttt{Recorrido} del \texttt{GeneradorDeRecorridos} y, usando sus colaboradores internos \texttt{Plan} y \texttt{CollectionEstadisticasEntrenamiento}, llama al \emph{new(unPlan, unaColeccionDeEstadisticas, unRecorrido)} de la clase \texttt{claseEntrenamientoConcluido}. Esto le devuelve un objeto \texttt{EntrenamientoConcluido}, que agrega al \texttt{StoreEntrenamientoConcluido}.
+Acto seguido, el controlador informa al \texttt{StoreEstadisticasGenerales} que guarde las estadísticas generales que se estuvieron actualizando durante el entrenamiento (mediante el mensaje \emph{guardar ()}) y procede a crear un nuevo objeto \texttt{EntrenamientoConcluido} para almacenarlo en su correspondiente \texttt{StoreEntrenamientoConcluido}. Para eso, obtiene el \texttt{Recorrido} del \texttt{GeneradorDeRecorridos} y, usando sus colaboradores internos \texttt{Plan} y \texttt{CollectionEstadisticasEntrenamiento}, llama al \emph{new (unPlan, unaColeccionDeEstadisticas, unRecorrido)} de la clase \texttt{claseEntrenamientoConcluido}. Esto le devuelve un objeto \texttt{EntrenamientoConcluido}, que agrega al \texttt{StoreEntrenamientoConcluido}.
 
 \subsubsection{Listado de estadísticas del usuario}
+
 \subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
+% \begin{center}
+% 	\includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+
+En este diagrama se observa el conjunto de mensajes que ocurren durante el un entrenamiento cuando el corredor se está desplazando más rápido de lo que su fase actual indica. Como se explicó en la sección \ref{unaSeccion}, cuando el \texttt{Timer} recibe el hipotético mensaje \emph{tic ()}, le avisa al \texttt{ServicioDeEstado} y éste le reporta a sus suscriptores (en particular al \texttt{Seguimiento}), el estado actual del corredor.
+
+Cuando el \texttt{Seguimiento} recibe el mensaje \emph{actualizar (unEstado)}, extrae del parámetro la velocidad actual a la que se está desplazando el teléfono (enviándole al \texttt{Estado} el mensaje \emph{velocidadActual ()}) y le pide a su colaborador interno \texttt{IteradorDeFase} que le informe cuál es la fase actual, a la que le pregunta las velocidades mínima y máxima que corresponden a esa fase (mensajes \emph{velocidadMinima()} y \emph{velocidadMaxima ()} respectivamente).
+
+Con esos tres datos, el \texttt{Seguimiento} verifica que la velocidad actual esté en rango y, suponiendo que no lo está (que está por encima de la máxima) le envía un mensaje a su colaborador interno \texttt{Notificador} diciéndole que notifique que la velocidad actual es muy alta (\emph{notificarVelAlta ()}). 
+
 \subsubsection{Crear un plan básico}
