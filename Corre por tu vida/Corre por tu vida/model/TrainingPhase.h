@@ -13,7 +13,7 @@
 //duration is in seconds
 @property (nonatomic) NSTimeInterval duration;
 
-//velocity is in kilometers per hour
+//velocity is in meters per second
 @property (nonatomic) NSInteger minimumVelocity;
 @property (nonatomic) NSInteger maximumVelocity;
 

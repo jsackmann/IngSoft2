@@ -22,8 +22,8 @@
 {
     [super viewDidLoad];
     //Mock a training iterator for a training with only one phase
-    NSDate *finishDatePhase = [[NSDate alloc] initWithTimeInterval:60000 sinceDate:[NSDate date]];
-    TrainingPhase *phase = [[TrainingPhase alloc] initWithDuration:finishDatePhase minimunVelocity:5 maximumVelocity:10];
+    NSDate *finishDatePhase = [[NSDate alloc] initWithTimeInterval:6000 sinceDate:[NSDate date]];
+    TrainingPhase *phase = [[TrainingPhase alloc] initWithDuration:finishDatePhase minimunVelocity:50 maximumVelocity:100];
     Training *training = [[Training alloc] init:[NSArray arrayWithObject:phase]];
     TrainingIterator *trainingIterator = [[TrainingIterator alloc] init:training];
     self.trainings = [NSArray arrayWithObject:trainingIterator];

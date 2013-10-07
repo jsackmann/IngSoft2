@@ -17,10 +17,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSInteger timeInMinutes = self.phase.duration / 60;
-    [self.durationLbl setText:[NSString stringWithFormat:@"%d minutos", timeInMinutes]];
-    [self.maximumVelocityLbl setText:[NSString stringWithFormat:@"%d Km/h", self.phase.maximumVelocity]];
-    [self.minimumVelocityLbl setText:[NSString stringWithFormat:@"%d Km/h", self.phase.minimumVelocity]];
+    CGFloat timeInMinutes = self.phase.duration / 60;
+    [self.durationLbl setText:[NSString stringWithFormat:@"%.2f minutos", timeInMinutes]];
+    CGFloat maximum = self.phase.maximumVelocity * 3.6;
+    CGFloat minimum = self.phase.minimumVelocity * 3.6;
+    [self.maximumVelocityLbl setText:[NSString stringWithFormat:@"%.2f Km/h", maximum]];
+    [self.minimumVelocityLbl setText:[NSString stringWithFormat:@"%.2f Km/h", minimum]];
 }
 
 @end
