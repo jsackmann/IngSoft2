@@ -1,0 +1,59 @@
+
+Para clarificar algunas de las partes del código que consideramos más difíciles de plasmar en un diagrama estático, incluimos diagramas de secuencia para diversas partes del trabajo práctico. Estas partes corresponden a diversas situaciones donde mostramos como podría ser una implementación de la lógica secuencial que se desarrolla.
+
+\subsubsection{Inicio de un seguimiento}\label{diag_inicioSeguimiento}
+% \begin{center}
+% 	\includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+Este diagrama de secuencia muestra el proceso de inicio de seguimiento. A grandes razgos, el controlador de fase crea un servicio de estado (que será le encargado de mandar las actualizaciones de estado a otros componentes). Esta interacción es un poco compleja para ponerla en el mismo diagrama, así que se la separó en el diagrama ``Crear un servicio de estados'', que se puede ver en la sección \ref{diag_crearUnServicioDeEstado}. 
+
+
+Luego se procede a suscribir a todos los objetos que deben recibir actualizaciones de estado al controlador (creándolos si no existían), para lo que se le manda repetidas veces el mensaje \emph{suscribir (unObjeto)} al \texttt{ServicioDeEstado}. 
+
+
+Finalmente, se inicializa el servicio de estados, enviándole el mensaje \emph{iniciarLectura ()}, lo que provoca que éste (que implementa la interfaz \texttt{SuscriptorDeTimer}), le envíe un mensaje \emph{suscribir (self)} al timer. De esa forma queda suscripto el notificador de estados al timer y éste le enviará notificaciones a intervalos regulares.
+
+
+Suponiendo que el usuario ya realizó la configuración inicial y tiene algún plan con entrenamientos seteados, el camino por el que debe navegar para llegar a este diagrama de secuencia es:
+\begin{itemize}
+	\item Seleccionar uno de sus planes de la lista de planes disponibles.
+	\item Seleccionar un entrenamiento de la lista de entrenamientos del plan.
+	\item En esa pantalla (donde se listan las fases correspondientes al entrenamiento) se presiona ``comenzar''.
+\end{itemize}
+
+\subsubsection{Actualización dentro de un seguimiento}
+% \begin{center}
+% 	\includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+Este diagrama muestra la secuencia de mensajes intercambiados a la hora de realizar una actualiación dentro de una fase, mientras el usuario está corriendo. Los pasos para llegar a este mensaje son los mismos que el anterior, esperando el tiempo correspondiente a la frecuencia de actualización que se haya realizado.
+
+
+En primer lugar, el objeto \texttt{Timer} recibe un mensaje \emph{tic ()}. Este mensaje está en el diseño para que éste quede agnóstico a la implementación de la plataforma sobre la que se está trabajando. En el caso particualr de \emph{iOS}, este mensaje no existe sino que se le especifica al sistema operativo que un método en particular (en este caso el \emph{actualizar}) debe ser invocado regularmente cada cierto tiempo. Cuando el \texttt{Timer} recibe ese mensaje, le informa al \texttt{ServicioDeEstado} (pues es el único que está suscripto al \texttt{Timer}) enviándole el mensaje \emph{actualizar ()}.
+
+
+Al recibir este mensaje, el \texttt{ServicioDeEstado} le solicita a sus colaboradores internos la velocidad y posición actual del teléfono (mediante los mensajes \emph{velocidadActual ()} y \emph{posición ()} respectivamente) y crea un nuevo \texttt{Estado} con esa información.
+
+
+Finalmente le envía a cada uno de sus sucriptores el mensaje \emph{actualizar (unEstado)}, para que estos puedan realizar sus respectivas acciones con la nueva información del estado. 
+
+\subsubsection{Crear un servicio de estados}\label{diag_crearUnServicioDeEstado}
+% \begin{center}
+% 	\includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+En este diagrama se puede observar el proceso de creación de un objeto \texttt{ServicioDeEstado}, que se crea al comenzar el entrenamiento, como se puede ver en la sección \ref{diag_inicioSeguimiento}. Para crear el \texttt{ServicioDeEstado}
+ se pasa como parámetro un \texttt{Configurador}, del que se obtienen y setean como colaboradores internos el \texttt{Timer}, el \texttt{Posicionador} y el \texttt{MedidorVelocidad}. El configurador crea dinámicamente estos elementos a medida que se le son solicitados y los devuelve.
+
+ Una vez que todos los elementos están seteados, se devuelve el recién creado \texttt{ServicioDeEstado}, sin que éste se suscriba al \texttt{Timer}.  
+
+
+Para la creación del servicio de estado se nos planteó una disyuntiva:
+\begin{itemize}
+	\item Una opción era no guardar el \texttt{Timer} como colaborador interno del \texttt{ServicioDeEstado}, sino que simplemente cuando a la hora de crear el \texttt{ServicioDeEstado}, se pida al \texttt{Configurador} el \texttt{Timer} y el \texttt{ServicioDeEstado} se suscriba en ese momento. Esta alternativa (no elegida) tenía la ventaja de que evitaba almacenar como colaborador interno al \texttt{Timer} y nos ahorraba el método \emph{iniciarLectura ()}. Sin embargo tiene un defecto: si la frecuencia de actualización era demasiado rápida, podía llegar a llamarse al mensaje \emph{actualizar ()} del servicio de estado (por un \emph{tic ()} del sistema operativo) antes de que todos sus colaboradores internos estuvieran registrados, potencialmente perdiendo información de los primeros estados.
+	\item La alternativa que se nos ocurrió para esto es que se almacene el \texttt{Timer} como colaborador interno del \texttt{ServicioDeEstado} y que una vez que el controlador termine de suscribir a quienes corresponda, llame a un método del \texttt{ServicioDeEstado}(\emph{iniciarLectura ()}) que se ocupe de suscribirlo al \texttt{Timer}. Elegimos esta alternativa porque pensamos que en un futuro puede existir algún objeto (por ejemplo una nueva \texttt{Estadistica}) para el que sea importante no perder los estados iniciales. 
+\end{itemize}
+
+
+\subsubsection{Finalización de un seguimiento}
+\subsubsection{Listado de estadísticas del usuario}
+\subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
+\subsubsection{Crear un plán básico}
