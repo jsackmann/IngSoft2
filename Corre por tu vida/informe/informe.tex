@@ -6,8 +6,8 @@
 \parskip=8pt
 \usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
 
-\usepackage{ccfonts,eulervm} 
-\usepackage[T1]{fontenc}
+% \usepackage{ccfonts,eulervm} 
+% \usepackage[T1]{fontenc}
 \usepackage{epigraph}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -50,10 +50,7 @@
 % \parindent 0em
 %\algrenewcommand{\algorithmiccomment}[1]{//\textit{#1} }
 
-\lstset{language=sql,numbers=left,tabsize=2,
-	morekeywords={BEGIN,DECLARE,FOR,CREATE,PROCEDURE,RAISEERROR,EACH,ROW,BEFORE,AFTER,MINUS,IF},
-	breaklines=true,breakatwhitespace=true}
-
+\renewcommand{\emph}[1]{\textit{#1}}
 \pagestyle{fancy}
 \thispagestyle{fancy}
 \addtolength{\headheight}{1pt}
@@ -110,7 +107,8 @@ mismas son:
 \begin{itemize}
 	\item 3) Como atleta quiero que la aplicación siga mi fase dentro del plan para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
 	\item 13) Como corredor quiero poder ver la velocidad promedio y la duración de cada fase de un entrenamiento para saber el criterio con el que la aplicación mide mi performance corriendo.
-	\item 14) Como atleta quiero poder ver mi posición en el mapa en tiempo real.	\item 16) Como corredor quiero poder inicializar el seguimiento de un entrenamiento de los que me dio la aplicación y que están dentro del plazo para poder empezar a correr bajo el plan obtenido.	
+	\item 14) Como atleta quiero poder ver mi posición en el mapa en tiempo real.
+	\item 16) Como corredor quiero poder inicializar el seguimiento de un entrenamiento de los que me dio la aplicación y que están dentro del plazo para poder empezar a correr bajo el plan obtenido.	
 \end{itemize}
 
 y a continuaci\'on incluimos el detalles de las tareas involucradas y la dificultad asociada a cada una.
@@ -121,7 +119,7 @@ y a continuaci\'on incluimos el detalles de las tareas involucradas y la dificul
 	\item[] \hfill \textit{Dificultad: 3 - Horas: 5}
 	\item Investigar cómo guardar canciones en el teléfono y como volver a leerlas de almacenamiento permanente.
 	\item[] \hfill \textit{Dificultad: 3 - Horas: 8}
-	\item Codificar la lógica para que según el tipo de alerta se eliga un sonido a reproducir (potencialmente leyendo de almacenamiento el mismo) y se lo reproduzca. 
+	\item Codificar la lógica para que según el tipo de alerta se elija un sonido a reproducir (potencialmente leyendo de almacenamiento el mismo) y se lo reproduzca. 
 	\item[] \hfill \textit{Dificultad: 5 - Horas: 8}
 	\item Codificar la lógica para que si la velocidad no esta en el rango, se envíe una alerta y se muestre en pantalla la diferencia y según ese rang, cuan ``grave'' es la alerta. 
 	\item[] \hfill \textit{Dificultad: 3 - Horas: 8}
@@ -241,7 +239,7 @@ Dado que desconocemos del dominio lo suficiente como para poder realizar una imp
 
 El \texttt{Planificador Básico} emplea los datos indicados en el trabajo práctico para obtener el plan: Las características de la persona (peso y altura), un objetivo(que consiste en indicar cuantos kilómetros se desea correr, y opcionalmente en cuanto tiempo desea poder correrlo), su disponibilidad (en horas por semana), un plazo estipulado (como una fecha límite) y su estado actual (cuantos kilómetros fue lo máximo que corrió y en cuanto tiempo lo hizo).
 
-Decidimos restringirnos a este diseño puesto que no nos pareció que tuvieramos el suficiente conocimiento como para realizar más detalles, y no tomamos una postura de pensar más en extensibilidad puesto que el trabajo práctico no indica que pueda haber cambios en este área.
+Decidimos restringirnos a este diseño puesto que no nos pareció que tuviéramos el suficiente conocimiento como para realizar más detalles, y no tomamos una postura de pensar más en extensibilidad puesto que el trabajo práctico no indica que pueda haber cambios en este área.
 
 Algunos de estos factores nos pareció pertinente incluirlos como parte de un \texttt{PerfilCorredor} y tomarlo como parte del \texttt{Corredor} (que además de esto incluye todos sus planes). Los demás factores son específicos a cuando se crea un plan, por lo tanto son conocidos y creados por el \texttt{NuevoPlanControlador} que es el que toma estos datos al preguntarle al usuario cuando este desea crear un nuevo plan.
 
