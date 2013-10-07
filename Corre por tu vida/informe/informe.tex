@@ -232,9 +232,9 @@ La interfaz \texttt{Estadística} hereda dos subclases: \texttt{EstadisticaGener
 
 Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tipo (general o de entrenamiento) y crear una nueva clase que implemente los métodos \emph{actualizar(unEstado)} y \emph{resultado() : unReal}.
 
-\subsubsection{Fases, Entrenamiento, Planes y Planificador}
 Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). Se consideró hacer más extensible este diseño modificando la forma en la que se muestra una estadística utilizando un patrón \texttt{visitor}. Esto permitiría mucha más flexibilidad a la hora de mostrar o exportar una estadística. Esta idea no fue descartada por completo, pero la consideramos demasiado compleja para la primer iteración del \texttt{Scrum}. Es uno de los cambios a realizar en siguientes iteraciones.
 
+\subsubsection{Fases, Entrenamiento, Planes y Planificador}
 Para abstraer la lógica de planes del resto del sistema, decidimos utilizar una interfaz que denominamos \texttt{Planificador} que se ocupa de devolver un
 \texttt{Plan}. Un \texttt{Plan} consiste en una secuencia de \texttt{Entrenamientos} y un plazo que es el que le determina su validez (por ejemplo, cuando ya no logramos el objetivo en el plazo planteado, no tiene sentido mantener este plan en la lista de los realizables para el usuario). Cada \texttt{Entrenamiento} consiste en una serie de \texttt{Fases}. Cada \texttt{Fase} contiene una velocidad mínima y máxima que forman el rango aceptable para correr, y una duración. De esta manera, no tenemos acoplamiento entre la lógica que produce un plan y el resto del sistema, porque solo se conocen en \texttt{Plan} que es algo desconectado de la lógica de negocio que lo trajo al mundo.
 
