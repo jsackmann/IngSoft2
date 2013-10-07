@@ -6,14 +6,9 @@
 \parskip=8pt
 \usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
 
-<<<<<<< HEAD
 % \usepackage{ccfonts,eulervm} 
 % \usepackage[T1]{fontenc}
-=======
 \usepackage{longtable}
-\usepackage{ccfonts,eulervm} 
-\usepackage[T1]{fontenc}
->>>>>>> 098c635d4cf7174c509b0d37e14382e8251a5680
 \usepackage{epigraph}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -109,74 +104,11 @@ correspondientes al \textit{product backlog}.
 
 A continuaci\'on detallamos las \textit{user stories} que incluimos en el actual \textit{sprint}. Las mismas son:
 
-<<<<<<< HEAD
-\begin{itemize}
-	\item 3) Como atleta quiero que la aplicación siga mi fase dentro del plan para que me avise si lo estoy siguiendo o tengo que modificar mi marcha.
-	\item 13) Como corredor quiero poder ver la velocidad promedio y la duración de cada fase de un entrenamiento para saber el criterio con el que la aplicación mide mi performance corriendo.
-	\item 14) Como atleta quiero poder ver mi posición en el mapa en tiempo real.
-	\item 16) Como corredor quiero poder inicializar el seguimiento de un entrenamiento de los que me dio la aplicación y que están dentro del plazo para poder empezar a correr bajo el plan obtenido.	
-\end{itemize}
-
-y a continuaci\'on incluimos el detalles de las tareas involucradas y la dificultad asociada a cada una.
-
-\begin{itemize}
-	\itemsep 0em
-	\item Investigar cómo reproducir una canción en cada formato estándar (mp3,wav, etc).
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 5}
-	\item Investigar cómo guardar canciones en el teléfono y como volver a leerlas de almacenamiento permanente.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 8}
-	\item Codificar la lógica para que según el tipo de alerta se elija un sonido a reproducir (potencialmente leyendo de almacenamiento el mismo) y se lo reproduzca. 
-	\item[] \hfill \textit{Dificultad: 5 - Horas: 8}
-	\item Codificar la lógica para que si la velocidad no esta en el rango, se envíe una alerta y se muestre en pantalla la diferencia y según ese rang, cuan ``grave'' es la alerta. 
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 8}
-	\item Testear para los 3 tipos de condiciones de marcha válida e inválida.
-	\item[] \hfill \textit{Dificultad: 2 - Horas: 5}
-	\item Investigar cómo mostrar datos numéricos de velocidad y duración por la interfaz del celular, y como actualizar la vista cuando estos cambian.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 2}
-	\item Investigar un algoritmo para lograr calcular la velocidad promedio a medida que llegan los datos.
-	\item[] \hfill \textit{Dificultad: 2 - Horas: 2}
-	\item Testear que el promedio calculado es correcto incluso considerando actualizaciones de velocidad y tiempo poco frecuentes 
-		(por ejemplo en un modo de batería bajo).
-	\item[] \hfill \textit{Dificultad: 5 - Horas: 3}
-	\item Crear una vista para mostrar los datos.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 2}
-	\item Implementar la lógica para calcular los datos de velocidad promedio.
-	\item[] \hfill \textit{Dificultad: 5 - Horas: 2}
-	\item  Investigar como obtener el tiempo actual del celular.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 1}
-	\item Implementar la lógica para obtener la posición actual del teléfono.
-	\item[] \hfill \textit{Dificultad: 8 - Horas: 2}
-	\item Incorporar el uso de mapas de otras fuentes dentro de la aplicación
-	\item[] \hfill \textit{Dificultad: 3 - Horas 1}
-	\item Agregar una vista con un mapa en la pantalla.
-	\item[] \hfill \textit{Dificultad: 5 - Horas: 1}
-	\item Implementar lógica para centrar ese mapa en una posición indicada.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 1}
-	\item Investigar qué pasa cuando se pasa la aplicación al \textit{background} y cuando vuelve, 
-			implementar la lógica que mantenga actualizando a la aplicación incluso en background.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 2}
-	\item Testear que efectivamente la posición se actualice al desplazar el teléfono.
-	\item[] \hfill \textit{Dificultad: 2 - Horas: 2}
-	\item Testear que el mapa se centre correctamente.
-	\item[] \hfill \textit{Dificultad: 2 - Horas: 1}
-	\item Implementar la lógica para dibujar un recorrido en el mapa dados los puntos y un \textit{timestamp} para cada uno.
-	\item[] \hfill \textit{Dificultad: 5 - Horas: 5}
-	\item Implementar una vista de seguimientos filtrados por plazo	
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 3}
-	\item Implementar que la selecci\'on del entrenamiento inicie la aplicación de seguimiento para el mismo.
-	\item[] \hfill \textit{Dificultad: 5 - Horas: 5}
-	\item Implementar que se pueda detener un plan de entrenamiento en cualquier momento del mismo.
-	\item[] \hfill \textit{Dificultad: 3 - Horas: 3}
-	\item Investigar maneras de ordenar la lista según relevancia de entrenamientos.
-	\item[] \hfill \textit{Dificultad: 2 - Horas 5}
-\end{itemize}
-=======
 \input{SprintBacklog}
->>>>>>> 098c635d4cf7174c509b0d37e14382e8251a5680
 
 \subsection{Justificación del Sprint Backlog}
 
-Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el trabajo requerido por el trabajo práctico, al mismo tiempo que estamos dando valor al usuario. En total, con los estimativos de horas realizados, tenemos 121 horas y 30 minutos,  que considerando los 45 días para el trabajo práctico nos deja y descontando fines de semana nos deja entonces un total de aproximadamente  por día para cada uno. Puesto que los cuatro miembros del grupo trabajan (sea en la industria o en la facultad como ayudantes) y cursan, nos pareció un buen estimativo para una cantidad razonable de trabajo. Esto por supuesto no considera la época de parciales, donde no nos fue posible seguir trabajando en el proyecto debido a compromisos de materias.
+Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el trabajo requerido por el trabajo práctico, al mismo tiempo que estamos dando valor al usuario. En total, con los estimativos de horas realizados, tenemos 119 horas y 30 minutos,  que considerando los 45 días para el trabajo práctico nos deja y descontando fines de semana nos deja entonces un total de aproximadamente 50 minutos por día para cada uno. Puesto que los cuatro miembros del grupo trabajan (sea en la industria o en la facultad como ayudantes) y cursan, nos pareció un buen estimativo para una cantidad razonable de trabajo. Esto por supuesto no considera la época de parciales, donde no nos fue posible seguir trabajando en el proyecto debido a compromisos de materias.
 
 \section{Detalle de diseño}
 
@@ -196,6 +128,9 @@ Del mismo modo, tampoco incluimos clases tales como
 \end{itemize}
 porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier librería standard.
 
+Nos parece sin embargo que hemos de realizar una aclaración sobre el \textit{Mapa}. El mismo tiene un constructor que toma una coordenada donde se centra inicialmente. Esto, si bien nos parece razonable aunque, no lo podemos discutir debido a que para mostrar los mapas utilizamos la API de \texttt{Google Maps SDK} que requiere construirlo de esta manera. Si bien el mapa ya es un \textit{wrapper} de este servicio, sigue requiriendo esto para funcionar.
+
+El diagrama esta disponible para ver \textit{online} (dado que el diagrama tiene un tamaño considerable difícil de ver) mediante la URL: \url{https://cacoo.com/diagrams/3Bk8unCXdWQ8DFU0#}
 
 \subsubsection{Clase \texttt{ServicioDeEstado}}
 El objeto \texttt{ServicioDeEstado} tiene como principal función la de informar a los distintos componentes del programa el estado actual del teléfono en movimiento. A intervalos de tiempo regulares, configurados en última instancia por el consumo seleccionado de la batería, un objeto \texttt{ServicioDeEstado} le manda a todos los objetos a los que se hayan suscripto a él un paquete de actualización que incluye la velocidad a la que se está moviendo el dispositivo y su posición actual.
@@ -255,5 +190,29 @@ El objetivo puede o no tener un tiempo asignado de corrida. Para esto, delegamos
 \subsection{Diagramas de secuencia}
 
 \input{diagramasDeSecuencia.tex}
+
+\section{Retrospectiva y conclusiones} 
+
+En este sprint, consideramos positivo que logramos obtener valor para el \textit{stakeholder} en la forma de una demo, y logramos implementar funcionalidad que
+terminaría en un proyecto final. También consideramos positivo que ganamos experiencia en como realizar SCRUM y por lo tanto nos vemos mejor preparados para una posible próxima iteración, con respecto al estimar horas de trabajo y asignar las tareas.
+
+Tuvimos problemas con la cantidad de horas y tareas a asignar al principio del Sprint. Nos resultó difícil extraer las \textit{stories} a realizar del enunciado del trabajo práctico, y esto nos alenteció especialmente en las primeras semanas. Al mismo tiempo tuvimos dificultades para mantener un ritmo más estable de trabajo debido a responsabilidades como por ejemplo los parciales de las materias y las responsabilidades laborales. Esto impactó en que las semanas siguientes, en especial la semana después del parcial de Ingeniería II, estuvieran mucho más cargadas en horas de trabajo. Por suerte esto lo tuvimos en cuenta al momento de armar el Sprint y no nos vimos excesivamente sobrecargados hacia el final del mismo y pudimos llegar a los objetivos claves planteados.
+
+Nos costó también el poder equilibrar la necesidad de un diseño orientado a objetos completo de la aplicación con una metodología ágil como lo es SCRUM, que se supone que trata de evitar los problemas conocidos de \textit{Big Design Up Front}. Esto nos parece impacta en el diseño de manera negativa, puesto que solo un pedazo del trabajo esta implementado con lo cual nos parece que no tenemos el \textit{feedback} de realizar la implementación que consideramos es de gran ayuda al momento de validar el diseño.
+
+Otro factor que impacto negativamente fue que las tareas de programación fueron asignadas en su casi totalidad a una persona del grupo, mientras el resto de las tareas fueron asignadas a todo el resto. La conclusión que obtuvimos es que esto es desfavorable para ambas partes, puesto que requiere de una coordinación entre diseño y código que no sería tan necesaria si todos los miembros del grupo están involucrados en ambas tareas. Esto fue complejizado por la tecnología elegida (iOS) que requiere de un \textit{setup} más complicado que otras, especialmente en tema herramientas.
+
+En subsecciones anteriores señalamos algunos detalles del diseño que podrían mejorarse en próximos Sprints. Consideramos por ejemplo que sería positivo lograr mejorarel diseño del subsistema que se ocupa del almacenado de estadísticas, para que por ejemplo incluya estadísticas sobre las fases. Al mismo tiempo, se podría lograr una mejor separación entre el Seguimiento y el controlador de seguimiento en matería de roles. En estos puntos donde consideramos que no teníamos suficiente conocimiento de dominio como para justificar la elección de una alternativa de diseño por sobre otra, es donde hay más oportunidad de expansión al menos en el tema diseño con un poco más de experiencia en el tema.
+
+\addcontentsline{toc}{section}{Referencias}
+\begin{thebibliography}{8}
+\raggedright
+
+\bibitem{Gamma}
+	E.~Gamma, R.~Helm, R.~Johnson, and J.~Vlissides.
+	\newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
+	\newblock Professional Computing. Addison-Wesley, 1995.
+
+\end{thebibliography}
 
 \end{document}
