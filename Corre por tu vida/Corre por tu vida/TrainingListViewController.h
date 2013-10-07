@@ -13,6 +13,6 @@
 
 
 @property (strong, nonatomic) NSArray *trainings;
-- (IBAction)follow:(id)sender;
+@property (strong, nonatomic) TrainingIterator *selectedTraining;
 
 @end

@@ -178,7 +178,9 @@ Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el
 \subsection{Diagrama de clases}
 
 \subsubsection{Consideraciones Generales}
-La figura \ref{diag_diseño} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. No incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
+La figura \ref{diag_diseno} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. En el diagrama los controladores se muestran relacionados con aristas no dirigidas y sin aridad. Estas asociaciones representan ``saltos'' entre vistas y relaciones entre controladores, no la canónica relación de conocimiento que denotan las uniones en los diagramas de clases UML. Esto es porque en iOS esta relación de conocimiento entre controladores se implementa a través del \emph{NavigationController}. Incluirlo en el diseño no sólo acoplaría mucho el diseño a una plataforma particular, sino que elevaría su complejidad notablemente. Creemos que esta pequeña licencia en la semántica de UML nos permite expresar lo que deseamos (la relación entre los controladores del modelo \texttt{MVC}) manteniendo al diseño independiente de plataforma y acotada su complejidad.
+
+Similarmente, no incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
 
 Del mismo modo, tampoco incluimos clases tales como 
 \begin{itemize}
@@ -188,7 +190,6 @@ Del mismo modo, tampoco incluimos clases tales como
 	\item unaFecha
 \end{itemize}
 porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier librería standard.
-
 
 
 \subsubsection{Clase \texttt{ServicioDeEstado}}
@@ -229,12 +230,10 @@ Por ejemplo, la estadística de velocidad máxima reporta como resultado final e
 
 La interfaz \texttt{Estadística} hereda dos subclases: \texttt{EstadisticaGeneral} y \texttt{EstadisticaDeEntrenamiento}, que, como sus nombres los indican, representan las estadísticas generales y las asociadas a un entrenamiento particular respectivamente. El motivo de esta separación es que podría haber estadísticas que no tengan sentido considerarlas para un entrenamiento particular (por ejemplo, si en el futuro se implementara almacenar información climática y nutricional a los entrenamientos, uno podría querer una estadística del tipo: ``Velocidad promedio los martes lluviosos en los que entrené después de haber comido pastaflora''). No pondemos estadísticas para las fases porque nos pareció que en este punto no tenemos suficiente conocimiento del dominio como para determinar si las estadísticas por fase eran relevantes.
 
-
-Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). 
-
 Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tipo (general o de entrenamiento) y crear una nueva clase que implemente los métodos \emph{actualizar(unEstado)} y \emph{resultado() : unReal}.
 
 \subsubsection{Fases, Entrenamiento, Planes y Planificador}
+Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). Se consideró hacer más extensible este diseño modificando la forma en la que se muestra una estadística utilizando un patrón \texttt{visitor}. Esto permitiría mucha más flexibilidad a la hora de mostrar o exportar una estadística. Esta idea no fue descartada por completo, pero la consideramos demasiado compleja para la primer iteración del \texttt{Scrum}. Es uno de los cambios a realizar en siguientes iteraciones.
 
 Para abstraer la lógica de planes del resto del sistema, decidimos utilizar una interfaz que denominamos \texttt{Planificador} que se ocupa de devolver un
 \texttt{Plan}. Un \texttt{Plan} consiste en una secuencia de \texttt{Entrenamientos} y un plazo que es el que le determina su validez (por ejemplo, cuando ya no logramos el objetivo en el plazo planteado, no tiene sentido mantener este plan en la lista de los realizables para el usuario). Cada \texttt{Entrenamiento} consiste en una serie de \texttt{Fases}. Cada \texttt{Fase} contiene una velocidad mínima y máxima que forman el rango aceptable para correr, y una duración. De esta manera, no tenemos acoplamiento entre la lógica que produce un plan y el resto del sistema, porque solo se conocen en \texttt{Plan} que es algo desconectado de la lógica de negocio que lo trajo al mundo.

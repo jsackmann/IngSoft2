@@ -9,10 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
 #import "Speedometer.h"
+#import "LocationManager.h"
+#import "Timer.h"
 
 @interface ConfiguratorMock : NSObject
 
-- (CLLocationManager*)getLocationManager;
+//This class is the mock of the configurator 
+
+@property (strong, nonatomic) LocationManager *locationManager;
+@property (strong, nonatomic) Speedometer *speedometer;
+@property (strong, nonatomic) Timer *timer;
+@property CLLocation *userLocation;
+
+- (id)init;
+- (LocationManager*)getLocationManager;
 - (Speedometer*)getSpeedometer;
+- (Timer*)getTimer;
 
 @end

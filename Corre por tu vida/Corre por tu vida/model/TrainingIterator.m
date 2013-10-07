@@ -16,11 +16,12 @@
     self = [super init];
     if (self) {
         self.training = training;
+        self.currentPhase = [self.training.phases objectAtIndex:0];
     }
     return self;
 }
 
-- (TrainingPhase*)currentPhase
+- (TrainingPhase*)getCurrentPhase
 {
     return self.currentPhase;
 }

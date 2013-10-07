@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TrainingIterator.h"
+#import "StateService.h"
+#import "ViewController.h"
 
 @interface PhaseListViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *phases;
+@property (nonatomic, strong) TrainingIterator *trainingIterator;
+@property (nonatomic, strong) StateService *stateService;
+@property (nonatomic, strong) ViewController *followUpController;
 
 @end

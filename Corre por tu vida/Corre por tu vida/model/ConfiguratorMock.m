@@ -11,30 +11,33 @@
 
 @implementation ConfiguratorMock
 
-- (CLLocationManager*)getLocationManager
+- (id)init
 {
-#warning incomplete: falta que este location manager sea usado por el viewController que maneja el mapa
-    CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-    return locationManager;
+    self = [super init];
+    if (self) {
+        //initialization of location manager
+        self.locationManager = [[LocationManager alloc] init];
+        //initialization of speedometer
+#warning La frecuencia por ahora esta cableada
+        self.speedometer = [[Speedometer alloc] initWithLocationManager:self.locationManager frecuency:10];
+        self.timer = [[Timer alloc] init];
+        
+    }
+    return self;
+}
+
+- (LocationManager*)getLocationManager
+{
+    return self.locationManager;
 }
 - (Speedometer*)getSpeedometer
 {
-    Speedometer *speedometer = [[Speedometer alloc] init];
-    //speedometer necesita saber el tiempo y la distancia
-#warning incomplete: falta setearla alguna propiedades al speedometer???
-    return speedometer;
+    return self.speedometer;
 }
 
-- (NSTimer*)getTimer
+- (Timer*)getTimer
 {
-    //Frecuency of the timer = 1 second
-    NSTimer *timer =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:YES];
-    return timer;
-}
-
-- (void)update
-{
-#warning incomplete: falta hacer update de todos los que se suscriban a los servicios para ser actualizados cuando se dispare el timer.
+    return self.timer;
 }
 
 @end

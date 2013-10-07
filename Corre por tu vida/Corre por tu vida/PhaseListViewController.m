@@ -8,6 +8,9 @@
 
 #import "PhaseListViewController.h"
 #import "PhaseDetailViewController.h"
+#import "ConfiguratorMock.h"
+#import "ViewController.h"
+#import "FollowUp.h"
 
 @interface PhaseListViewController ()
 
@@ -18,7 +21,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addFollowButton];
 }
+
+- (void)addFollowButton
+{
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Seguir" style:UIBarButtonItemStylePlain target:self action:@selector(follow)];
+    [self.navigationItem setRightBarButtonItem:button];
+}
+
+- (void)follow
+{
+    ConfiguratorMock *configurator = [[ConfiguratorMock alloc] init];
+    
+    self.stateService = [[StateService alloc] initWithConfigurator:configurator];
+    self.followUpController = [self.storyboard instantiateViewControllerWithIdentifier:@"followUpController"];
+    FollowUp *followUp = [[FollowUp alloc] initWithTrainingIterator:self.trainingIterator];
+    
+    [self.followUpController setFollowUp:followUp];
+    [self.followUpController setStart:[NSDate date]];
+    
+    //suscribir a todos los que necesitan saber el estado al servicio de estado
+    [self.stateService suscribeToStateService:self.followUpController];
+    [self.stateService suscribeToStateService:followUp];
+    
+    //iniciar la lectura del servicio de estado
+    [self.stateService startRead];
+
+    //redireccionar a la vista de mapa
+    [self.navigationController pushViewController:self.followUpController animated:YES];
+}
+
 
 #pragma mark - Table view data source
 
@@ -41,19 +74,6 @@
     // Configure the cell...
     
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

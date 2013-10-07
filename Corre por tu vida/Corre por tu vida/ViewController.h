@@ -8,14 +8,28 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "ConfiguratorMock.h"
+#import "State.h"
+#import "FollowUp.h"
 
 @interface ViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
     IBOutlet GMSMapView *mapView;
 }
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
+@property (strong, nonatomic) IBOutlet UIView *bottomView;
+@property (nonatomic, retain) LocationManager *locationManager;
 @property CLLocation *userLocation;
-@property BOOL userWantsLocation;
+@property (strong, nonatomic) IBOutlet UILabel *time;
+@property (strong, nonatomic) IBOutlet UILabel *mediaSpeed;
+@property (strong, nonatomic) IBOutlet UILabel *expectedSpeed;
+@property (strong, nonatomic) ConfiguratorMock *configurator;
+@property (strong, nonatomic) State *state;
+@property (strong, nonatomic) FollowUp *followUp;
+@property (strong, nonatomic) NSDate *start;
+
+@property (strong, nonatomic) NSMutableArray *positions;
+@property CGFloat sumSpeed;
+@property CGFloat measureCount;
 
 @end

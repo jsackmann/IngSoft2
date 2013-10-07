@@ -21,9 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-#warning Hay que definir un seguimiento (follow up) 
     //Mock a training iterator for a training with only one phase
-    TrainingPhase *phase = [[TrainingPhase alloc] initWithDuration:60000 minimunVelocity:5 maximumVelocity:10];
+    NSDate *finishDatePhase = [[NSDate alloc] initWithTimeInterval:60000 sinceDate:[NSDate date]];
+    TrainingPhase *phase = [[TrainingPhase alloc] initWithDuration:finishDatePhase minimunVelocity:5 maximumVelocity:10];
     Training *training = [[Training alloc] init:[NSArray arrayWithObject:phase]];
     TrainingIterator *trainingIterator = [[TrainingIterator alloc] init:training];
     self.trainings = [NSArray arrayWithObject:trainingIterator];
@@ -55,29 +55,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    self.selectedTraining = [self.trainings objectAtIndex:indexPath.row];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"phaseList"]) {
         PhaseListViewController *phaseListVC = segue.destinationViewController;
-        NSArray *phases = [[self.trainings objectAtIndex:[self.tableView indexPathForSelectedRow].row] phases];
+        NSArray *phases = [[[self.trainings objectAtIndex:[self.tableView indexPathForSelectedRow].row] training] phases];
         [phaseListVC setPhases:phases];
+        self.selectedTraining = [self.trainings objectAtIndex:[self.tableView indexPathForSelectedRow].row];
+        [phaseListVC setTrainingIterator:self.selectedTraining];
     }
-    
-}
-
-- (IBAction)follow:(id)sender {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    TrainingIterator *selectedTraining = [self.trainings objectAtIndex:indexPath.row];
-    
     
 }
 
