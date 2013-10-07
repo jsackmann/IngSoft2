@@ -26,9 +26,7 @@
 - (CLLocation*)getCurrentPosition
 {
     if (self.userLocation == nil) {
-        return self.locationManager.location;
-//        CLLocation *location = [[CLLocation alloc] initWithLatitude:-34 longitude:-150];
-//        return location;
+        self.userLocation = self.locationManager.location;
     }
     return self.userLocation;
 }

@@ -18,6 +18,7 @@
         self.trainingIterator = iterator;
         self.start = [NSDate date];
         self.firstUpdate = YES;
+        self.updateCount = 0;
     }
     return  self;
 }
@@ -39,7 +40,6 @@
     self.routed = [self.lastState.currentLocation distanceFromLocation: state.currentLocation];
     self.lastState = state;
     //Update time: es un nsdate
-    NSLog(@"en update de seguimiento");
     
 }
 
@@ -58,5 +58,18 @@
     return expectedSpeed;
 }
 
+- (userSpeedState)getUserSpeedState:(State*)state
+{
+    TrainingPhase *phase = [self.trainingIterator getCurrentPhase];
+    if (phase.minimumVelocity > state.currentSpeed) {
+        //TODO: emitir sonido: daleeee
+        return kLow;
+    } else if (phase.maximumVelocity < state.currentSpeed) {
+        //TODO: emitir sonido: bajalee
+        return kHigh;
+    }
+    //esta en el rango: otro sonido: bip! venis bien
+    return kOk;
+}
 
 @end

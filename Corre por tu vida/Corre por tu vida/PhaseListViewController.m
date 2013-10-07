@@ -40,6 +40,7 @@
     
     [self.followUpController setFollowUp:followUp];
     [self.followUpController setStart:[NSDate date]];
+    [self.followUpController setStateService:self.stateService];
     
     //suscribir a todos los que necesitan saber el estado al servicio de estado
     [self.stateService suscribeToStateService:self.followUpController];

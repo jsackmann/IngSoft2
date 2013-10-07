@@ -11,11 +11,14 @@
 #import "ConfiguratorMock.h"
 #import "State.h"
 #import "FollowUp.h"
+#import "Notificator.h"
+#import "StateService.h"
 
 @interface ViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate>
 {
     IBOutlet GMSMapView *mapView;
 }
+@property (strong, nonatomic) IBOutlet UIView *indicatorView;
 
 @property (strong, nonatomic) IBOutlet UIView *bottomView;
 @property (nonatomic, retain) LocationManager *locationManager;
@@ -27,6 +30,10 @@
 @property (strong, nonatomic) State *state;
 @property (strong, nonatomic) FollowUp *followUp;
 @property (strong, nonatomic) NSDate *start;
+@property (strong, nonatomic) Notificator *notificator;
+
+//This is for stop followup
+@property (strong, nonatomic) StateService *stateService;
 
 @property (strong, nonatomic) NSMutableArray *positions;
 @property CGFloat sumSpeed;

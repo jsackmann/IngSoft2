@@ -22,5 +22,6 @@
 - (void)update;
 - (void)suscribeToStateService:(id)aSuscriptor;
 - (void)startRead;
+- (void)unsuscribeToStateService:(id)suscriptor;
 
 @end

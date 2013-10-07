@@ -57,6 +57,8 @@
 		A4E200661801F6E100E44EDD /* FollowUp.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E200651801F6E100E44EDD /* FollowUp.m */; };
 		A4E200691801F85000E44EDD /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E200681801F85000E44EDD /* State.m */; };
 		A4E2006C1801FB4A00E44EDD /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2006B1801FB4A00E44EDD /* Timer.m */; };
+		A4E2007218024E9500E44EDD /* Notificator.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2007118024E9500E44EDD /* Notificator.m */; };
+		A4E200741802504F00E44EDD /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E200731802504F00E44EDD /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,9 @@
 		A4E200681801F85000E44EDD /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = State.m; path = model/State.m; sourceTree = "<group>"; };
 		A4E2006A1801FB4A00E44EDD /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = model/Timer.h; sourceTree = "<group>"; };
 		A4E2006B1801FB4A00E44EDD /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timer.m; path = model/Timer.m; sourceTree = "<group>"; };
+		A4E2007018024E9500E44EDD /* Notificator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notificator.h; path = model/Notificator.h; sourceTree = "<group>"; };
+		A4E2007118024E9500E44EDD /* Notificator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notificator.m; path = model/Notificator.m; sourceTree = "<group>"; };
+		A4E200731802504F00E44EDD /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E200741802504F00E44EDD /* MediaPlayer.framework in Frameworks */,
 				A4B6A0DB17D3C97A00C8E43B /* SystemConfiguration.framework in Frameworks */,
 				A4B6A0D917D3C97000C8E43B /* QuartzCore.framework in Frameworks */,
 				A4B6A0D717D3C96600C8E43B /* OpenGLES.framework in Frameworks */,
@@ -189,6 +195,7 @@
 		A4523C7D17C7CCA50047A5E1 = {
 			isa = PBXGroup;
 			children = (
+				A4E200731802504F00E44EDD /* MediaPlayer.framework */,
 				A4523C8F17C7CCA50047A5E1 /* Corre por tu vida */,
 				A4523C8817C7CCA50047A5E1 /* Frameworks */,
 				A4523C9017C7CCA50047A5E1 /* Supporting Files */,
@@ -293,6 +300,8 @@
 				A4E200681801F85000E44EDD /* State.m */,
 				A4E2006A1801FB4A00E44EDD /* Timer.h */,
 				A4E2006B1801FB4A00E44EDD /* Timer.m */,
+				A4E2007018024E9500E44EDD /* Notificator.h */,
+				A4E2007118024E9500E44EDD /* Notificator.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 				A4E200661801F6E100E44EDD /* FollowUp.m in Sources */,
 				A4E200691801F85000E44EDD /* State.m in Sources */,
 				A4E2006C1801FB4A00E44EDD /* Timer.m in Sources */,
+				A4E2007218024E9500E44EDD /* Notificator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

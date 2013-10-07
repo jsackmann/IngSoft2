@@ -1,3 +1,4 @@
+
 //
 //  StateService.m
 //  Corre por tu vida
@@ -48,4 +49,11 @@
 {
     [self.timer suscribeToTimer:self];
 }
+
+- (void)unsuscribeToStateService:(id)suscriptor
+{
+    [self.suscriptors removeObject:suscriptor];
+    [self.timer stop];
+}
+
 @end

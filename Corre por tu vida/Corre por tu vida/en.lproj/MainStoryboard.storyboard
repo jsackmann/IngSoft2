@@ -109,6 +109,11 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="TfZ-jG-QQB">
+                                        <rect key="frame" x="279" y="10" width="30" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -119,6 +124,7 @@
                     <connections>
                         <outlet property="bottomView" destination="oQo-DX-DLC" id="c3H-wV-FX8"/>
                         <outlet property="expectedSpeed" destination="gA4-uj-dJf" id="NBs-NG-VAx"/>
+                        <outlet property="indicatorView" destination="TfZ-jG-QQB" id="eO2-Hf-XfZ"/>
                         <outlet property="mapView" destination="dDt-fH-frQ" id="d7b-QQ-h0X"/>
                         <outlet property="mediaSpeed" destination="K0M-o0-uec" id="ynj-AD-Rlw"/>
                         <outlet property="time" destination="mem-r8-RdB" id="nVt-XW-CLG"/>

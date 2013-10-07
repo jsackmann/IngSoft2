@@ -27,6 +27,21 @@
     self.userLocation = [self.locationManager getCurrentPosition];
     [self mapInitialization];
     [self showCurrentLocation];
+    self.notificator = [[Notificator alloc] init];
+    [self addStopButton];
+    
+}
+
+- (void)addStopButton
+{
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithTitle:@"Stop" style:UIBarButtonItemStylePlain target:self action:@selector(stopFollowUp)];
+    [self.navigationItem setRightBarButtonItem:button];
+}
+
+- (void)stopFollowUp
+{
+    [self.stateService unsuscribeToStateService:self];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)mapInitialization
@@ -97,6 +112,24 @@
     NSDate *lastDate = state.currentTime;
     CGFloat missingTime = [lastDate timeIntervalSinceDate:self.start];
     [self.time setText:[NSString stringWithFormat:@"%.2f", missingTime]];
+    
+    //mostrar indicador visual
+    userSpeedState userSate =[self.followUp getUserSpeedState:state];
+    switch (userSate) {
+        case kLow:
+            [self.indicatorView setBackgroundColor:[UIColor redColor]];
+            [self.notificator playLowSpeedSound];
+            break;
+        case kHigh:
+            [self.indicatorView setBackgroundColor:[UIColor blueColor]];
+            [self.notificator playHighSpeedSound];
+            break;
+        default:
+            [self.notificator playOkSpeedSound];
+            [self.indicatorView setBackgroundColor:[UIColor greenColor]];
+            break;
+    } 
+    
 }
 
 
