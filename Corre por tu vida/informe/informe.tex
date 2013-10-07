@@ -47,7 +47,7 @@
 
 
 
-\parindent 0em
+% \parindent 0em
 %\algrenewcommand{\algorithmiccomment}[1]{//\textit{#1} }
 
 \lstset{language=sql,numbers=left,tabsize=2,
@@ -123,7 +123,7 @@ y a continuaci\'on incluimos el detalles de las tareas involucradas y la dificul
 	\item[] \hfill \textit{Dificultad: 3 - Horas: 8}
 	\item Codificar la lógica para que según el tipo de alerta se eliga un sonido a reproducir (potencialmente leyendo de almacenamiento el mismo) y se lo reproduzca. 
 	\item[] \hfill \textit{Dificultad: 5 - Horas: 8}
-	\item Codificar la lógica para que si la velocidad no esta en el rango, se envíe una alerta y se muestre en pantalla la diferencia y según ese rang, cuan "grave" es la alerta.
+	\item Codificar la lógica para que si la velocidad no esta en el rango, se envíe una alerta y se muestre en pantalla la diferencia y según ese rang, cuan ``grave'' es la alerta. 
 	\item[] \hfill \textit{Dificultad: 3 - Horas: 8}
 	\item Testear para los 3 tipos de condiciones de marcha válida e inválida.
 	\item[] \hfill \textit{Dificultad: 2 - Horas: 5}
@@ -169,13 +169,72 @@ y a continuaci\'on incluimos el detalles de las tareas involucradas y la dificul
 
 \subsection{Justificación del Sprint Backlog}
 
-Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el trabajo requerido por el trabajo práctico, al mismo tiempo que estamos dando valor al usuario. En total, con los estimativos de horas realizados, tenemos 121 horas y 30 minutos, que considerando los 45 días para el trabajo práctico nos deja y descontando fines de semana nos deja entonces un total de aproximadamente  por día para cada uno. Puesto que los cuatro miembros del grupo trabajan (sea en la industria o en la facultad como ayudantes) y cursan, nos pareció un buen estimativo para una cantidad razonable de trabajo. Esto por supuesto no considera la época de parciales, donde no nos fue posible seguir trabajando en el proyecto debido a compromisos de materias.
+Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el trabajo requerido por el trabajo práctico, al mismo tiempo que estamos dando valor al usuario. En total, con los estimativos de horas realizados, tenemos 121 horas y 30 minutos,  que considerando los 45 días para el trabajo práctico nos deja y descontando fines de semana nos deja entonces un total de aproximadamente  por día para cada uno. Puesto que los cuatro miembros del grupo trabajan (sea en la industria o en la facultad como ayudantes) y cursan, nos pareció un buen estimativo para una cantidad razonable de trabajo. Esto por supuesto no considera la época de parciales, donde no nos fue posible seguir trabajando en el proyecto debido a compromisos de materias.
 
 \section{Detalle de diseño}
 
 
 
 \subsection{Diagrama de clases}
+
+\subsubsection{Consideraciones Generales}
+La figura \ref{diag_diseño} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. No incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
+
+Del mismo modo, tampoco incluimos clases tales como 
+\begin{itemize}
+	\item unReal
+	\item unEntero
+	\item unBoolean
+	\item unaFecha
+\end{itemize}
+porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier librería standard.
+
+
+
+\subsubsection{Clase \texttt{ServicioDeEstado}}
+El objeto \texttt{ServicioDeEstado} tiene como principal función la de informar a los distintos componentes del programa el estado actual del teléfono en movimiento. A intervalos de tiempo regulares, configurados en última instancia por el consumo seleccionado de la batería, un objeto \texttt{ServicioDeEstado} le manda a todos los objetos a los que se hayan suscripto a él un paquete de actualización que incluye la velocidad a la que se está moviendo el dispositivo y su posición actual.
+
+Esto corresponde al patrón \texttt{observer}. El propósito de esta decisión de diseño es que identificamos dos responsabilidades que no deseábamos acoplar: la obtención de una secuencia regular de mediciones y la utilización de dichas mediciones para diversos propósitos. En particular identificamos que dichas mediciones podían ser usadas para varios objetivos, tales como:
+\begin{itemize}
+	\item Mostrar en tiempo real en el mapa la posición actual.
+	\item Obtener estadísticas sobre el entrenamiento.
+	\item Mostrar la velocidad actual de desplazamiento.
+	\item Determinar el pasaje de fases dentro de un entrenamiento.
+	\item Mostrar la velocidad a la que debería desplazarse el corredor para lograr la distancia implícita pautada en la fase.
+\end{itemize}
+Dado que esto corresponde con el patrón observer, decidimos utilizarlo para resolver el problema \cite{Gamma}.
+
+Se pueden observar ejemplos de uso de el \texttt{ServicioDeEstados} en los diagramas de secuencia \ref{diag_seq_crearServicioDeEstado} y \ref{diag_seq_actualizacionSeguimiento}. 
+
+\subsubsection{Clase \texttt{Seguimiento}}
+Un objeto \texttt{Seguimineto} tiene como funcionalidad principal la de mantener el estado de la fase actual del entrenamiento en curso. Para eso se apoya en otro objeto, el \texttt{IteradorEntrenamiento} que, como su nombre lo indica, es un iterador de un objeto \texttt{Entrenamiento}, que mantiene cuál es la fase actual. 
+
+El patrón correspondiente a esto es el \texttt{iterator} (\cite{Gamma}). Decdimos utilizarlo puesto que consideramos que no es necesario que el seguimiento conozca al entrenamiento de forma total, sino que simplemente pueda iterar sus fases como corresponda. Esto reduce el acoplamiento entre el \texttt{Seguimiento} y el \texttt{Entrenamiento}, disminuyendo el impacto de futuras modificaciones a alguna de las antedichas clases.
+
+El \texttt{Seguimiento} encapsula, por ejemplo, el cálculo de velocidad tentativa y además se ocupa de realizar las notificaciones auditivas funcionales a informar al corredor los cambios de velocidad necesarios y el cambio de fase dentro de un entrenamiento.
+
+\subsubsection{Clase \texttt{Configurador}}
+El \texttt{Configurador} encapsula la funcionalidad de modificar el comportamiento de la aplicación ante distintas configuraciones de nivel de batería. Al encapsular esta idea, se hace necesario que pueda influir sobre los objetos que realizan mediciones, para personalizar un \emph{trade-off} entre precisión y consumo. 
+
+Para lograr esto, se utilizó el patrón \texttt{Factory} (\cite{Gamma}) para generar distintos objetos \texttt{Posicionador}, \texttt{Timer}, \texttt{Notificador} y \texttt{MedidorDeVelocidad}. Nuestro adaptación de este patrón al problema particular del TP fue realizar tres subclases de configurador, una para cada tipo de batería. Esto provee extensibilidad, ya que si se quisiera agregar otra configuración de batería, sólo sería necesario crear una nueva clase que implemente la interfaz definida por \texttt{Configurador}. 
+
+Entendemos que esto no es la mejor forma de resolverlo, ya que dificulta el cambio dinámico de estado de batería, puesto que hay que destruir el configurador y crearlo de nuevo. Podría mejorarse implementando un patrón \texttt{Decorator} (sea recursivo o iterando sobre una lista de métodos a aplicar). Sin embargo, dado que el usuario no puede cambiar la configuración de la batería mientras corre y que sea de la forma actual o con \texttt{Decorator} hay que destruir y crear un nuevo \texttt{Posicionador}, \texttt{Timer}, etc. decidimos dejarlo con el diseño actual, que es mucho más sencillo y, por ende, fácil de entender.
+
+\subsubsection{Estadísticas}
+La representación de las estadísticas en el diseño presentado tiene una complejidad no menor en pos de proveer extensibilidad y usabilidad. 
+
+En primer lugar se define una interfaz \texttt{Estadistica} que define que toda estadística debe implementar un método que reporte su valor. Además, las clase \texttt{Estadistica} hereda de \texttt{SuscriptorDeSerticioDeEstado}. Esto implica que todas las estadísticas deben implementar el método \emph{actualizar (unEstado)} para poder suscribirse a las notificaciones del \texttt{ServicioDeEstados} y actualizarse pertinentemente (consideramos que es responsabilidad de cada estadística saber cómo actualizarse cuando le llega un nuevo paquete de \texttt{Estado}). 
+
+Por ejemplo, la estadística de velocidad máxima reporta como resultado final el máximo de las velocidades a las que se desplazó el corredor y su actualización cuando llega un nuevo paquete de \texttt{Estado} compara la nueva velocidad con la almacenada y se queda con la mayor. 
+
+La interfaz \texttt{Estadística} hereda dos subclases: \texttt{EstadisticaGeneral} y \texttt{EstadisticaDeEntrenamiento}, que, como sus nombres los indican, representan las estadísticas generales y las asociadas a un entrenamiento particular respectivamente. El motivo de esta separación es que podría haber estadísticas que no tengan sentido considerarlas para un entrenamiento particular (por ejemplo, si en el futuro se implementara almacenar información climática y nutricional a los entrenamientos, uno podría querer una estadística del tipo: ``Velocidad promedio los martes lluviosos en los que entrené después de haber comido pastaflora''). No pondemos estadísticas para las fases porque nos pareció que en este punto no tenemos suficiente conocimiento del dominio como para determinar si las estadísticas por fase eran relevantes.
+
+
+Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). 
+
+Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tipo (general o de entrenamiento) y crear una nueva clase que implemente los métodos \emph{actualizar(unEstado)} y \emph{resultado() : unReal}.
+
+ 
 
 \subsection{Diagramas de secuencia}
 
