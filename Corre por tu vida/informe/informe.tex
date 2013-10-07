@@ -228,12 +228,10 @@ Por ejemplo, la estadística de velocidad máxima reporta como resultado final e
 
 La interfaz \texttt{Estadística} hereda dos subclases: \texttt{EstadisticaGeneral} y \texttt{EstadisticaDeEntrenamiento}, que, como sus nombres los indican, representan las estadísticas generales y las asociadas a un entrenamiento particular respectivamente. El motivo de esta separación es que podría haber estadísticas que no tengan sentido considerarlas para un entrenamiento particular (por ejemplo, si en el futuro se implementara almacenar información climática y nutricional a los entrenamientos, uno podría querer una estadística del tipo: ``Velocidad promedio los martes lluviosos en los que entrené después de haber comido pastaflora''). No pondemos estadísticas para las fases porque nos pareció que en este punto no tenemos suficiente conocimiento del dominio como para determinar si las estadísticas por fase eran relevantes.
 
-
-Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). 
-
 Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tipo (general o de entrenamiento) y crear una nueva clase que implemente los métodos \emph{actualizar(unEstado)} y \emph{resultado() : unReal}.
 
- 
+Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). Se consideró hacer más extensible este diseño modificando la forma en la que se muestra una estadística utilizando un patrón \texttt{visitor}. Esto permitiría mucha más flexibilidad a la hora de mostrar o exportar una estadística. Esta idea no fue descartada por completo, pero la consideramos demasiado compleja para la primer iteración del \texttt{Scrum}. Es uno de los cambios a realizar en siguientes iteraciones.
+
 
 \subsection{Diagramas de secuencia}
 
