@@ -176,7 +176,9 @@ Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el
 \subsection{Diagrama de clases}
 
 \subsubsection{Consideraciones Generales}
-La figura \ref{diag_diseño} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. No incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
+La figura \ref{diag_diseno} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. En el diagrama los controladores se muestran relacionados con aristas no dirigidas y sin aridad. Estas asociaciones representan ``saltos'' entre vistas y relaciones entre controladores, no la canónica relación de conocimiento que denotan las uniones en los diagramas de clases UML. Esto es porque en iOS esta relación de conocimiento entre controladores se implementa a través del \emph{NavigationController}. Incluirlo en el diseño no sólo acoplaría mucho el diseño a una plataforma particular, sino que elevaría su complejidad notablemente. Creemos que esta pequeña licencia en la semántica de UML nos permite expresar lo que deseamos (la relación entre los controladores del modelo \texttt{MVC}) manteniendo al diseño independiente de plataforma y acotada su complejidad.
+
+Similarmente, no incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
 
 Del mismo modo, tampoco incluimos clases tales como 
 \begin{itemize}
@@ -186,7 +188,6 @@ Del mismo modo, tampoco incluimos clases tales como
 	\item unaFecha
 \end{itemize}
 porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier librería standard.
-
 
 
 \subsubsection{Clase \texttt{ServicioDeEstado}}
