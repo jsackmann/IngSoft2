@@ -16,5 +16,6 @@
 - (id)init;
 - (void)update;
 - (void)suscribeToTimer:(id)aSuscriptor;
+- (void)start;
 
 @end

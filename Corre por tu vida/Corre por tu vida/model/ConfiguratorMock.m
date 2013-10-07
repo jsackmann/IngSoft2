@@ -15,12 +15,13 @@
 {
     self = [super init];
     if (self) {
+        self.timer = [[Timer alloc] init];
         //initialization of location manager
-        self.locationManager = [[LocationManager alloc] init];
+        self.locationManager = [[LocationManager alloc] initWithTimer:self.timer];
         //initialization of speedometer
 #warning La frecuencia por ahora esta cableada
         self.speedometer = [[Speedometer alloc] initWithLocationManager:self.locationManager frecuency:10];
-        self.timer = [[Timer alloc] init];
+        
         
     }
     return self;

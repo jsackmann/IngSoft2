@@ -10,10 +10,12 @@
 
 @implementation LocationManager
 
-- (id)init
+- (id)initWithTimer:(Timer *)timer
 {
     self = [super init];
     if (self) {
+        self.firstUpdate = YES;
+        self.timer = timer;
         self.locationManager = [[CLLocationManager alloc] init];
         [self.locationManager setDelegate:self];
         [self.locationManager startUpdatingLocation];
@@ -25,12 +27,23 @@
 {
     if (self.userLocation == nil) {
         return self.locationManager.location;
+//        CLLocation *location = [[CLLocation alloc] initWithLatitude:-34 longitude:-150];
+//        return location;
     }
     return self.userLocation;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     self.userLocation = [locations objectAtIndex:0];
+    if (self.firstUpdate) {
+        self.firstUpdate = NO;
+        [self.timer start];
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"Failed with error: %@", error);
 }
 
 @end

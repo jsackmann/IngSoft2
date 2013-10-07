@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         //initialization of timer: frecuency of the timer = 1 second
-        self.timer =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:YES];
+//        self.timer =[NSTimer timerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:YES];
         self.suscriptors = [NSMutableArray array];
     }
     return self;
@@ -35,5 +35,14 @@
     [self.suscriptors addObject:aSuscriptor];
 }
 
+
+- (void)start
+{
+    self.timer =[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(update) userInfo:nil repeats:YES];
+//    [self.timer fire];
+    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
+    [runLoop addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    
+}
 
 @end
