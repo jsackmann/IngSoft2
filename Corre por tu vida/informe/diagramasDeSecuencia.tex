@@ -5,10 +5,11 @@ Para clarificar algunas de las partes del código que consideramos más difícil
 % \begin{center}
 % 	\includegraphics[scale=0.5]{images/diagSeq.png}
 % \end{center}
+
 Este diagrama de secuencia muestra el proceso de inicio de seguimiento. A grandes razgos, el controlador de fase crea un servicio de estado (que será le encargado de mandar las actualizaciones de estado a otros componentes). Esta interacción es un poco compleja para ponerla en el mismo diagrama, así que se la separó en el diagrama ``Crear un servicio de estados'', que se puede ver en la sección \ref{diag_crearUnServicioDeEstado}. 
 
 
-Luego se procede a suscribir a todos los objetos que deben recibir actualizaciones de estado al controlador (creándolos si no existían), para lo que se le manda repetidas veces el mensaje \emph{suscribir (unObjeto)} al \texttt{ServicioDeEstado}. 
+Luego se procede a suscribir a todos los objetos que deben recibir actualizaciones de estado al controlador (creándolos si no existían), para lo que se le manda repetidas veces el mensaje \emph{suscribir (unObjeto)} al \texttt{ServicioDeEstado}. Antes de eso, se suscribe al \texttt{ControladorDeSeguimiento} al \texttt{Seguimiento} para que este pueda informarle al primero cuando se finalizó el seguimiento. Esto es posible porque el \texttt{ServicioDeEstados} implementa la interfaz \texttt{SuscriptorDeFinSeguimiento}.
 
 
 Finalmente, se inicializa el servicio de estados, enviándole el mensaje \emph{iniciarLectura ()}, lo que provoca que éste (que implementa la interfaz \texttt{SuscriptorDeTimer}), le envíe un mensaje \emph{suscribir (self)} al timer. De esa forma queda suscripto el notificador de estados al timer y éste le enviará notificaciones a intervalos regulares.
@@ -25,6 +26,7 @@ Suponiendo que el usuario ya realizó la configuración inicial y tiene algún p
 % \begin{center}
 % 	\includegraphics[scale=0.5]{images/diagSeq.png}
 % \end{center}
+
 Este diagrama muestra la secuencia de mensajes intercambiados a la hora de realizar una actualiación dentro de una fase, mientras el usuario está corriendo. Los pasos para llegar a este mensaje son los mismos que el anterior, esperando el tiempo correspondiente a la frecuencia de actualización que se haya realizado.
 
 
@@ -40,6 +42,7 @@ Finalmente le envía a cada uno de sus suscriptores el mensaje \emph{actualizar 
 % \begin{center}
 % 	\includegraphics[scale=0.5]{images/diagSeq.png}
 % \end{center}
+
 En este diagrama se puede observar el proceso de creación de un objeto \texttt{ServicioDeEstado}, que se crea al comenzar el entrenamiento, como se puede ver en la sección \ref{diag_inicioSeguimiento}. Para crear el \texttt{ServicioDeEstado}
  se pasa como parámetro un \texttt{Configurador}, del que se obtienen y setean como colaboradores internos el \texttt{Timer}, el \texttt{Posicionador} y el \texttt{MedidorVelocidad}. El configurador crea dinámicamente estos elementos a medida que se le son solicitados y los devuelve.
 
@@ -57,6 +60,10 @@ Para la creación del servicio de estado se nos planteó una disyuntiva:
 % \begin{center}
 % 	\includegraphics[scale=0.5]{images/diagSeq.png}
 % \end{center}
+
+Este diagrama muestra cómo es el proceso de finalización de un seguimiento cuando concluye un entrenamiento. El \texttt{Seguimiento}, encargado de seguir el proceso de entrenamiento, se da cuenta de que el entrenamiento finalizó (puede haber sido porque el usuario cumplió el tiempo y distancia correspondientes a la última fase del entrenamiento en curso o porque apretó el botón de ``detener'' en la vista de seguimiento) y se le informa al \texttt{ServicioDeEstados} que deje de tomar lecturas del \texttt{Timer}. Para eso, le envía el mensaje \emph{finLectura ()}. 
+
+Acto seguido, el controlador informa al \texttt{StoreEstadisticasGenerales} que guarde las estadísticas generales que se estuvieron actualizando durante el entrenamiento (mediante el mensaje \emph{guardar ()}) y procede a crear un nuevo objeto \texttt{EntrenamientoConcluido} para almacenarlo en su correspondiente \texttt{StoreEntrenamientoConcluido}. Para eso, obtiene el \texttt{Recorrido} del \texttt{GeneradorDeRecorridos} y, usando sus colaboradores internos \texttt{Plan} y \texttt{CollectionEstadisticasEntrenamiento}, llama al \emph{new(unPlan, unaColeccionDeEstadisticas, unRecorrido)} de la clase \texttt{claseEntrenamientoConcluido}. Esto le devuelve un objeto \texttt{EntrenamientoConcluido}, que agrega al \texttt{StoreEntrenamientoConcluido}.
 
 \subsubsection{Listado de estadísticas del usuario}
 \subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
