@@ -234,12 +234,22 @@ Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrab
 
 Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tipo (general o de entrenamiento) y crear una nueva clase que implemente los métodos \emph{actualizar(unEstado)} y \emph{resultado() : unReal}.
 
- 
+\subsubsection{Fases, Entrenamiento, Planes y Planificador}
+
+Para abstraer la lógica de planes del resto del sistema, decidimos utilizar una interfaz que denominamos \texttt{Planificador} que se ocupa de devolver un
+\texttt{Plan}. Un \texttt{Plan} consiste en una secuencia de \texttt{Entrenamientos} y un plazo que es el que le determina su validez (por ejemplo, cuando ya no logramos el objetivo en el plazo planteado, no tiene sentido mantener este plan en la lista de los realizables para el usuario). Cada \texttt{Entrenamiento} consiste en una serie de \texttt{Fases}. Cada \texttt{Fase} contiene una velocidad mínima y máxima que forman el rango aceptable para correr, y una duración. De esta manera, no tenemos acoplamiento entre la lógica que produce un plan y el resto del sistema, porque solo se conocen en \texttt{Plan} que es algo desconectado de la lógica de negocio que lo trajo al mundo.
+
+Dado que desconocemos del dominio lo suficiente como para poder realizar una implementación fidedigna de acuerdo a parámetros médicos y deportivos, decidimos tratar de proveer un dise\~no extensible pero dentro de las limitaciones indicadas en el trabajo práctico. Para ello incluimos en el dise\~no un planificador básico.
+
+El \texttt{Planificador Básico} emplea los datos indicados en el trabajo práctico para obtener el plan: Las características de la persona (peso y altura), un objetivo(que consiste en indicar cuantos kilómetros se desea correr, y opcionalmente en cuanto tiempo desea poder correrlo), su disponibilidad (en horas por semana), un plazo estipulado (como una fecha límite) y su estado actual (cuantos kilómetros fue lo máximo que corrió y en cuanto tiempo lo hizo).
+
+Decidimos restringirnos a este diseño puesto que no nos pareció que tuvieramos el suficiente conocimiento como para realizar más detalles, y no tomamos una postura de pensar más en extensibilidad puesto que el trabajo práctico no indica que pueda haber cambios en este área.
+
+Algunos de estos factores nos pareció pertinente incluirlos como parte de un \texttt{PerfilCorredor} y tomarlo como parte del \texttt{Corredor} (que además de esto incluye todos sus planes). Los demás factores son específicos a cuando se crea un plan, por lo tanto son conocidos y creados por el \texttt{NuevoPlanControlador} que es el que toma estos datos al preguntarle al usuario cuando este desea crear un nuevo plan.
+
+El objetivo puede o no tener un tiempo asignado de corrida. Para esto, delegamos esta responsabilidad en un objeto \texttt{TiempoParaDistancia}. Las subclases de
+este implementan distinto comportamiento. Dado el conocimiento que tenemos del dominio, decidimos que lo que nos interesaba de este valor es compararlo con otro, para saber si es menor o igual que otro. En este caso, un limite sin restricciones es mayor a cualquiera y nunca es menor a otro. De esta manera se puede implementar cualquier tipo de algoritmo en el que sea necesario utilizar rangos de tiempos (sea cual sea).
 
 \subsection{Diagramas de secuencia}
-
-\subsection{Justificación de decisiones tomadas}
-
-\section{Detalles de la codificación}
 
 \end{document}
