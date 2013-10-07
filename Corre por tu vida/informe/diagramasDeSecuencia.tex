@@ -79,3 +79,10 @@ Cuando el \texttt{Seguimiento} recibe el mensaje \emph{actualizar (unEstado)}, e
 Con esos tres datos, el \texttt{Seguimiento} verifica que la velocidad actual esté en rango y, suponiendo que no lo está (que está por encima de la máxima) le envía un mensaje a su colaborador interno \texttt{Notificador} diciéndole que notifique que la velocidad actual es muy alta (\emph{notificarVelAlta ()}). 
 
 \subsubsection{Crear un plan básico}
+% \begin{center}
+% 	\includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+
+Este diagrama representa el conjunto de mensajes que se intercambian a la hora de crear un plan nuevo. Si bien la creación en si misma está abstraida en un mensaje (\emph{generarPlan ()}) este diagrama muestra cómo el \texttt{ControladorNuevoPlan} obtiene los parámetros necesarios para crear el \texttt{Planificador} que, al recibir \emph{generarPlan ()} va a construir una instancia de \texttt{Plan}. 
+
+Tanto el \texttt{Objetivo} como el \texttt{Plan} son colaboradores internos del \texttt{ControladorNuevoPlan}, mientras que el perfil de corredor lo obtiene enviándole el mensaje \emph{damePerfilCorredor ()} al objeto \texttt{unCorredor}.
