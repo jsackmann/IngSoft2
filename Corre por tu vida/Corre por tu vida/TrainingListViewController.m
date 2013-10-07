@@ -65,6 +65,7 @@
         PhaseListViewController *phaseListVC = segue.destinationViewController;
         NSArray *phases = [[[self.trainings objectAtIndex:[self.tableView indexPathForSelectedRow].row] training] phases];
         [phaseListVC setPhases:phases];
+        self.selectedTraining = [self.trainings objectAtIndex:[self.tableView indexPathForSelectedRow].row];
         [phaseListVC setTrainingIterator:self.selectedTraining];
     }
     

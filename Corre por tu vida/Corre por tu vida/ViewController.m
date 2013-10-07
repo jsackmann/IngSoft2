@@ -51,35 +51,12 @@
     [self.view addSubview:self.bottomView];
 }
 
-//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-//
-//    self.userLocation = [locations objectAtIndex:0];
-//    if (self.userWantsLocation) {
-//        [self setUserWantsLocation:NO];
-//        GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.userLocation.coordinate.latitude longitude:self.userLocation.coordinate.longitude zoom:16.0];
-//        mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-//        [self.view layoutIfNeeded];
-//        self.view = mapView;
-//        mapView.myLocationEnabled = YES;
-//        mapView.settings.myLocationButton = YES;
-//        mapView.settings.compassButton = YES;
-//        [mapView setDelegate:self];
-//        [mapView animateToCameraPosition:camera];
-//    }
-//    [self drawLine];
-//}
-
 - (void)drawLine
 {
-//#warning getPath from array path
     GMSMutablePath *path = [GMSMutablePath path];
     for (CLLocation *location in self.positions) {
         [path addCoordinate:location.coordinate];
     }
-//    [path addCoordinate:CLLocationCoordinate2DMake(-34.60695, -58.380725)];
-//    [path addCoordinate:CLLocationCoordinate2DMake(-34.60795, -58.380725)];
-//    [path addCoordinate:CLLocationCoordinate2DMake(-34.60795, -58.382)];
-//    [path addCoordinate:CLLocationCoordinate2DMake(-34.60695, -58.382)];
     
     GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
     polyline.map = mapView;
@@ -105,12 +82,12 @@
     //calcular y mostrar la velocidad promedio
     self.sumSpeed += state.currentSpeed;
     self.measureCount += 1;
-    CGFloat mediumSpeed = roundf(self.sumSpeed / self.measureCount);
+    CGFloat mediumSpeed = self.sumSpeed / self.measureCount;
     [self.mediaSpeed setText:[NSString stringWithFormat:@"%f m/seg", mediumSpeed]];
     
     //calcular y mostrar velocidad esperada
     CGFloat expectedSpeed = [self.followUp expectedSpeed];
-    [self.expectedSpeed setText:[NSString stringWithFormat:@"%f m/seg", roundf(expectedSpeed)]];
+    [self.expectedSpeed setText:[NSString stringWithFormat:@"%f m/seg", expectedSpeed]];
     
     //mostrar tiempo
     NSDate *lastDate = state.currentTime;

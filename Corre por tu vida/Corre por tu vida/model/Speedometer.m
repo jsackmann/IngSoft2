@@ -33,9 +33,11 @@
 //Speed in meters per seconds
     
     //Calculate distance
-    CLLocationDistance distance = [self.startPoint distanceFromLocation:[self.locationManager getCurrentPosition]];
+    CLLocation *currentPosition = [self.locationManager getCurrentPosition];
+    CLLocationDistance distance = [self.startPoint distanceFromLocation: currentPosition];
+    self.startPoint = currentPosition;
     //Calculate speed en meter per seconds
-    CGFloat speed = roundf(distance / self.seconds);
+    CGFloat speed = distance / self.seconds;
     return speed;
 }
 
