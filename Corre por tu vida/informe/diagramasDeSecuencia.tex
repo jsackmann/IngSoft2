@@ -34,7 +34,7 @@ En primer lugar, el objeto \texttt{Timer} recibe un mensaje \emph{tic ()}. Este 
 Al recibir este mensaje, el \texttt{ServicioDeEstado} le solicita a sus colaboradores internos la velocidad y posición actual del teléfono (mediante los mensajes \emph{velocidadActual ()} y \emph{posición ()} respectivamente) y crea un nuevo \texttt{Estado} con esa información.
 
 
-Finalmente le envía a cada uno de sus sucriptores el mensaje \emph{actualizar (unEstado)}, para que estos puedan realizar sus respectivas acciones con la nueva información del estado. 
+Finalmente le envía a cada uno de sus suscriptores el mensaje \emph{actualizar (unEstado)}, para que estos puedan realizar sus respectivas acciones con la nueva información del estado. 
 
 \subsubsection{Crear un servicio de estados}\label{diag_crearUnServicioDeEstado}
 % \begin{center}
@@ -54,6 +54,10 @@ Para la creación del servicio de estado se nos planteó una disyuntiva:
 
 
 \subsubsection{Finalización de un seguimiento}
+% \begin{center}
+% 	\includegraphics[scale=0.5]{images/diagSeq.png}
+% \end{center}
+
 \subsubsection{Listado de estadísticas del usuario}
 \subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
-\subsubsection{Crear un plán básico}
+\subsubsection{Crear un plan básico}
