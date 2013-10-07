@@ -83,16 +83,20 @@
     self.sumSpeed += state.currentSpeed;
     self.measureCount += 1;
     CGFloat mediumSpeed = self.sumSpeed / self.measureCount;
-    [self.mediaSpeed setText:[NSString stringWithFormat:@"%f m/seg", mediumSpeed]];
+    
+    //convert speeds from meter per second to kilometers per hour
+    mediumSpeed = mediumSpeed * 3.6;
+    [self.mediaSpeed setText:[NSString stringWithFormat:@"%.2f Km/h", mediumSpeed]];
     
     //calcular y mostrar velocidad esperada
     CGFloat expectedSpeed = [self.followUp expectedSpeed];
-    [self.expectedSpeed setText:[NSString stringWithFormat:@"%f m/seg", expectedSpeed]];
+    expectedSpeed = expectedSpeed * 3.6;
+    [self.expectedSpeed setText:[NSString stringWithFormat:@"%.2f Km/h", expectedSpeed]];
     
     //mostrar tiempo
     NSDate *lastDate = state.currentTime;
     CGFloat missingTime = [lastDate timeIntervalSinceDate:self.start];
-    [self.time setText:[NSString stringWithFormat:@"%f", missingTime]];
+    [self.time setText:[NSString stringWithFormat:@"%.2f", missingTime]];
 }
 
 

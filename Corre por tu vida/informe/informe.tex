@@ -235,8 +235,7 @@ Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tip
 Para mostrar las estadísticas se implementa la clase \texttt{EstadisticaMostrable}, que se construye con un objeto de la clase \texttt{Estadistica} y un nombre y tiene como único método ``mostrar()'', que devuelve un objeto apto para imprimir por pantalla en la plataforma que se esté implementando el modelo (en nuestro caso actual, un NSString). Se consideró hacer más extensible este diseño modificando la forma en la que se muestra una estadística utilizando un patrón \texttt{visitor}. Esto permitiría mucha más flexibilidad a la hora de mostrar o exportar una estadística. Esta idea no fue descartada por completo, pero la consideramos demasiado compleja para la primer iteración del \texttt{Scrum}. Es uno de los cambios a realizar en siguientes iteraciones.
 
 \subsubsection{Fases, Entrenamiento, Planes y Planificador}
-Para abstraer la lógica de planes del resto del sistema, decidimos utilizar una interfaz que denominamos \texttt{Planificador} que se ocupa de devolver un
-\texttt{Plan}. Un \texttt{Plan} consiste en una secuencia de \texttt{Entrenamientos} y un plazo que es el que le determina su validez (por ejemplo, cuando ya no logramos el objetivo en el plazo planteado, no tiene sentido mantener este plan en la lista de los realizables para el usuario). Cada \texttt{Entrenamiento} consiste en una serie de \texttt{Fases}. Cada \texttt{Fase} contiene una velocidad mínima y máxima que forman el rango aceptable para correr, y una duración. De esta manera, no tenemos acoplamiento entre la lógica que produce un plan y el resto del sistema, porque solo se conocen en \texttt{Plan} que es algo desconectado de la lógica de negocio que lo trajo al mundo.
+Para abstraer la lógica de planes del resto del sistema, decidimos utilizar una interfaz que denominamos \texttt{Planificador} que se ocupa de devolver un \texttt{Plan}. Un \texttt{Plan} consiste en una secuencia de \texttt{Entrenamientos} y un plazo que es el que le determina su validez (por ejemplo, cuando ya no logramos el objetivo en el plazo planteado, no tiene sentido mantener este plan en la lista de los realizables para el usuario). Cada \texttt{Entrenamiento} consiste en una serie de \texttt{Fases}. Cada \texttt{Fase} contiene una velocidad mínima y máxima que forman el rango aceptable para correr, y una duración. De esta manera, no tenemos acoplamiento entre la lógica que produce un plan y el resto del sistema, porque solo se conocen en \texttt{Plan} que es algo desconectado de la lógica de negocio que lo trajo al mundo.
 
 Dado que desconocemos del dominio lo suficiente como para poder realizar una implementación fidedigna de acuerdo a parámetros médicos y deportivos, decidimos tratar de proveer un dise\~no extensible pero dentro de las limitaciones indicadas en el trabajo práctico. Para ello incluimos en el dise\~no un planificador básico.
 
@@ -246,19 +245,10 @@ Decidimos restringirnos a este diseño puesto que no nos pareció que tuvieramos
 
 Algunos de estos factores nos pareció pertinente incluirlos como parte de un \texttt{PerfilCorredor} y tomarlo como parte del \texttt{Corredor} (que además de esto incluye todos sus planes). Los demás factores son específicos a cuando se crea un plan, por lo tanto son conocidos y creados por el \texttt{NuevoPlanControlador} que es el que toma estos datos al preguntarle al usuario cuando este desea crear un nuevo plan.
 
-El objetivo puede o no tener un tiempo asignado de corrida. Para esto, delegamos esta responsabilidad en un objeto \texttt{TiempoParaDistancia}. Las subclases de
-este implementan distinto comportamiento. Dado el conocimiento que tenemos del dominio, decidimos que lo que nos interesaba de este valor es compararlo con otro, para saber si es menor o igual que otro. En este caso, un limite sin restricciones es mayor a cualquiera y nunca es menor a otro. De esta manera se puede implementar cualquier tipo de algoritmo en el que sea necesario utilizar rangos de tiempos (sea cual sea).
+El objetivo puede o no tener un tiempo asignado de corrida. Para esto, delegamos esta responsabilidad en un objeto \texttt{TiempoParaDistancia}. Las subclases de este implementan distinto comportamiento. Dado el conocimiento que tenemos del dominio, decidimos que lo que nos interesaba de este valor es compararlo con otro, para saber si es menor o igual que otro. En este caso, un limite sin restricciones es mayor a cualquiera y nunca es menor a otro. De esta manera se puede implementar cualquier tipo de algoritmo en el que sea necesario utilizar rangos de tiempos (sea cual sea).
 
 \subsection{Diagramas de secuencia}
 
-Para clarificar algunas de las partes del código que consideramos más difíciles de plasmar en un diagrama estático, incluimos diagramas de secuencia para diversas partes del trabajo práctico. Estas partes corresponden a diversas situaciones donde mostramos como podría ser una implementación de la lógica secuencial que se desarrolla.
-
-\subsubsection{Inicio de un seguimiento}
-\subsubsection{Actualización dentro de un seguimiento}
-\subsubsection{Crear un servicio de estados}
-\subsubsection{Finalización de un seguimiento}
-\subsubsection{Listado de estadísticas del usuario}
-\subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
-\subsubsection{Crear un plán básico}
+\input{diagramasDeSecuencia.tex}
 
 \end{document}
