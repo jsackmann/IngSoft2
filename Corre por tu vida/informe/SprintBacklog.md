@@ -91,7 +91,6 @@
 	Codificar un sistema de administración de actualizaciones para			2h
 	proveer los datos de posición a los distintos módulos
 
-	Testear para los 3 tipos de condiciones de marcha válida e inválida		2h
 	--------------------------------------------------------------------------
 
 5) Como Secretaría de Deportes de la ciudad de Balvanera y San Cristóbal, quiero tener un documento detallado del diseño de la aplicación
