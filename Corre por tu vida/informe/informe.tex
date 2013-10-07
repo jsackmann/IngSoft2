@@ -246,8 +246,7 @@ Decidimos restringirnos a este diseño puesto que no nos pareció que tuvieramos
 
 Algunos de estos factores nos pareció pertinente incluirlos como parte de un \texttt{PerfilCorredor} y tomarlo como parte del \texttt{Corredor} (que además de esto incluye todos sus planes). Los demás factores son específicos a cuando se crea un plan, por lo tanto son conocidos y creados por el \texttt{NuevoPlanControlador} que es el que toma estos datos al preguntarle al usuario cuando este desea crear un nuevo plan.
 
-El objetivo puede o no tener un tiempo asignado de corrida. Para esto, delegamos esta responsabilidad en un objeto \texttt{TiempoParaDistancia}. Las subclases de
-este implementan distinto comportamiento. Dado el conocimiento que tenemos del dominio, decidimos que lo que nos interesaba de este valor es compararlo con otro, para saber si es menor o igual que otro. En este caso, un limite sin restricciones es mayor a cualquiera y nunca es menor a otro. De esta manera se puede implementar cualquier tipo de algoritmo en el que sea necesario utilizar rangos de tiempos (sea cual sea).
+El objetivo puede o no tener un tiempo asignado de corrida. Para esto, delegamos esta responsabilidad en un objeto \texttt{TiempoParaDistancia}. Las subclases de este implementan distinto comportamiento. Dado el conocimiento que tenemos del dominio, decidimos que lo que nos interesaba de este valor es compararlo con otro, para saber si es menor o igual que otro. En este caso, un limite sin restricciones es mayor a cualquiera y nunca es menor a otro. De esta manera se puede implementar cualquier tipo de algoritmo en el que sea necesario utilizar rangos de tiempos (sea cual sea).
 
 \subsection{Diagramas de secuencia}
 
