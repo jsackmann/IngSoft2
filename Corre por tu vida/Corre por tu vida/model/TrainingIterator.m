@@ -20,7 +20,7 @@
     return self;
 }
 
-- (TrainingPhase*)currentPhase
+- (TrainingPhase*)getCurrentPhase
 {
     return self.currentPhase;
 }

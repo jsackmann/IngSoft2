@@ -17,7 +17,7 @@
 
 - (id)init:(Training*)training;
 
-- (TrainingPhase*)currentPhase;
+- (TrainingPhase*)getCurrentPhase;
 - (void)nextPhase;
 - (BOOL)hasNextPhase;
 

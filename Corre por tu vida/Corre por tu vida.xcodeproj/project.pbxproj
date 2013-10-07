@@ -54,6 +54,10 @@
 		A4DC6EEE1800BB8E003D7848 /* StateService.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC6EED1800BB8D003D7848 /* StateService.m */; };
 		A4DC6EF11800BC54003D7848 /* Speedometer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC6EF01800BC53003D7848 /* Speedometer.m */; };
 		A4DC6EF41800BDDC003D7848 /* ConfiguratorMock.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DC6EF31800BDDB003D7848 /* ConfiguratorMock.m */; };
+		A4E200631801ED4800E44EDD /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E200621801ED4800E44EDD /* LocationManager.m */; };
+		A4E200661801F6E100E44EDD /* FollowUp.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E200651801F6E100E44EDD /* FollowUp.m */; };
+		A4E200691801F85000E44EDD /* State.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E200681801F85000E44EDD /* State.m */; };
+		A4E2006C1801FB4A00E44EDD /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E2006B1801FB4A00E44EDD /* Timer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +142,14 @@
 		A4DC6EF01800BC53003D7848 /* Speedometer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Speedometer.m; path = model/Speedometer.m; sourceTree = "<group>"; };
 		A4DC6EF21800BDDA003D7848 /* ConfiguratorMock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfiguratorMock.h; path = model/ConfiguratorMock.h; sourceTree = "<group>"; };
 		A4DC6EF31800BDDB003D7848 /* ConfiguratorMock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfiguratorMock.m; path = model/ConfiguratorMock.m; sourceTree = "<group>"; };
+		A4E200611801ED4800E44EDD /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationManager.h; path = model/LocationManager.h; sourceTree = "<group>"; };
+		A4E200621801ED4800E44EDD /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationManager.m; path = model/LocationManager.m; sourceTree = "<group>"; };
+		A4E200641801F6E100E44EDD /* FollowUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowUp.h; path = model/FollowUp.h; sourceTree = "<group>"; };
+		A4E200651801F6E100E44EDD /* FollowUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowUp.m; path = model/FollowUp.m; sourceTree = "<group>"; };
+		A4E200671801F84F00E44EDD /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = State.h; path = model/State.h; sourceTree = "<group>"; };
+		A4E200681801F85000E44EDD /* State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = State.m; path = model/State.m; sourceTree = "<group>"; };
+		A4E2006A1801FB4A00E44EDD /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Timer.h; path = model/Timer.h; sourceTree = "<group>"; };
+		A4E2006B1801FB4A00E44EDD /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Timer.m; path = model/Timer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +290,14 @@
 				A4DC6EF01800BC53003D7848 /* Speedometer.m */,
 				A4DC6EF21800BDDA003D7848 /* ConfiguratorMock.h */,
 				A4DC6EF31800BDDB003D7848 /* ConfiguratorMock.m */,
+				A4E200611801ED4800E44EDD /* LocationManager.h */,
+				A4E200621801ED4800E44EDD /* LocationManager.m */,
+				A4E200641801F6E100E44EDD /* FollowUp.h */,
+				A4E200651801F6E100E44EDD /* FollowUp.m */,
+				A4E200671801F84F00E44EDD /* State.h */,
+				A4E200681801F85000E44EDD /* State.m */,
+				A4E2006A1801FB4A00E44EDD /* Timer.h */,
+				A4E2006B1801FB4A00E44EDD /* Timer.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -435,6 +455,10 @@
 				A4DC6EEE1800BB8E003D7848 /* StateService.m in Sources */,
 				A4DC6EF11800BC54003D7848 /* Speedometer.m in Sources */,
 				A4DC6EF41800BDDC003D7848 /* ConfiguratorMock.m in Sources */,
+				A4E200631801ED4800E44EDD /* LocationManager.m in Sources */,
+				A4E200661801F6E100E44EDD /* FollowUp.m in Sources */,
+				A4E200691801F85000E44EDD /* State.m in Sources */,
+				A4E2006C1801FB4A00E44EDD /* Timer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

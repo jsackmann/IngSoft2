@@ -8,12 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
-#import "Speedometer.h"
 #import "ConfiguratorMock.h"
 
 @interface StateService : NSObject
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) LocationManager *locationManager;
 @property (strong, nonatomic) Speedometer *speedometer;
+@property (strong, nonatomic) ConfiguratorMock *configurator;
+@property (strong, nonatomic) Timer *timer;
+@property (strong, nonatomic) NSMutableArray *suscriptors;
+
+- (id)initWithConfigurator:(ConfiguratorMock*)configurator;
+- (void)update;
+- (void)suscribeToStateService:(id)aSuscriptor;
+- (void)startRead;
 
 @end
