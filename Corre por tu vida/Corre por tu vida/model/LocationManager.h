@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "Timer.h"
 
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 
 @property CLLocation *userLocation;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) Timer *timer;
+@property BOOL firstUpdate;
 
-- (id)init;
+- (id)initWithTimer:(Timer*)timer;
 - (CLLocation*)getCurrentPosition;
 
 @end
