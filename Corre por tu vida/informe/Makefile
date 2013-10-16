@@ -23,4 +23,4 @@ informe:
 .PHONY: clean
 
 clean: 
-	rm -rf *.pdf *.toc *.log *.aux *.snm *.vrb slides.html slides.pdf slides.tex *.nav *.out
+	rm -rf informe.pdf *.toc *.log *.aux *.snm *.vrb slides.html slides.pdf slides.tex *.nav *.out
