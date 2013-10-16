@@ -72,7 +72,7 @@
 \materia{Ingenier\'ia del Software 2}
 \submateria{Segundo Cuatrim\'estre de 2013}
 \titulo{Trabajo Pr\'actico 1}
-\subtitulo{User Stories - Tutor: Nicol\'as Rinaldi}
+\subtitulo{Sprint 1 - Tutor: Nicol\'as Rinaldi}
 \grupo{Grupo 8}
 \integrante{Juli\'an Sackmann}{540/09}{jsackmann@gmail.com}
 \integrante{Juan Pablo Darago}{272/10}{jpdarago@gmail.com}
@@ -89,7 +89,7 @@
 
 \subsection{Sobre la herramienta}
 
-Para el armado del Product y Sprint Backlogs utizamos la herramienta Agilefant,
+Para el armado del Product y Sprint Backlogs utilizamos la herramienta Agilefant,
 accesible mediante la URL \url{http://agilefant.monits.com}. Se
 dispone de un usuario para el tutor, el cual tiene los siguientes datos de acceso.
 
@@ -114,18 +114,20 @@ A continuaci\'on detallamos las \textit{user stories} que incluimos en el actual
 
 \subsection{Justificación del Sprint Backlog}
 
-Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el trabajo requerido por el trabajo práctico, al mismo tiempo que estamos dando valor al usuario. En total, con los estimativos de horas realizados, tenemos 116 horas y 30 minutos,  que considerando los 45 días para el trabajo práctico nos deja y descontando fines de semana nos deja entonces un total de aproximadamente 40 minutos por día para cada uno. Puesto que los cuatro miembros del grupo trabajan (sea en la industria o en la facultad como ayudantes) y cursan, nos pareció un buen estimativo para una cantidad razonable de trabajo. Esto por supuesto no considera la época de parciales, donde no nos fue posible seguir trabajando en el proyecto debido a compromisos de materias.
+Decidimos utilizar este Sprint Backlog puesto que consideramos que realizamos el trabajo requerido por el trabajo práctico, al mismo tiempo que estamos dando valor al usuario. En total, con los estimativos de horas realizados, tenemos 116 horas y 30 minutos,  que considerando los 45 días para el trabajo práctico y descontando fines de semana nos deja entonces un total de aproximadamente 40 minutos por día para cada uno. Puesto que los cuatro miembros del grupo trabajan (sea en la industria o en la facultad como ayudantes) y cursan, nos pareció un buen estimativo para una cantidad razonable de trabajo. Esto por supuesto no considera la época de parciales, donde no nos fue posible seguir trabajando en el proyecto debido a compromisos de materias.
 
 \section{Detalle de diseño}
 
-\subsection{Diagrama de clases}
+\subsection{Diagramas de clases}
 
 \subsubsection{Consideraciones Generales}
-La figura \ref{diag_diseno} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. El mismo fue realizado utilizado la semántica para un lenguaje dinámico e incluye tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. En el diagrama los controladores se muestran relacionados con aristas no dirigidas y sin aridad. Estas asociaciones representan ``saltos'' entre vistas y relaciones entre controladores, no la canónica relación de conocimiento que denotan las uniones en los diagramas de clases UML. Esto es porque en iOS esta relación de conocimiento entre controladores se implementa a través del \emph{NavigationController}. Incluirlo en el diseño no sólo acoplaría mucho el diseño a una plataforma particular, sino que elevaría su complejidad notablemente. Creemos que esta pequeña licencia en la semántica de UML nos permite expresar lo que deseamos (la relación entre los controladores del modelo \texttt{MVC}) manteniendo al diseño independiente de plataforma y acotada su complejidad.
+La figura \ref{diag_diseno} detalla el diagrama de clases realizado para el diseño orientado a objetos de la aplicación. Para mayor comodidad de lectura, se separó este diagrama en numerosos diagramas individuales más pequeños, cada uno representando una sección particular de interés.
+
+Estos diagramas incluyen tanto las clases correspondientes al modelo de negocios como las correspondientes a los controladores de las vistas del modelo \texttt{MVC}. Es necesario aclarar que éstas últimas no están completamente especificadas en el diagrama puesto que no nos pareció relevante para el trabajo práctico. Están por una cuestión de claridad de las distintas pantallas y cómo éstas, mediante los controladores, utilizan los objetos del modelo de negocios para lograr el objetivo de la aplicación. En los diagramas los controladores se muestran relacionados con aristas no dirigidas y sin aridad. Estas asociaciones representan ``saltos'' entre vistas y relaciones entre controladores, no la canónica relación de conocimiento que denotan las uniones en los diagramas de clases \texttt{UML}. Esto es porque en iOS esta relación de conocimiento entre controladores se implementa a través del \emph{NavigationController}. Incluirlo en el diseño no sólo acoplaría mucho el diseño a una plataforma particular, sino que elevaría su complejidad notablemente. Creemos que esta pequeña licencia en la semántica de \texttt{UML} nos permite expresar lo que deseamos (la relación entre los controladores del modelo \texttt{MVC}) manteniendo al diseño independiente de plataforma y acotada su complejidad.
 
 Similarmente, no incluimos las clases correspondientes a las vistas propiamente dichas porque nos pareció que no aportaba en lo más mínimo a la claridad del diseño. Lo mismo aplica para la reproducción de sonido y la visualización en el mapa. 
 
-Del mismo modo, tampoco incluimos clases tales como 
+Del mismo modo, tampoco incluimos clases tales como:
 \begin{itemize}
 	\item unReal
 	\item unEntero
@@ -169,7 +171,7 @@ Entendemos que esto no es la mejor forma de resolverlo, ya que dificulta el camb
 
 \subsubsection{Estadísticas}
 La representación de las estadísticas en el diseño presentado tiene una complejidad no menor en pos de proveer extensibilidad y usabilidad. 
-
+f
 En primer lugar se define una interfaz \texttt{Estadistica} que define que toda estadística debe implementar un método que reporte su valor. Además, las clase \texttt{Estadistica} hereda de \texttt{SuscriptorDeSerticioDeEstado}. Esto implica que todas las estadísticas deben implementar el método \emph{actualizar (unEstado)} para poder suscribirse a las notificaciones del \texttt{ServicioDeEstados} y actualizarse pertinentemente (consideramos que es responsabilidad de cada estadística saber cómo actualizarse cuando le llega un nuevo paquete de \texttt{Estado}). 
 
 Por ejemplo, la estadística de velocidad máxima reporta como resultado final el máximo de las velocidades a las que se desplazó el corredor y su actualización cuando llega un nuevo paquete de \texttt{Estado} compara la nueva velocidad con la almacenada y se queda con la mayor. 
@@ -206,7 +208,7 @@ Tuvimos problemas con la cantidad de horas y tareas a asignar al principio del S
 
 Nos costó también el poder equilibrar la necesidad de un diseño orientado a objetos completo de la aplicación con una metodología ágil como lo es SCRUM, que se supone que trata de evitar los problemas conocidos de \textit{Big Design Up Front}. Esto nos parece impacta en el diseño de manera negativa, puesto que solo un pedazo del trabajo esta implementado con lo cual nos parece que no tenemos el \textit{feedback} de realizar la implementación que consideramos es de gran ayuda al momento de validar el diseño.
 
-Otro factor que impacto negativamente fue que las tareas de programación fueron asignadas en su casi totalidad a una persona del grupo, mientras el resto de las tareas fueron asignadas a todo el resto. La conclusión que obtuvimos es que esto es desfavorable para ambas partes, puesto que requiere de una coordinación entre diseño y código que no sería tan necesaria si todos los miembros del grupo están involucrados en ambas tareas. Esto fue complejizado por la tecnología elegida (iOS) que requiere de un \textit{setup} más complicado que otras, especialmente en tema herramientas.
+Otro factor que impacto negativamente fue que las tareas de programación fueron asignadas en su casi totalidad a una persona del grupo, mientras el resto de las tareas fueron asignadas a todo el resto. La conclusión que obtuvimos es que esto es desfavorable para ambas partes, puesto que requiere de una coordinación entre diseño y código que no sería tan necesaria si todos los miembros del grupo están involucrados en ambas tareas. Esto fue complejizado por la tecnología elegida (\texttt{iOS}) que requiere de un \textit{setup} más complicado que otras, especialmente en tema herramientas.
 
 En subsecciones anteriores señalamos algunos detalles del diseño que podrían mejorarse en próximos Sprints. Consideramos por ejemplo que sería positivo lograr mejorarel diseño del subsistema que se ocupa del almacenado de estadísticas, para que por ejemplo incluya estadísticas sobre las fases. Al mismo tiempo, se podría lograr una mejor separación entre el Seguimiento y el controlador de seguimiento en matería de roles. En estos puntos donde consideramos que no teníamos suficiente conocimiento de dominio como para justificar la elección de una alternativa de diseño por sobre otra, es donde hay más oportunidad de expansión al menos en el tema diseño con un poco más de experiencia en el tema.
 
