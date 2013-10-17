@@ -144,14 +144,14 @@ Del mismo modo, tampoco incluimos clases tales como:
 	\item unBoolean
 	\item unaFecha
 \end{itemize}
-porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier librería standard.
+porque los consideramos partes de la implementación de \texttt{Cocoa/Objective C} utilizados para la demo en iPhone y que son parte de cualquier biblioteca standard.
 
 Nos parece sin embargo que hemos de realizar una aclaración sobre el \textit{Mapa}. El mismo tiene un constructor que toma una coordenada donde se centra inicialmente. Esto, si bien nos parece razonable aunque, no lo podemos discutir debido a que para mostrar los mapas utilizamos la API de \texttt{Google Maps SDK} que requiere construirlo de esta manera. Si bien el mapa ya es un \textit{wrapper} de este servicio, sigue requiriendo esto para funcionar.
 
 El diagrama esta disponible para ver \textit{online} (dado que el diagrama tiene un tamaño considerable difícil de ver) mediante la URL: \url{https://cacoo.com/diagrams/3Bk8unCXdWQ8DFU0#}
 
 \subsubsection{Clase \texttt{ServicioDeEstado}}
-El objeto \texttt{ServicioDeEstado} tiene como principal función la de informar a los distintos componentes del programa el estado actual del teléfono en movimiento. A intervalos de tiempo regulares, configurados en última instancia por el consumo seleccionado de la batería, un objeto \texttt{ServicioDeEstado} le manda a todos los objetos a los que se hayan suscripto a él un paquete de actualización que incluye la velocidad a la que se está moviendo el dispositivo y su posición actual.
+El objeto \texttt{ServicioDeEstado} tiene como principal función la de informar a los distintos componentes del programa el estado actual del teléfono en movimiento. A intervalos de tiempo regulares, configurados en última instancia por el consumo seleccionado de la batería, un objeto \texttt{ServicioDeEstado} le manda a todos los objetos a los que se hayan suscripto a él, un paquete de actualización que incluye la velocidad a la que se está moviendo el dispositivo y su posición actual.
 
 Esto corresponde al patrón \texttt{observer}. El propósito de esta decisión de diseño es que identificamos dos responsabilidades que no deseábamos acoplar: la obtención de una secuencia regular de mediciones y la utilización de dichas mediciones para diversos propósitos. En particular identificamos que dichas mediciones podían ser usadas para varios objetivos, tales como:
 \begin{itemize}
@@ -181,12 +181,12 @@ Entendemos que esto no es la mejor forma de resolverlo, ya que dificulta el camb
 
 \subsubsection{Estadísticas}
 La representación de las estadísticas en el diseño presentado tiene una complejidad no menor en pos de proveer extensibilidad y usabilidad. 
-f
-En primer lugar se define una interfaz \texttt{Estadistica} que define que toda estadística debe implementar un método que reporte su valor. Además, las clase \texttt{Estadistica} hereda de \texttt{SuscriptorDeSerticioDeEstado}. Esto implica que todas las estadísticas deben implementar el método \emph{actualizar (unEstado)} para poder suscribirse a las notificaciones del \texttt{ServicioDeEstados} y actualizarse pertinentemente (consideramos que es responsabilidad de cada estadística saber cómo actualizarse cuando le llega un nuevo paquete de \texttt{Estado}). 
+
+En primer lugar se define una interfaz \texttt{Estadistica} que define que toda estadística debe implementar un método que reporte su valor. Además, las clase \texttt{Estadistica} hereda de \texttt{SuscriptorDeServicioDeEstado}. Esto implica que todas las estadísticas deben implementar el método \emph{actualizar (unEstado)} para poder suscribirse a las notificaciones del \texttt{ServicioDeEstado} y actualizarse pertinentemente (consideramos que es responsabilidad de cada estadística saber cómo actualizarse cuando le llega un nuevo paquete de \texttt{Estado}). 
 
 Por ejemplo, la estadística de velocidad máxima reporta como resultado final el máximo de las velocidades a las que se desplazó el corredor y su actualización cuando llega un nuevo paquete de \texttt{Estado} compara la nueva velocidad con la almacenada y se queda con la mayor. 
 
-La interfaz \texttt{Estadística} hereda dos subclases: \texttt{EstadisticaGeneral} y \texttt{EstadisticaDeEntrenamiento}, que, como sus nombres los indican, representan las estadísticas generales y las asociadas a un entrenamiento particular respectivamente. El motivo de esta separación es que podría haber estadísticas que no tengan sentido considerarlas para un entrenamiento particular (por ejemplo, si en el futuro se implementara almacenar información climática y nutricional a los entrenamientos, uno podría querer una estadística del tipo: ``Velocidad promedio los martes lluviosos en los que entrené después de haber comido pastaflora''). No pondemos estadísticas para las fases porque nos pareció que en este punto no tenemos suficiente conocimiento del dominio como para determinar si las estadísticas por fase eran relevantes.
+La interfaz \texttt{Estadística} hereda dos subclases: \texttt{EstadisticaGeneral} y \texttt{EstadisticaDeEntrenamiento}, que, como sus nombres los indican, representan las estadísticas generales y las asociadas a un entrenamiento particular respectivamente. El motivo de esta separación es que podría haber estadísticas que no tengan sentido considerarlas para un entrenamiento particular (por ejemplo, si en el futuro se implementara almacenar información climática y nutricional a los entrenamientos, uno podría querer una estadística del tipo: ``Velocidad promedio los martes lluviosos en los que entrené después de haber comido pastaflora''). No pondremos estadísticas para las fases porque nos pareció que en este punto no tenemos suficiente conocimiento del dominio como para determinar si las estadísticas por fase eran relevantes.
 
 Para agregar un nuevo tipo de estadística, sólo es necesario determinar su tipo (general o de entrenamiento) y crear una nueva clase que implemente los métodos \emph{actualizar(unEstado)} y \emph{resultado() : unReal}.
 
@@ -197,7 +197,7 @@ Para abstraer la lógica de planes del resto del sistema, decidimos utilizar una
 
 Dado que desconocemos del dominio lo suficiente como para poder realizar una implementación fidedigna de acuerdo a parámetros médicos y deportivos, decidimos tratar de proveer un dise\~no extensible pero dentro de las limitaciones indicadas en el trabajo práctico. Para ello incluimos en el dise\~no un planificador básico.
 
-El \texttt{Planificador Básico} emplea los datos indicados en el trabajo práctico para obtener el plan: Las características de la persona (peso y altura), un objetivo(que consiste en indicar cuantos kilómetros se desea correr, y opcionalmente en cuanto tiempo desea poder correrlo), su disponibilidad (en horas por semana), un plazo estipulado (como una fecha límite) y su estado actual (cuantos kilómetros fue lo máximo que corrió y en cuanto tiempo lo hizo).
+El \texttt{Planificador Básico} emplea los datos indicados en el trabajo práctico para obtener el plan: Las características de la persona (peso y altura), un objetivo (que consiste en indicar cuantos kilómetros se desea correr, y opcionalmente en cuanto tiempo desea poder correrlo), su disponibilidad (en horas por semana), un plazo estipulado (como una fecha límite) y su estado actual (cuantos kilómetros fue lo máximo que corrió y en cuanto tiempo lo hizo).
 
 Decidimos restringirnos a este diseño puesto que no nos pareció que tuviéramos el suficiente conocimiento como para realizar más detalles, y no tomamos una postura de pensar más en extensibilidad puesto que el trabajo práctico no indica que pueda haber cambios en este área.
 
