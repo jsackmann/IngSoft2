@@ -2,9 +2,6 @@
 Para clarificar algunas de las partes del código que consideramos más difíciles de plasmar en un diagrama estático, incluimos diagramas de secuencia para diversas partes del trabajo práctico. Estas partes corresponden a diversas situaciones donde mostramos como podría ser una implementación de la lógica secuencial que se desarrolla.
 
 \subsubsection{Inicio de un seguimiento}\label{diag_inicioSeguimiento}
-\begin{center}
-	\includegraphics[scale=0.5]{images/InicioSeguimiento.pdf}
-\end{center}
 
 Este diagrama de secuencia muestra el proceso de inicio de seguimiento. A grandes razgos, el controlador de fase crea un servicio de estado (que será le encargado de mandar las actualizaciones de estado a otros componentes). Esta interacción es un poco compleja para ponerla en el mismo diagrama, así que se la separó en el diagrama ``Crear un servicio de estados'', que se puede ver en la sección \ref{diag_crearUnServicioDeEstado}. 
 
@@ -22,10 +19,19 @@ Suponiendo que el usuario ya realizó la configuración inicial y tiene algún p
 	\item En esa pantalla (donde se listan las fases correspondientes al entrenamiento) se presiona ``comenzar''.
 \end{itemize}
 
+\newpage
+\begin{landscape}
+	\begin{figure}[h]
+		\includegraphics[scale=0.8]{images/InicioSeguimiento.pdf}
+		\caption{Diagrama de secuencia del inicio de un seguimiento}
+	\end{figure} 
+\end{landscape}
+
+
+\newpage
+
 \subsubsection{Actualización dentro de un seguimiento} \label{unaSeccion}
-\begin{center}
-	\includegraphics[scale=0.5]{images/actualizacionSeguimiento.pdf}
-\end{center}
+
 
 Este diagrama muestra la secuencia de mensajes intercambiados a la hora de realizar una actualiación dentro de una fase, mientras el usuario está corriendo. Los pasos para llegar a este mensaje son los mismos que el anterior, esperando el tiempo correspondiente a la frecuencia de actualización que se haya realizado.
 
@@ -38,11 +44,18 @@ Al recibir este mensaje, el \texttt{ServicioDeEstado} le solicita a sus colabora
 
 Finalmente le envía a cada uno de sus suscriptores el mensaje \emph{actualizar (unEstado)}, para que estos puedan realizar sus respectivas acciones con la nueva información del estado. 
 
-\subsubsection{Crear un servicio de estado}\label{diag_crearUnServicioDeEstado}
-\begin{center}
-	\includegraphics[scale=0.5]{images/CrearServicioEstado.pdf}
-\end{center}
+\newpage
 
+\begin{landscape}
+	\begin{figure}[h]
+		\includegraphics[scale=0.8]{images/actualizacionSeguimiento.pdf}
+		\caption{Diagrama de secuencia del proceso de actualización del seguimiento}
+	\end{figure} 
+\end{landscape}
+
+\newpage
+
+\subsubsection{Crear un servicio de estado}\label{diag_crearUnServicioDeEstado}
 En este diagrama se puede observar el proceso de creación de un objeto \texttt{ServicioDeEstado}, que se crea al comenzar el entrenamiento, como se puede ver en la sección \ref{diag_inicioSeguimiento}. Para crear el \texttt{ServicioDeEstado}
  se pasa como parámetro un \texttt{Configurador}, del que se obtienen y setean como colaboradores internos el \texttt{Timer}, el \texttt{Posicionador} y el \texttt{MedidorVelocidad}. El configurador crea dinámicamente estos elementos a medida que se le son solicitados y los devuelve.
 
@@ -56,30 +69,53 @@ Para la creación del servicio de estado se nos planteó una disyuntiva:
 \end{itemize}
 
 
+\newpage
+
+\begin{landscape}
+	\begin{figure}[h]
+		\includegraphics[scale=0.8]{images/CrearServicioEstado.pdf}
+		\caption{Diagrama de secuencia del proceso de creación de un servicio de estados}
+	\end{figure} 
+\end{landscape}
+
+\newpage
+
 \subsubsection{Finalización de un seguimiento}
-\begin{center}
-	\includegraphics[scale=0.5]{images/FinalizacionSeguimiento.pdf}
-\end{center}
 
 Este diagrama muestra cómo es el proceso de finalización de un seguimiento cuando concluye un entrenamiento. El \texttt{Seguimiento}, encargado de seguir el proceso de entrenamiento, se da cuenta de que el entrenamiento finalizó (puede haber sido porque el usuario cumplió el tiempo y distancia correspondientes a la última fase del entrenamiento en curso o porque apretó el botón de ``detener'' en la vista de seguimiento) y se le informa al \texttt{ServicioDeEstados} que deje de tomar lecturas del \texttt{Timer}. Para eso, le envía el mensaje \emph{finLectura ()}. 
 
 Acto seguido, el controlador informa al \texttt{StoreEstadisticasGenerales} que guarde las estadísticas generales que se estuvieron actualizando durante el entrenamiento (mediante el mensaje \emph{guardar ()}) y procede a crear un nuevo objeto \texttt{EntrenamientoConcluido} para almacenarlo en su correspondiente \texttt{StoreEntrenamientoConcluido}. Para eso, obtiene el \texttt{Recorrido} del \texttt{GeneradorDeRecorridos} y, usando sus colaboradores internos \texttt{Plan} y \texttt{CollectionEstadisticasEntrenamiento}, llama al \emph{new (unPlan, unaColeccionDeEstadisticas, unRecorrido)} de la clase \texttt{claseEntrenamientoConcluido}. Esto le devuelve un objeto \texttt{EntrenamientoConcluido}, que agrega al \texttt{StoreEntrenamientoConcluido}.
 
-\subsubsection{Listado de estadísticas del usuario}
-\begin{center}
-        \includegraphics[scale=0.5]{images/ListadoEstadisticas.pdf}
-\end{center}
+\newpage
 
+\begin{landscape}
+	\begin{figure}[h]
+		\includegraphics[scale=0.8]{images/FinalizacionSeguimiento.pdf}
+		\caption{Diagrama de secuencia del proceso de finalización de un seguimiento}
+	\end{figure} 
+\end{landscape}
+
+\newpage
+
+\subsubsection{Listado de estadísticas del usuario}
 
 Este diagrama explica el proceso que ocurre al mostrar las estadísticas particulares de los entrenamientos y las generales. En este caso, el usuario decide ver las estadísticas de un entrenamiento (como se ve en el diagrama de clases, la única disponible es la velocidad máxima del entrenamiento).
 
 
 En primer lugar el \texttt{ControladorListaEstadísticas} le pide las \emph{estadísticasGuardadas ()} a los dos store: \texttt{storeEntrenamientoConcluido} y \texttt{storeEstadísticasGenerales}. Luego, el usuario selecciona {unEntrenamientoConcluido}, con lo cual debería cambiarse de vista a la de las estadísticas de ese entrenamiento. Es así que se crea un \texttt{ControladorEstadística} a partir del entrenamiento concluido que seleccionó el usuario. Este contralador envía el mensaje \emph{estadísticas ()}, que retorna una \texttt{VelocidadMáximaEntrenamiento}. A continuación, el contralador manda el mensaje \emph{resultado ()} a \texttt{VelocidadMáximaEntrenamiento} y recibe el resultado correspondiente. 
 
+\newpage
+
+\begin{landscape}
+	\begin{figure}[h]
+		\includegraphics[scale=0.8]{images/ListadoEstadisticas.pdf}
+		\caption{Diagrama de secuencia para listar las estadísticas del usuario}
+	\end{figure} 
+\end{landscape}
+
+\newpage
+
 \subsubsection{Notificar que la velocidad del usuario es demasiado baja dentro de un seguimiento}
-\begin{center}
-	\includegraphics[scale=0.5]{images/Velocidad.pdf}
-\end{center}
 
 En este diagrama se observa el conjunto de mensajes que ocurren durante el un entrenamiento cuando el corredor se está desplazando más rápido de lo que su fase actual indica. Como se explicó en la sección \ref{unaSeccion}, cuando el \texttt{Timer} recibe el hipotético mensaje \emph{tic ()}, le avisa al \texttt{ServicioDeEstado} y éste le reporta a sus suscriptores (en particular al \texttt{Seguimiento}), el estado actual del corredor.
 
@@ -87,10 +123,22 @@ Cuando el \texttt{Seguimiento} recibe el mensaje \emph{actualizar (unEstado)}, e
 
 Con esos tres datos, el \texttt{Seguimiento} verifica que la velocidad actual esté en rango y, suponiendo que no lo está (que está por encima de la máxima) le envía un mensaje a su colaborador interno \texttt{Notificador} diciéndole que notifique que la velocidad actual es muy alta (\emph{notificarVelAlta ()}). 
 
+\newpage
+
+\begin{landscape}
+	\begin{figure}[h]
+		\includegraphics[scale=0.8]{images/Velocidad.pdf}
+		\caption{Diagrama de secuencia para notificar que la velocidad del usuario es demasiado baja}
+	\end{figure} 
+\end{landscape}
+
+\newpage
+
 \subsubsection{Crear un plan básico}
-\begin{center}
-	\includegraphics[scale=0.5]{images/PlanBasico.pdf}
-\end{center}
+\begin{figure}[h]
+	\includegraphics[scale=0.9]{images/PlanBasico-crop.pdf}
+	\caption{Diagrama de secuencia para notificar que la velocidad del usuario es demasiado baja}
+\end{figure} 
 
 Este diagrama representa el conjunto de mensajes que se intercambian a la hora de crear un plan nuevo. Si bien la creación en si misma está abstraida en un mensaje (\emph{generarPlan ()}) este diagrama muestra cómo el \texttt{ControladorNuevoPlan} obtiene los parámetros necesarios para crear el \texttt{Planificador} que, al recibir \emph{generarPlan ()} va a construir una instancia de \texttt{Plan}. 
 
