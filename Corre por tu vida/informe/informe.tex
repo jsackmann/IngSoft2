@@ -50,6 +50,16 @@
 \newcommand{\Break}{\textbf{break }}
 \newcommand{\Continue}{\textbf{continue }}
 \newcommand{\Param}{\textbf{param }}
+\newcommand{\ig}[2]{
+	\begin{landscape}
+		\begin{figure}[c]
+			\label{diag_diseno}
+			\includegraphics[scale=0.8]{images/#1.pdf}
+			\caption{#2}
+		\end{figure} 
+	\end{landscape}
+	\newpage
+}
 
 
 
@@ -225,16 +235,23 @@ En subsecciones anteriores señalamos algunos detalles del diseño que podrían 
 
 \section{Diagramas}
 
-A continuación incluimos los diagramas que forman parte del trabajo.
+A continuación incluimos los diagramas de clases que forman parte del trabajo.
 
-\begin{landscape}
-	\begin{figure}[h]
-		\caption{Diagrama de clases del diseño}
-		\label{diag_diseno}
-		\includegraphics[width=2.25\textwidth]{classDiagram.pdf}
-	\end{figure} 
-\end{landscape}
+% \begin{landscape}
+% 	\begin{figure}[h]
+% 		\caption{Diagrama de clases del diseño}
+% 		\label{diag_diseno}
+% 		\includegraphics[width=2.25\textwidth]{classDiagram.pdf}
+% 	\end{figure} 
+% \end{landscape}
 
-
+\ig{ConfiguradorDeBateria}{Diagrama de configuración de batería}
+\ig{Controladores}{Diagrama de controladores}
+\ig{ControladorSeguimiento}{Diagrama de controlador de seguimiento}
+\ig{EstadisticasYSeguimiento}{Diagrama de estadísticas y seguimineto}
+\ig{PlanesBasicos}{Diagrama del planificador básico}
+\ig{PlanFasesySeguimiento}{Diagrama del plan de fases y seguimiento}
+\ig{ServicioDeEstado}{Diagrama del servicio de estado}
+\ig{SuscriptoresDeEstado}{Diagrama de suscriptores de actualizaciones de estado}
 
 \end{document}
