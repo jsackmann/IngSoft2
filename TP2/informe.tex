@@ -1,0 +1,109 @@
+%BEGIN COPYPASTE EL INFORME DEL INFO
+\documentclass[10pt, a4paper,english,spanish]{article}
+\usepackage{subfig}
+
+\parindent=20pt
+\parskip=8pt
+\usepackage[width=15.5cm, left=3cm, top=2.5cm, height= 24.5cm]{geometry}
+
+% \usepackage{ccfonts,eulervm} 
+% \usepackage[T1]{fontenc}
+
+\usepackage{longtable}
+\usepackage{ccfonts,eulervm} 
+\usepackage[T1]{fontenc}
+% \usepackage{ccfonts,eulervm} 
+% \usepackage[T1]{fontenc}
+\usepackage{longtable}
+\usepackage{epigraph}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[activeacute, spanish,english]{babel}
+\usepackage{cancel}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{afterpage}
+\usepackage{caratula}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{ulem}
+\usepackage{dashrule}
+\usepackage{pdflscape}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+
+\floatname{algorithm}{Algoritmo}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposici\'on}
+\newtheorem{corollary}[theorem]{Corolario}
+
+\newcommand{\Var}{\textbf{var }}
+\newcommand{\True}{\textbf{true }}
+\newcommand{\False}{\textbf{false }}
+\newcommand{\Break}{\textbf{break }}
+\newcommand{\Continue}{\textbf{continue }}
+\newcommand{\Param}{\textbf{param }}
+\newcommand{\ig}[2]{
+	\begin{landscape}
+		\begin{figure}[c]
+			\label{diag_diseno}
+			\includegraphics[scale=0.8]{images/#1.pdf}
+			\caption{#2}
+		\end{figure} 
+	\end{landscape}
+	\newpage
+}
+
+
+
+
+% \parindent 0em
+%\algrenewcommand{\algorithmiccomment}[1]{//\textit{#1} }
+
+\renewcommand{\emph}[1]{\textit{#1}}
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\addtolength{\headheight}{1pt}
+\lhead{IS2 - TP1}
+\rhead{Grupo 8}
+\cfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+\newcommand{\hblacksquare}{\hfill \blacksquare}
+%FIN COPYPASTE EL INFORME DEL INFO
+\begin{document}
+
+\materia{Ingenier\'ia del Software 2}
+\submateria{Segundo Cuatrim\'estre de 2013}
+\titulo{Trabajo Pr\'actico 2}
+\subtitulo{Sprint 1 - Tutor: Nicol\'as Rinaldi}
+\grupo{Grupo 8}
+\integrante{Juli\'an Sackmann}{540/09}{jsackmann@gmail.com}
+\integrante{Juan Pablo Darago}{272/10}{jpdarago@gmail.com}
+\integrante{Vanesa Stricker}{159/09}{vanesastricker@gmail.com}
+\integrante{Mat\'ias Barbeito}{179/08}{matiasbarbeito@gmail.com}
+
+\maketitle
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\addcontentsline{toc}{section}{Referencias}
+\begin{thebibliography}{8}
+\raggedright
+
+\bibitem{Gamma}
+	E.~Gamma, R.~Helm, R.~Johnson, and J.~Vlissides.
+	\newblock {\em Design Patterns: Elements of Reusable Object-Oriented Software}.
+	\newblock Professional Computing. Addison-Wesley, 1995.
+
+\end{thebibliography}
+
+\end{document}
