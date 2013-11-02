@@ -1,0 +1,107 @@
+\section{Introducción}
+
+El presente informe constituye la planificación de \textbf{Corré por tu
+Vida} (CV), que dada la popularidad de su previa iteración ha visto su
+potencial aumentado de manera importante. El nuevo tamaño del proyecto
+motiva entonces el uso de la metodología RUP (\emph{Rational Unified
+Process}).
+
+\subsection{Caso de negocio}
+
+El caso de negocio se modificó respecto al trabajo anterior
+principalmente en la escala de dispositivos y usos para el mismo. La
+aplicación debe integrar una gran variedad de dispositivos y deberá
+proveer los datos a redes sociales, a consumidores externos de datos
+físicos, etc. Consideramos que esto es lo que motiva el importante
+cambio de escala del mismo.
+
+A continuación incluimos los \emph{drivers} del proyecto, las
+restricciones y los grados de libertad del mismo.
+
+\subsubsection{Drivers del proyecto}
+
+Consideramos que se deben lograr los siguientes objetivos:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  La aplicación debe funcionar con anteojos de realidad aumentada,
+  considerando que los mismos pueden ser fabricados por una amplia
+  variedad de vendedores. También debe incluir dispositivos menos
+  novedosos como mp3, relojes de pulsera, etc. ajustando la
+  funcionalidad a lo que corresponda.
+\item
+  Los datos de los entrenamientos deben estar disponibles para ser
+  compartidos en redes sociales, y que se pueda interactuar con los
+  corredores enviandoles mensajes mediante estas redes. También debe
+  incluirse esta noción de ``amigos'' en la aplicación mediante el uso
+  de posiciones en un mapa.
+\item
+  Se mostrarán, durante una carrera, todo tipo de datos relacionados con
+  la misma, \emph{on demand} mediante voz o indicaciones al dispositivo.
+\item
+  Se expanden las posibilidades de entrenamiento clásico con nuevas
+  ``competencias virtuales'' contra los registros de otros corredores en
+  la zona actual.
+\item
+  Los corredores profesionales deben poder recibir actualizaciones de
+  sus entrenadores durante los entrenamientos, dandoles prioridad a
+  estos avisos.
+\item
+  La información de los corredores debe ser recolectada en tiempo real
+  para que la Secretaría de Deportes pueda procesar los datos físicos en
+  tiempo real.
+\item
+  Esta información también debe ser disponible mediante una API
+  (\emph{Application Programming Interface}) para consumidores de los
+  datos de la aplicación.
+\end{itemize}
+
+\subsubsection{Restricciones}
+
+El proyecto tiene las siguientes restricciones
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Se deben utilizar estándares abiertos para minimizar la dependencia
+  tecnológica. En particular debe seguirse el estándar Open Social en la
+  medida de lo posible.
+\item
+  La aplicación debe adaptarse a las normativas de accesibilidad para
+  personas con discapacidades, con lo que las maneras de mostrar
+  información y generar notificaciones debe ser adecuadas a estas
+  necesidades.
+\item
+  Se debe utilizar encriptación para proteger los datos de los
+  corredores que se provean por la API. Existe un algoritmo de
+  encriptación homomórfica a considerar pero es experimental y puede ser
+  necesario ser cambiarlo.
+\item
+  Los datos enviados a la Secretaría deben ser procesados en una nube
+  OpenStack que es local a la misma.
+\item
+  Para tener ganancias a corto plazo es necesario que se pueda mostrar
+  publicidad \emph{targeteada} a los usuarios de acuerdo al contexto.
+\end{itemize}
+
+\subsubsection{Grados de libertad}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Si bien se indicó que no era posible contratar gente, no esta indicada
+  la composición del grupo como lo decidimos nosotros. Por lo tanto
+  consideramos una composición de un grupo de 4 personas.
+\item
+  La duración de las fases de RUP no esta especificada. Por lo tanto
+  asumimos que las mismas son de 15 días y que tomando un día de 8 horas
+  laborales y considerando 4 personas en el grupo eso nos da 320 horas
+  hombre de trabajo para la iteración.
+\item
+  No se especifica si el \emph{reconocedor de voz} debe ser desarrollado
+  \emph{in house} o no, por lo tanto decidimos que vamos a utilizar un
+  servicio externo (por ejemplo \emph{Google Voice API}). El mismo es
+  Open Source y por lo tanto no conflictua con ninguna restricción del
+  proyecto.
+\end{itemize}
