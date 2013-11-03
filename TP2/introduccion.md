@@ -56,9 +56,7 @@ a los usuarios de acuerdo al contexto.
 
 * Si bien se indicó que no era posible contratar gente, no esta indicada la composición del grupo
 como lo decidimos nosotros. Por lo tanto consideramos una composición de un grupo de 4 personas.
-* La duración de las fases de RUP no esta especificada. Por lo tanto asumimos que las mismas son
-de 15 días y que tomando un día de 8 horas laborales y considerando 4 personas en el grupo eso nos
-da 320 horas hombre de trabajo para la iteración.
+* La duración de las fases de RUP no esta especificada. Por lo tanto asumimos que las mismas son de 15 días y que tomando un día de 8 horas laborales y considerando 4 personas en el grupo eso nos da 480 horas hombre de trabajo para la iteración.
 * No se especifica si el _reconocedor de voz_ debe ser desarrollado _in house_ o no, por lo tanto
 decidimos que vamos a utilizar un servicio externo (por ejemplo _Google Voice API_). El mismo es
 Open Source y por lo tanto no conflictua con ninguna restricción del proyecto.
