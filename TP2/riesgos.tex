@@ -1,0 +1,120 @@
+\section{Riesgos}
+
+\begin{landscape}
+\begin{table}
+\centering
+\begin{tabular}{| l | l | l | l | l | l | l | }
+     \hline
+P & Descripción & P & I & E & Plan & Clasificación \\ \hline
+
+1 & Dado que las pruebas y testeos de la aplicación  & Media & Alto & Alta & [M] Durante el testeo y prueba de la aplicación,  & Técnico\\
+  & se realizan a pequeña escala y se desconoce la   & & & &		generar un ambiente de testeo  de ese tipo, es  & \\
+  & tecnología a usar, entonces probablemente si más  & & & &		decir, simular el uso de miles de usuarios & \\
+  & de 1000 usuarios usan la aplicación 			  & & & & 		simultáneos, ver si se producen fallos y hacer & \\ 
+  & simultáneamente el hardware no lo soportaría y se &&&			&lo necesario para evitarlos. & \\ 		  
+  & producirían fallos y errores en la aplicación o &&& 			& [C] Tener a disposición un servicio de emergencia & \\
+  & se caería todo el sistema. &&&									& que permita un uso reducido de la aplicación,  & \\
+  &&&&																&pero que soporte esta cantidad de usuarios, en &\\ 
+  &&&&																&caso de que se caiga el sistema general, levantar  &\\   
+  &&&&																&el sistema de emergencia hasta tanto se solucionen&\\ 
+  &&&&																&los conflictos, fallos y errores en el sistema &\\ 
+  &&&&																&principal y se habilita el uso entero de la &\\ 
+  &&&&																&aplicación soportando esa cantidad de usuarios. &\\ 
+  \hline
+
+2 & Dado que desconocemos la nube de la Secretaría  & Alta & Alto & Alta & [M] Destinar tiempo y recursos del proyecto para & Técnico\\
+  &(OpenStack) entonces probablemente no se use   & & & &			obtener toda la información necesaria y gente & \\
+  & adecuadamente, se sobrecargue y no sea segura en  & & & &		capacitada en todo lo relacionado con & \\
+  & cuanto a la privacidad del usuario, o se caiga	  & & & & 		OpenStack para lograr el uso adecuado de la misma. & \\ 
+  & el servicio. &&& 												&[C] Tener a disposición alguna tecnología de respaldo& \\ 		  &&&&																& en caso de que debido al mal uso de OpenStack, & \\
+  &&&&																& como ser servidores de backup, y otros mecanismos & \\
+  &&&&																& de protección de la información de los usuarios, &\\
+  &&&&																& además de los usados sobre OpenStack. &\\ \hline
+
+3 & Dado que se desconocen todas las tecnologías a & Media & Alto & Alta & [M] Destinar parte del presupuesto para el desarrollo & Comercial,\\
+  & utilizar entonces probablemente no se haya   & & & &			del proyecto con nuevas tecnologías. & Management \\
+  & contemplado en el presupuesto asignado al proyecto  & & & &		[C] Generar nuevas fuentes de ingreso (a través  & \\
+  & todo lo necesario para poder trabajar y desarrollar & & & &		de la publicidad, por ejemplo) para obtener el & \\ 
+  & con estas tecnologías y el mismo no sea suficiente. &&&			&presupuesto necesario para desarrollar con las & \\ 
+  &&&&																& nuevas tecnologías.& \\ \hline
+  
+     \hline
+\end{tabular}
+\end{table}
+\end{landscape}
+
+\begin{landscape}
+\begin{table}
+\centering
+\begin{tabular}{| l | l | l | l | l | l | l | }
+     \hline
+P & Descripción & P & I & E & Plan & Clasificación \\ \hline
+
+4 & Dado que el hardware será provisto por otra  & Media & Medio & Media & [M] Mantener contacto con la empresa proveedora del  & Técnico, \\
+  & empresa, entonces probablemente no estén  & & & &				hardware para recordar e insistir en la entrega & Comercial\\
+  & disponibles a tiempo para realizarse las pruebas  & & & &		del mismo para obtenerlo a tiempo. & \\
+  & pertinentes y corroborar que la aplicación		  & & & & 		[C] Destinar tiempo adicional del proyecto para  & \\ 
+  & funcione correctamente en los dispositivos. &&&					&realizar los testeos pertinentes para evitar fallos. & \\ \hline
+
+5 & Dado que deben seguirse las especificaciones de  & Baja & Medio & Medio & [M]  & Técnico\\
+  & OpenSocial y optarse por estándares abiertos  & & & &		& \\
+  & cuando estén disponibles, si alguno de los  & & & &		 & \\
+  & estándares cambia, entonces probablemente dejaría 							  & & & & 		 & \\ 
+  & de funcionar la parte “social” de la aplicación y &&&			&[C]  & \\ 		  
+  & los usuarios estarían descontentos. &&&							&  & \\ \hline
+  
+6 & Dado que la aplicación debe soportar diversos & Baja & Medio & Media & [M] Destinar tiempo del proyecto para lograr & Técnico\\
+  & dispositivos entonces probablemente haya   & & & &				integrar el uso de los diversos dispositivos,& \\
+  & incompatibilidad tecnológica entre los mismos y  & & & &		dentro de la aplicación. & \\
+  & se retrase la fecha de finalización del proyecto.  & & & & 		[C] Contratar expertos en las diversas tecnologías & \\ 
+  &&&&																&para desarrollar lo más rápido posibles la & \\ 		  &&&&																& infraestructura necesaria para lograr la & \\
+  &&&&																& compatibilidad de todos los dispositivos y & \\
+  &&&&																& minimizar el retraso. &\\ \hline
+  
+7 & Dado que se desconocen todos los dispositivos en  & Alta & Bajo & Medio & [M]  & Técnico\\
+  & es experimental entonces probablemente no cumpla  & & & &		 & \\
+  & los cuales deberá funcionar la aplicación,  & & & &		 & \\
+  & entonces probablemente exista algún dispositivo	  & & & & 		 & \\ 
+  & para el cual no funcione correctamente alguna &&&				&[C] & \\
+  & característica de la aplicación. &&&							& & \\ \hline
+
+     \hline
+\end{tabular}
+\end{table}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{table}
+\centering
+\begin{tabular}{| l | l | l | l | l | l | l | }
+	     \hline
+P & Descripción & P & I & E & Plan & Clasificación \\ \hline
+
+8 & Dado que la aplicación debe soportar tecnología & Media & Bajo & Media & [M] Tener recursos humanos dedicados a la investigación& Técnico\\
+  & desconocida o aun no desarrollada entonces  & & & &				de las nuevas tecnologías y su uso. & \\
+  & probablemente no haya capacidad técnica para  & & & &			[C] Informar a los usuarios para cuales & \\
+  & trabajar con los nuevos dispositivos.			  & & & & 		dispositivos funciona la aplicación. Para los que & \\ 
+  &&&&																&no funcione y debieran funcionar, informar a los & \\ 		  &&&&																& usuarios que próximamente estará disponible la& \\
+  &&&&																& aplicación para esos dispositivos e invertir en & \\
+  &&&&																& capacitaciones para los desarrolladores en las &\\
+  &&&&																& nuevas tecnologías. &\\  \hline
+
+9 & Dado que se desconocen cuáles son todas las redes & Baja & Bajo & Baja & [M] Desarrollar un adaptador que permita incorporar  & Técnico\\
+  & sociales que debe soportar la aplicación entonces  & & & &		fácilmente el uso de una nueva red social. & \\
+  & probablemente exista alguna red social que se  & & & &			[C] Destinar tiempo del proyecto para la & \\
+  & quiera incorporar que no haya sido contemplada y	 & & & &	implementación necesaria del uso de las redes  & \\ 
+  & sea de difícil implementación.&&&								&sociales que pudieran incorporarse. & \\ \hline
+
+10 & Dado que el algoritmo de encriptación homomórfica & Baja & Bajo & Baja & [M] Incorporar más investigadores para trabajar con & Técnico\\
+  & es experimental entonces probablemente no cumpla  & & & &		el desarrollo del algoritmo para lograr que éste & \\
+  & con los estándares de encriptación o no funcione  & & & &		cumpla con los estándares requeridos y funcione de & \\
+  & de la manera esperada. 							  & & & & 		la manera deseada. & \\ 
+  &&&&																&[C] Descartar el uso del algoritmo de encriptación & \\ 		  &&&&																& homomórfica y usar un algoritmo conocido que cumpla & \\
+  &&&&																& con los estándares de encriptación y funcione como se & \\
+  &&&&																& espera. &\\ \hline
+
+     \hline
+\end{tabular}
+\end{table}
+\end{landscape}
