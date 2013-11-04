@@ -44,6 +44,7 @@ P & Descripción & P & I & E & Plan & Clasificación \\ \hline
   
      \hline
 \end{tabular}
+\caption{M: Mitigación , C: Contingencia}
 \end{table}
 \end{landscape}
 
@@ -60,12 +61,14 @@ P & Descripción & P & I & E & Plan & Clasificación \\ \hline
   & pertinentes y corroborar que la aplicación		  & & & & 		[C] Destinar tiempo adicional del proyecto para  & \\ 
   & funcione correctamente en los dispositivos. &&&					&realizar los testeos pertinentes para evitar fallos. & \\ \hline
 
-5 & Dado que deben seguirse las especificaciones de  & Baja & Medio & Medio & [M]  & Técnico\\
-  & OpenSocial y optarse por estándares abiertos  & & & &		& \\
-  & cuando estén disponibles, si alguno de los  & & & &		 & \\
-  & estándares cambia, entonces probablemente dejaría 							  & & & & 		 & \\ 
-  & de funcionar la parte “social” de la aplicación y &&&			&[C]  & \\ 		  
-  & los usuarios estarían descontentos. &&&							&  & \\ \hline
+5 & Dado que deben seguirse las especificaciones de & Baja & Medio & Medio & [M] Que la aplicación cuente con una interfaz sencilla  & Técnico\\
+  & OpenSocial y optarse por estándares abiertos  & & & &		que se adapte a las especificaciones de OpenSocial,	& \\
+  & cuando estén disponibles, si alguno de los  & & & &			que sea fácil de modificar  y mantener en caso de  & \\
+  & estándares cambia, entonces probablemente dejaría  & & & &	cambios.		 & \\ 
+  & de funcionar la parte “social” de la aplicación y &&&		&[C] Destinar los recursos del proyecto necesarios (tiempo,  & \\ 
+  & los usuarios estarían descontentos. &&&					&  	desarrolladores, etc.) para adaptar las& \\ 
+  &&&&														&	implementaciones a los cambios en las especificaciones &\\
+  &&&&														&	de OpenSocial. &\\	   \hline
   
 6 & Dado que la aplicación debe soportar diversos & Baja & Medio & Media & [M] Destinar tiempo del proyecto para lograr & Técnico\\
   & dispositivos entonces probablemente haya   & & & &				integrar el uso de los diversos dispositivos,& \\
@@ -75,15 +78,21 @@ P & Descripción & P & I & E & Plan & Clasificación \\ \hline
   &&&&																& compatibilidad de todos los dispositivos y & \\
   &&&&																& minimizar el retraso. &\\ \hline
   
-7 & Dado que se desconocen todos los dispositivos en  & Alta & Bajo & Medio & [M]  & Técnico\\
-  & es experimental entonces probablemente no cumpla  & & & &		 & \\
-  & los cuales deberá funcionar la aplicación,  & & & &		 & \\
-  & entonces probablemente exista algún dispositivo	  & & & & 		 & \\ 
-  & para el cual no funcione correctamente alguna &&&				&[C] & \\
-  & característica de la aplicación. &&&							& & \\ \hline
-
+7 & Dado que se desconocen todos los dispositivos en  & Alta & Bajo & Medio & [M] Que los encargados de negociar con el cliente & Técnico\\
+  & es experimental entonces probablemente no cumpla  & & & &	indaguen y extraigan toda la información necesaria	 & \\
+  & los cuales deberá funcionar la aplicación,  & & & &			respecto de los dispositivos que se espera que & \\
+  & entonces probablemente exista algún dispositivo	  & & & & 	funcione la aplicación.	 & \\ 
+  & para el cual no funcione correctamente alguna &&&				&[C] Que la aplicación cuente con mensajes para el & \\
+  & característica de la aplicación. &&&							& usuario de carácter informativo o de error que & \\ 
+  &&&&																& de ser necesario informen que la aplicación no &\\ 
+  &&&&																& está disponible para ese dispositivo aun y  &\\
+  &&&&																& destinar parte del tiempo de mantenimiento del &\\ 
+  &&&&																& producto para adaptar la aplicación a los  &\\ 
+  &&&&																& dispositivos antes desconocidos. &\\ 
+  \hline
      \hline
 \end{tabular}
+\caption{M: Mitigación , C: Contingencia}
 \end{table}
 \end{landscape}
 
@@ -120,5 +129,6 @@ P & Descripción & P & I & E & Plan & Clasificación \\ \hline
 
      \hline
 \end{tabular}
+\caption{M: Mitigación , C: Contingencia}
 \end{table}
 \end{landscape}
