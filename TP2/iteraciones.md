@@ -33,7 +33,7 @@ iteración.
 ------------------------------------------------------------------------------------------------
 Fase			Número		Casos de uso											Horas
 ---------------	---------	----------------------------------------------------	------------
-Elaboración		Primera		Mostrando datos y notificaciones del					84h
+Elaboración		Primera		Mostrando datos y notificaciones del					92h
 							entrenamiento actual.
 
 							Obteniendo posición propia y de amigos					72h
