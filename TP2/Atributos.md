@@ -36,14 +36,34 @@ Atributo de Usabilidad
 ======================
 
 Las indicaciones dadas por el sistema, visuales auditivas o táctiles, deben
-ser fáciles de entender por el usuario.
+ser fáciles de entender por el usuario, y adaptarse al tipo de dispositivo
+que se tiene.
 
 * Fuente: Usuario
 * Estímulo: El usuario realiza una acción que requiere una notificación por
 parte del Sistema.
 * Artefacto: Sistema
 * Entorno: En condiciones normales.
-* Respuesta: 
+* Respuesta: El sistema provee la notificación utilizando los medios disponibles
+por el dispositivo y priorizando medios más inmediatos sobre otros menos
+inmediatos (por ejemplo priorizando visual sobre táctil en la medida de lo posible).
+* Medida de respuesta: El 75% de los usuarios entiende en menos de 10 segundos, sin
+ayuda de terceros, la notificación presentada cuando la misma ocurre por primera vez.
+
+Atributo de Usabilidad
+======================
+
+Las instrucciones y mensajes de los entrenadores a los corredores profesionales 
+deben ser lo menos intrusivos posibles.
+
+* Fuente: Entrenador
+* Estímulo: Envía un mensaje a un corredor profesional que esta a su cargo.
+* Artefacto: Sistema
+* Entorno: Condiciones normales.
+* Respuesta: El sistema muestra el mensaje del entrenador al usuario. 
+* Medida de respuesta: El 75% de los usuarios puede entender la notificación
+en menos de 6 segundos, sin ser distraido de la tarea que se encuentra realizando
+al momento pero sin ser interrumpido por otras notificaciones de menor prioridad.
 
 Atributo de Usabilidad
 ======================
@@ -78,6 +98,21 @@ los accesos no autorizados son auditados por el sistema.
 * Medida de respuesta: El 99.9999% de los ataques son rechazados. Los ataques
 con éxito no pueden obtener información privada de los datos utilizando dispositivos
 con poder de cómputo actuales en menos de 1000 años.
+
+Atributo de Seguridad
+=====================
+
+Solo los entrenadores de un corredor pueden enviarle un mensaje personalizado a su
+dispositivo.
+
+* Fuente: Agente no autorizado.
+* Estímulo: Intenta enviar un mensaje personalizado a un corredor que no lo ha autorizado.
+* Artefacto: Sistema
+* Entorno: En condiciones normales.
+* Respuesta: El comentario es descartado por el sistema sin dar aviso al usuario.
+* Medida de respueta: La performance de sistema no se degrada, se rechaza el 99.9999% de los
+mensajes no autorizados enviados, no se interrumpe al corredor mientras se realiza este
+filtrado.
 
 Atributo de Seguridad
 =====================
