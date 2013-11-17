@@ -104,6 +104,8 @@ Atributo de Seguridad
 
 Solo los entrenadores de un corredor pueden enviarle un mensaje personalizado a su
 dispositivo.
+//CHE; CAMBIAR.
+
 
 * Fuente: Agente no autorizado.
 * Estímulo: Intenta enviar un mensaje personalizado a un corredor que no lo ha autorizado.
@@ -131,6 +133,7 @@ en menos de 1000 años utilizando equipos con poder de cómputo como los actualm
 
 Atributo de Performance
 =======================
+//AGREGAR EL DE DISPONIBILIDAD ANALOGO.
 
 El sistema debe dar respuesta rápida ante situaciones de riesgo médico detectadas mediante
 un dispositivo de medición de datos médicos.
@@ -163,11 +166,10 @@ El sistema debe estar en funcionamiento todo el tiempo que sea posible.
 * Medida de Respuesta: El sistema responde con una probabilidad que equivale a un
 _downtime_ de 30 segundos por día promediado a lo largo de un año.
 
-Atributo de Modificabilidad
+Atributo de Modificabilidad //WAAAAAAAAAAAAT??????
 ===========================
 
-Se desea almacenar la mayor cantidad de datos físicos posibles tomados de dispositivos que se
-puedan conectar al usuario.
+Se desea poder agregar nuevos modelos de dispositivos biométricos.
 
 * Fuente: Desarrollador
 * Estímulo: Se desea poder recolectar una nueva métrica de carácter médico a partir de un

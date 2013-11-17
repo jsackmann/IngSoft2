@@ -50,15 +50,35 @@
 \newcommand{\Break}{\textbf{break }}
 \newcommand{\Continue}{\textbf{continue }}
 \newcommand{\Param}{\textbf{param }}
-\newcommand{\ig}[3]{
-	\begin{landscape}
+% \newcommand{\ig}[3]{
+% 	\begin{landscape}
+% 		\begin{figure}[c]
+% 			\label{diag_diseno}
+% 			\includegraphics[scale=#1]{images/#2}
+% 			\caption{#3}
+% 		\end{figure} 
+% 	\end{landscape}
+% 	\newpage
+% }
+
+\newcommand{\ig}[4]{
+	\ifthenelse{\equal{#1}{l}}{\begin{landscape}
 		\begin{figure}[c]
 			\label{diag_diseno}
-			\includegraphics[scale=#1]{images/#2.pdf}
-			\caption{#3}
+			\includegraphics[scale=#2]{images/#3}
+			\caption{#4}
 		\end{figure} 
 	\end{landscape}
-	\newpage
+	\newpage}{
+	\ifthenelse{\equal{#1}{p}}{
+		\begin{figure}[c]
+			\label{diag_diseno}
+			\includegraphics[scale=#2]{images/#3}
+			\caption{#4}
+		\end{figure} 
+	\newpage}
+	}	
+	
 }
 
 % \parindent 0em
