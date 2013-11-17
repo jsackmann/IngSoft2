@@ -1,3 +1,26 @@
 \section{Arquitectura}
-\section{Conexión encriptada con ssl}
-\ig{}
+\textbf{Aclaración importante}: en los diagramas se omitió dibujar los puertos en los componentes por una cuestión de claridad y dimensiones.
+
+\subsection{Conexión encriptada con ssl}
+\subsubsection{Diagrama}
+% \ig{l}{0.8}{}{}
+
+
+\subsubsection{Detalle}
+\textbf{Nota}: se está asumiendo que en el repositorio de certificados ya se tienen los correspondientes a las autoridades certificantes usadas.
+
+El \textbf{\texttt{handler de conexión}}, del lado del cliente es el encargado de inicializar la conexión con el servidor. Cuando recibe instrucciones de establecer una \texttt{conexión encriptada} con un servidor (esto se hace mediante un primer paquete con un formato especial en la \texttt{cola de paquetes}, no es necesaria una conexión adicional con el handler de mensajes), se comunica con el \texttt{manejador de certificados} mediante un \texttt{call return} para averiguar si ya tiene almacenado el certificado correspondiente al servidor. Para averiguar esto, el \texttt{manejador de certificados} lee el \texttt{repositorio de certificados SSL}, donde se almacenan estos certificados. Si lo tiene, lo devuelve.
+
+En el caso de que no lo tenga, se comunica con el servidor mediante un \texttt{canal confiable no encriptado} y le solicita su certificado. Este certificado tiene numerosos datos, uno de los cuales es cuál es la autoridad certificante que lo valida. Una vez obtenido el certiciado, se comunica nuevamente con el \textbf{manejador de certificados} y le solicita la clave pública de la autoridad certificante correspondiente (por la suposición anterior, este dato está en el repositorio). El certificado de la autoridad certificante tiene, entre otros datos, su clave pública. Usando eso, se comunica en forma segura con la autoridad certificante y solicita que valide el certificado que envió el servidor destino. Una vez validado el certificado, se extrae de este su clave pública y se la utiliza para cifrar una serie de mensajes que serán intercambiados con el \texttt{handler de conexión}, del lado del servidor. En este intercambio de mensajes ambos \texttt{\emph{handlers}}, acuerdan una \textbf{clave de sesión} y un \textbf{algoritmo simétrico}.
+
+Obtenida esta clave de sesión, el \texttt{handler de conexión} inicializa el componente \texttt{codificador simétrico} con este par \emph{(clave,algoritmo)} comienza el proceso de obtener los siguientes paquetes de la \texttt{cola de paquetes} y pasárselos mendiante una cola al \texttt{codificador simétrico}. Una vez que este los encripta con la clave y algoritmo correspondientes se los devuelve (también mediante una cola) al \texttt{\emph{handler}}, que se ocupa de enviarlos, mediante un \texttt{canal confiable no encriptado} (aunque estos paquetes ya están cifrados) al \texttt{handler de conexión (servidor)}. Éste, cuando los recibe, los encola en su \texttt{decodificador simétrico} (que ya oportunamente inicializó con el mismo par \emph{(clave, algoritmo)} acordado). A medida que son decodificados los va encolando en la \texttt{cola de mensajes} correspondiente.
+
+
+Para manejar los certificados presentes en el \texttt{repositorio de certificados SSL}, existe un componente (el \texttt{updater de repositorio de certificados}), que recibe pedidos del \texttt{updater global de certificados SSL} (que está corriendo en los servidores de la Secretaría de Deportes), para agregar, modificar o revocar certificados existentes. 
+
+\subsection{Notificador con prioridad}
+\subsubsection{Diagrama}
+% \ig{l}{0.8}{}{}
+
+\subsubsection{Detalle}
+El 
