@@ -110,7 +110,7 @@ dispositivo.
 * Artefacto: Sistema
 * Entorno: En condiciones normales.
 * Respuesta: El comentario es descartado por el sistema sin dar aviso al usuario.
-* Medida de respueta: La performance de sistema no se degrada, se rechaza el 99.9999% de los
+* Medida de respuesta: La performance de sistema no se degrada, se rechaza el 99.9999% de los
 mensajes no autorizados enviados, no se interrumpe al corredor mientras se realiza este
 filtrado.
 
