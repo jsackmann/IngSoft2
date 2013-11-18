@@ -1,3 +1,6 @@
+all:
+	pdflatex informe
+
 informe:
 	pdflatex informe
 	pdflatex informe

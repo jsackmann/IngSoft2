@@ -62,23 +62,19 @@
 % }
 
 \newcommand{\ig}[4]{
-	\ifthenelse{\equal{#1}{l}}{\begin{landscape}
-		\begin{figure}[c]
+	\ifthenelse{\equal{#1}{l}}{
+		\begin{figure}[!ht]
+			\label{diag_diseno}
+			\includegraphics[angle=90,scale=#2]{images/#3}
+			\caption{#4}
+		\end{figure} 
+	}{
+		\begin{figure}[!ht]
 			\label{diag_diseno}
 			\includegraphics[scale=#2]{images/#3}
 			\caption{#4}
 		\end{figure} 
-	\end{landscape}
-	\newpage}{
-	\ifthenelse{\equal{#1}{p}}{
-		\begin{figure}[c]
-			\label{diag_diseno}
-			\includegraphics[scale=#2]{images/#3}
-			\caption{#4}
-		\end{figure} 
-	\newpage}
-	}	
-	
+	}		
 }
 
 % \parindent 0em
