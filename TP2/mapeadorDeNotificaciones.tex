@@ -1,0 +1,44 @@
+\subsection{Diagrama general}
+\subsubsection{Diagrama}
+
+% \ig{l}{0.9}{}{}
+
+\subsubsection{Detalle}
+
+En el anterior diagrama se incluye un detalle de los componentes y
+conectores del mapeador de notificaciones de la aplicación. El rol
+de este sistema es, dada la heterogeneidad de dispositivos a soportar,
+queríamos separar la generación de eventos (o notificaciones como les
+decimos en el trabajo) de la manera en la que estos se muestran. 
+También era nuestro interés que los usuarios pudieran configurar la
+manera en la que se les informaban las notificaciones, pero que el
+sistema eligiera la mejor opción dadas las que hubiera (por ejemplo
+usar visual si el usuario no manifiesta deseo por otra y si el 
+dispositivo lo soporta).
+
+Consideramos que las posibles salidas consisten en utilizar 
+notificaciones auditivas, visuales, o enviar mediante un conector
+externo la notificación a otro dispositivo (por ejemplo, usando
+Bluetooth para enviar la notificación al teléfono celular del 
+corredor).
+
+El sistema de lógica de mapeo se encarga de, utilizando soporte de
+una base de datos central para saber que características hay en
+el dispositivo y como utilizarlas (por ello necesitamos un servidor
+central de actualizaciones), y utilizando la configuración del usuario
+para saber que organización dar a las notificaciones, va tomando 
+estas notificaciones y creando los estímulos al dispositivo 
+necesarios para mostrarla, teniendo en cuenta su nivel de prioridad 
+y otros posibles factores.
+
+Las notificaciones vienen del notificador priorizado (que se ocupa de
+organizar las prioridades y otros factores, y se explica en un 
+diagrama separado) y son etiquetadas con metadatos que permitan 
+tomar acciones como descartarlas si hay demasiadas cosas que notificar
+para el hardware, o dar datos como el tiempo en que se recibió la
+notificación. 
+
+Estas notificaciones son enviadas por el despachador, que bloquea
+esperando a que el notificador determine que ya ha enviado la 
+notificación (porque puede por ejemplo esperar a que la misma sea
+mostrada durante un tiempo o hasta recibir una confirmación).

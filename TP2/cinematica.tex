@@ -1,0 +1,38 @@
+\subsection{Sistema de cinemática}
+\subsubsection{Diagrama}
+
+% \ig{l}{0.9}{}{}
+
+\subsubsection{Detalle}
+
+El rol de este sistema, cuyo diagrama de componentes y conectores
+incluimos previamente, es el de proveer información del dispositivo
+que es resultado de mediciones cinemáticas del mismo: posición,
+velocidad, dirección, etc. La posición por ejemplo, requerimos que sea
+geolocalizada (ya que por ejemplo esto es necesario para lograr enviar
+una ambulancia en caso de emergencia en el menor tiempo posible).
+
+Decidimos utilizar una arquitectura basada en heartbeat del sistema
+de cinemática: el mismo envía cada cierto tiempo (configurable por
+el usuario) una actualización. La misma consiste de los datos que
+puede medir el dispositivo en particular. Un ejemplo es que Google
+Glass tiene giroscopios y velocímetros, con lo cual puede incluso
+obtener la dirección de movimiento. Otros dispositivos puede que no,
+pero estos datos pueden estimarse mediante otros (por ejemplo, la
+posición geolocalizada) o usar dispositivos externos que tengan
+habilitada esta funcionalidad (por ejemplo un celular).
+
+Puesto que un servicio de geolocalización puede caerse, o puede no
+soportar la tasa de refresco requerida por la configuración, también
+se considera un caché de datos que permite realizar interpolaciones
+de los datos entremedio de manera de dar un soporte lo más fiel 
+posible al sistema (para que este no parezca caído, lo cual nos 
+interesa dado que buscamos disponibilidad lo mayor posible del 
+sistema).
+
+Para esto tenemos un colector que escribe los valores en un 
+repositorio local que es utilizado por el estimador. Cuando el 
+colector es consultado por un valor que no posee, utiliza el estimador
+para derivar una respuesta cercana. Este valor es también ingresado
+al repositorio para permitir cotejarlo con nuevos valores que vayan
+surgiendo de mediciones reales.

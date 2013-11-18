@@ -1,0 +1,49 @@
+\subsection{Diagrama general}
+\subsubsection{Diagrama}
+
+% \ig{l}{0.9}{}{}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior se incluye un diagrama de componentes y
+conectores del sistema de entrada de un dispositivo, de manera de
+que el sistema pueda recibir los comandos necesarios para trabajar.
+
+Dada la heterogeneidad de dispositivos que se quieren soportar,
+esta capa de sistema sirve para permitir separar la entrada de
+comandos con los procesos que se generan a partir de ellos.
+
+Por ejemplo, se soporta entrada por teclado, por voz, o por 
+comandos externos (compatibles con una simple especificación de
+comandos basada en texto, y que permiten dar ordenes al dispositivo
+mediante un celular por ejemplo).
+
+Los comandos enviados son procesados por un interprete. Este se 
+ocupa de hacer procesamiento simbólico de manera de convertir el texto
+del comando en un comando efectivo interpretable por el resto del
+sistema. En el caso particular de instrucciones dadas por voz, se 
+procesa esta entrada a texto utilizando para ello un servicio externo
+basado en Google Speech (el mismo eventualmente puede ser reemplazado
+por un servicio compatible, ya que esta en nuestros intereses eliminar
+la dependencia tecnológica lo más posible).
+
+Los comandos son comparados contra un repositorio de manera de 
+realizar validación del mismo contra los comandos y sus distintas
+reglas. Estas reglas son actualizadas periodicamente mediante un
+sistema automático (de manera de involucrar lo menos posible 
+en este procedimiento tedioso al usuario). Si hay un error, se 
+muestra una notificación de mensaje de error en el dispositivo del
+usuario (ya que nos interesa tratar de hacer al sistema lo más usable
+posible, y para ello usamos la táctica de \textit{buenos mensajes de
+error}). 
+
+Si el comando es interpretado, el mismo es liberado a los distintos
+otros sistemas. Dado que tenemos un conjunto de sistemas interesados
+en ciertos tipos de mensajes (por ejemplo el modulo de seguimiento
+quiere saber unicamente los que impliquen crear, iniciar o detener
+un entrenamiento, etc.) y mensajes que publicar, utilizamos para esto
+un bus de \textit{publish subscribe}. Si bien no hay más que un solo
+publicador, existen una variedad no acotada (porque se pueden ir
+agregando nuevos) mensajes, y nos interesa poder soportar eventualmente
+nuevos comandos.
+

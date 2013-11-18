@@ -1,0 +1,27 @@
+\subsection{Interfaz con redes sociales}
+\subsubsection{Diagrama}
+
+% \ig{l}{0.9}{}{}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior incluimos un detalle de componentes y 
+conectores para la interfaz entre el sistema y las redes sociales.
+
+En particular, utilizamos un sistema basado en OpenSocial y redes
+sociales compatibles con la especificación de la API. Con este
+proposito usamos también OAuth para autenticación de los usuarios
+(que se determina al modelo de configuración). Estos repositorios
+son almacenados por la aplicación de manera de poder validar el usuario
+en redes sociales de manera transparente. 
+
+Los repositorios con certificados son actualizados cada cierto
+tiempo de manera, ya que los mismos expiran.
+
+La interfaz OpenSocial nos permite por defecto cualquier red social
+que sea compatible con la misma. 
+
+Los principales sistemas consumidores de las redes sociales son
+parte del módulo de interfaz contextual, ya que queremos obtener
+los comentarios nuevos para mostrarle al corredor y además
+queremos obtener sus amigos para mostrar sus posiciones en el mapa.

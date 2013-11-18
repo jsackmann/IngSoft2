@@ -32,4 +32,56 @@ otro lado de emergencias puedan detectar los replays (porque además
 preferimos que lleguen dos pedidos de emergencias a que haya una mayor
 posibilidad de que no llegue ninguno).
 
-%% TODO: Explicar procesamiento de los datos
+El otro sistema es el sistema de envío de datos. El mismo empieza enviando
+los datos para procesar. Estos datos se envían encriptados (para evitar que
+los datos sean capturados por un atacante externo) pero no se envían de forma
+confiable pues perder datos no nos preocupa particularmente. Estos datos
+son procesados utilizando varios sistemas (en particular, de acuerdo a la
+especificación del trabajo práctico, este sistema es la misma nube de 
+procesamiento OpenStack local a la secretaría, pero posteriormente podría
+expandirse para incluir otras nubes). Para manejar estos sistemas y permitir
+adicionar sistemas de manera horizontal (mejorando así la escalabilidad, y
+para soportar uno de los atributos de \textit{modificabilidad} señalados)
+primero utilizamos un balanceador de carga que se encarga de asignar trabajos
+a los distintos módulos de procesamiento. Estos procesan pequeñas partes
+del problema y luego envían los resultados a un colector, que se ocupa de
+serializar y post procesar los datos obtenidos. Uno de estos pasos de post-
+procesamiento es encriptar los datos para almacenarlos en la base de datos.
+Al usarse encripción homomórfica\footnote{\texttt{http://blogs.teamb.com/craigstuntz/2010/03/18/38566/}} los datos se pueden procesar sin desencriptarlos,
+manteniendo entonces la privacidad de los datos médicos de los corredores
+(uno de los atributos de calidad que nos interesaban). 
+
+Para permitir el acceso a estos datos solamente a entes autorizados, se 
+utiliza una estructura cliente servidor con autenticación para los 
+consumidores de la API. Puesto que el servidor solo debe verificar la 
+identidad del consumidor revisando su identificación de clave de API y usar
+el repositorio de datos obtenido, no nos parece pertinente detallar más el
+módulo.
+
+Para dar un poco más de detalle al sistema de procesamiento de datos en
+la nube, incluimos el siguiente diagrama:
+
+% \ig{l}{0.8}{}{}
+
+En este se puede ver los componentes y conectores internos al sistema de
+procesamiento. Como podemos ver, el balanceador de carga toma la decisión
+de a que nube de procesamiento enviar los datos utilizando un chequeo de
+salud basado en la táctica de \textit{ping-echo}. El sistema envia 
+periodicamente pedidos de estado de carga de cada uno. Si no recibe una
+respuesta luego de un cierto tiempo asume que la nube eseta caída. Estos
+datos son almacenados en un cache interno para que le sirvan al scheduler 
+como manera de decidir a que nube asignar el trabajo. Adicionalmente estos
+datos son almacenados en un auditor de sistema para poder ser accedidos
+mediante el sistema de Dashboard de OpenStack y poder hacer diagnósticos.
+
+Cada nube de procesamiento realiza un computo y envía el resultado al
+colector (de manera confiable, para no gastar el cómputo realizado por
+errores). El colector va realizando una serie de procesos sobre los datos,
+desde determinar su numero de batch (asignado al principio por el 
+scheduler de trabajos), aplicar una serie de reducciones a los datos del
+batch (por eso necesita encolar parcialmente los datos), juntando los datos
+en una base de datos intermedia (de manera de poder juntar todo un batch
+y enviarlo apenas este) y luego encriptando los datos y escribiendolos en el
+repositorio de datos. De esta manera se puede procesar los datos con una 
+buena performance (de manera que los datos más frescos esten disponibles 
+para los consumidores de la API).

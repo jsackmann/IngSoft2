@@ -1,6 +1,8 @@
 \subsection{Diagrama general}
 \subsubsection{Diagrama}
 
+% \ig{l}{0.9}{}{}
+
 \subsubsection{Detalle}
 
 El anterior diagrama corresponde a un diagrama a gran escala de la
@@ -17,15 +19,22 @@ del usuario.
 Algunos de los sistemas que indicamos en el diagrama los consideramos
 de un tamaño muy reducido como para merecer un diagrama aparte. Por
 ejemplo, en general los sistemas de notificaciones intermedios (por
-ejemplo el \texttt{Sistema de notificaciones de entrenador}) no hace
+ejemplo el \texttt{Sistema de notificaciones de entrenador}) no hacen
 más que poner unos tags de tiempo y otras operaciones lógicas a aplicar
 sobre los comentarios de entrenadores) nos parecieron demasiado sencillos
 como para merecer un diagrama aparte.
 
+Otro diagrama que consideramos no era necesario mirar aparte es el 
+\texttt{Publicador de datos para entrenador}, que solo se ocupa de forwardear
+(agregando un tag de identidad del corredor para que se sepa quien es) los datos
+que va recibiendo de los otros sistemas. Por lo tanto su funcionalidad se puede
+ver fácilmente mediante los diagramas de otros sistemas.
+
 Otro ejemplo de similar razonamiento es para el sistema \texttt{Sistema de
 posiciones de usuarios} que simplemente se ocupa de guardar las posiciones
 que le son enviadas de manera de tener un registro de las mismas que se pueda
-usar para mostrar como información contextual en el mapa.
+usar para mostrar como información contextual en el mapa (o dictar, o enviar
+a un dispositivo externo como un teléfono).
 
 Sin embargo, varios de los sistemas marcados si son importantes y por lo
 tanto incluimos a continuación un breve detalle de los mismos. Se 
@@ -75,10 +84,12 @@ pareció pertinente detallarlo más alla de estas palabras.
 También tenemos el \texttt{Sistema de entrada al usuario}. Dado que la 
 cantidad de dispositivos de entrada posibles es grande, este sistema tiene 
 que manejar distintos posibles de tipos de entrada y convertirlos a 
-comandos útiles para el sistema. 
-Por ello consideramos que su interacción merece un subsistema aparte.
+comandos útiles para el sistema. Por ello consideramos que su interacción 
+merece un subsistema aparte.
 
-Por último haremos mención del \texttt{Sistema de interfaz} con el usuario para el envio de las notificaciones. Esta interacción esta específicada en mayor
-detalle mediante un diagrama de componentes y conectores posteriormente en
-el trabajo práctico.
+Por último haremos mención del \texttt{Sistema de interfaz} con el usuario para el envio 
+de las notificaciones. 
+
+Esta interacción esta específicada en mayor detalle mediante un diagrama de componentes 
+y conectores posteriormente en el trabajo práctico.
 

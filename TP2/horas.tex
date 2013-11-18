@@ -1,0 +1,106 @@
+\begin{longtable}[c]{@{}lcl@{}}
+\hline\noalign{\medskip}
+\begin{minipage}[b]{0.28\columnwidth}\raggedright
+Caso de uso
+\end{minipage} & \begin{minipage}[b]{0.62\columnwidth}\centering
+Tarea
+\end{minipage} & \begin{minipage}[b]{0.10\columnwidth}\raggedright
+Horas
+\end{minipage}
+\\\noalign{\medskip}
+\hline\noalign{\medskip}
+\begin{minipage}[t]{0.28\columnwidth}\raggedright
+Logueando al usuario en el dispositivo
+\end{minipage} & \begin{minipage}[t]{0.62\columnwidth}\centering
+* Investigar la arquitectura de login en Open Social. * Validar con los
+\emph{stakeholders} que redes sociales se desea soportar. * Validar con
+los \emph{stakeholders} que tipo de sistemas de entrada deben soportar
+los dispositivos. * Implementar capa de abstracción para interactuar con
+los dispositivos a soportar y determinar sus características. *
+Implementar sistema de \emph{login} para cada dispositivo a soportar. *
+Diseñar e implementar mecanismos de logueo externos para soportar
+dispositivos sin interfaz de entrada. * Implementar capa de interacción
+con redes sociales a soportar para permitir el registro. * Diseñar
+módulos de interfaz con el dispositivo. * Documentar las interfaces
+esperadas de los dispositivos. * Testeo y \emph{debugging} de las
+implementaciones particulares y de la interfaz general. * Separar los
+tipos de usuarios entre corredores, entrenadores y comentadores.
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright
+8h 4h
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.28\columnwidth}\raggedright
+Mostrando datos y notificaciones
+\end{minipage} & \begin{minipage}[t]{0.62\columnwidth}\centering
+* Validar con los \emph{stakeholders} que tipos de sistemas de aviso de
+información han de soportar los dispositivos. * Implementar una capa de
+detección y abstracción de características de notificación al usuario
+para los dispositivos. * Determinar que tipo de datos notificar al
+usuario sin que este los demande. * Implementar una interfaz para
+soportar distintos tipos de datos a notificar. * Implementar para cada
+dispositivo la metodología de envio de notificaciones que se ajuste a
+sus capacidades técnicas. * Documentar las interfaces esperadas de los
+dispositivos. * Testeo y \emph{debugging} de las implementaciones
+particulares y de la interfaz general.
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright
+4h
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.28\columnwidth}\raggedright
+Compartiendo datos de tiempo real de un entrenamiento
+\end{minipage} & \begin{minipage}[t]{0.62\columnwidth}\centering
+* Investigar como compartir datos bajo Open Social * Implementar capa de
+\emph{social sharing} de datos. * Implementar sistema de \emph{social
+sharing} para cada red social a dar soporte en esta instancia. *
+Integrar sistema de \emph{login} a este módulo. * Validar políticas de
+privacidad de datos con \emph{stakeholders} * Testeo y \emph{debugging}
+del módulo.
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright
+8h 16h 16h
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.28\columnwidth}\raggedright
+Obteniendo posición propia y de amigos en el dispositivo empleado.
+\end{minipage} & \begin{minipage}[t]{0.62\columnwidth}\centering
+* Validar con los \emph{stakeholders} que tipo de geolocalización se se
+desea soportar. * Implementación de módulo de abstracción de
+posibilidades de geolocalización para cada dispositivo. * Implementación
+de obtención de datos de geolocalización. * Implementación de sistema de
+notificación de geolocalización. * Integración con el módulo de
+\emph{social sharing}. * Testeo y \emph{debugging} del módulo.
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright
+4h
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.28\columnwidth}\raggedright
+Tomando datos de estado físico del corredor.
+\end{minipage} & \begin{minipage}[t]{0.62\columnwidth}\centering
+* Validar que tipos de dispositivos médicos se van a soportar. * Validar
+que tipos de datos médicos se van a obtener. * Implementar el módulo de
+detección de capacidades de medición para datos biomédicos * Implementar
+módulo de medición para los dispositivos médicos. * Documentación de las
+interfaces esperadas. * Testeo y \emph{debugging} de la implementación.
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright
+4h 4h 32h
+\end{minipage}
+\\\noalign{\medskip}
+\begin{minipage}[t]{0.28\columnwidth}\raggedright
+Enviando datos a procesar a la nube local.
+\end{minipage} & \begin{minipage}[t]{0.62\columnwidth}\centering
+* Investigar la plataforma Open Stack. * Conseguir especificación
+técnica del hardware de la nube local. * Implementar adaptador para
+llegada de datos a la nube de Secretaría. * Conseguir especificación
+técnica del software de procesamiento de datos de la Secretaría. *
+Implementar módulo de envío de datos a la Secretaría. * Documentar la
+interfaz con el sistema. * Testeo y \emph{debugging} de la
+implementación.
+\end{minipage} & \begin{minipage}[t]{0.10\columnwidth}\raggedright
+4h 4h 8h
+\end{minipage}
+\\\noalign{\medskip}
+\hline
+\end{longtable}
+
+En total tenemos entonces 460 horas, lo que nos da un poco de
+\textbf{slack} en la iteración considerando la posibilidad de que surga
+un evento inesperado o nuestras estimaciones sean incorrectas.

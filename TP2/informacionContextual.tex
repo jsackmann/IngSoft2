@@ -1,0 +1,55 @@
+\subsection{Información contextual}
+\subsubsection{Diagrama}
+
+% \ig{l}{0.9}{}{}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior se incluye el detalle de componentes y
+conectores del sistema de información contextual. Este sistema
+se ocupa de paginar información de varias fuentes y utilizarla para
+generar notificaciones pertinentes tanto para el usuario como 
+potencialmente para los entrenadores del mismo (que necesitan seguir
+su performance para poder darle consejos adecuados).
+
+Otro aspecto de importancia para este sistema es que procesa los 
+comandos relacionados con pedidos de información, de manera de 
+proveerselos al usuario \textit{on demand} (de otra manear sería
+necesario mostrar demasiada información, haciendo al sistema inusable).
+
+Para ello, en primer lugar tenemos que al llegar un nuevo pedido, se
+determinan las dependencias a satisfacer (es decir, que valores 
+necesito mostrarle al usuario para poder responder su consulta).
+
+Estos valores son pedidos al sistema mediante un 
+\texttt{Colector de dependencias}. Este se ocupa de interactuar con
+los distintos sistemas. Por ejemplo, se ocupa de conseguir las 
+posiciones de los amigos interactuando con las posiciones históricas
+de los mismos (dadas por el sistema \texttt{Posiciones de usuarios}).
+
+Este Sistema también se ocupa de compaginar la información de los
+sistemas de \texttt{Seguimiento} y de \texttt{Competencias virtuales}
+para soportar consultas como por ejemplo ``Cuanto me lleva por delante
+mi competidor virtual?''. 
+
+Por otro lado, es necesario mantener la información propia. Para ello
+se utiliza el \texttt{Driver de cinemática}, que devuelve valores como
+por ejemplo la velocidad, dirección y posición del sistema a 
+ciertos intervalos. Estos valores son mantenidos por el sistema de
+información contextual de manera no solo de mostrarlos como 
+notificaciones sino también actualizar con esto las publicidades que
+se muestran al usuario (para dar contextualización), y mantener fresco
+el sistema de posiciones y el cache de datos propios (para poder
+responder consultas históricas). 
+
+Los amigos del corredor son obtenidos utilizando su perfil (disponible
+desde el \texttt{Sistema de configuración}) y la interfaz con las
+redes sociales. Los amigos del corredor son cacheados para evitar
+tener que acceder todas las veces a los datos. Este caché expira cada
+cierto tiempo y debe ser renovado (de lo cual también se encarga este
+componente).
+
+Por ultimo, este subsistema utiliza un componente de cliente de 
+servicio publicitario con datos de geolocalización y de entrenamiento
+para mostrar publicidad especialmente dirigida a la actividad que
+el corredor se encuentre realizando.
