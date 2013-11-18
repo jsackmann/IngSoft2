@@ -1,3 +1,8 @@
+A continuación incluimos los atributos de calidad que identificamos en base al trabajo práctico y
+al QAW (\textit{Quality Attribute Workshop}) realizado en clase. También incluimos una justificación de como
+logramos los mismos en la arquitectura. Para ello justificamos las tácticas usadas mediante el libro de 
+arquitectura de la materia~\cite{lenbass}.
+
 \subsection{Atributo de Usabilidad}
 El sistema debe poder ser utilizado por personas con capacidades diferentes de movibilidad, visión o audición de la manera más satisfactoria posible.
 
@@ -152,8 +157,8 @@ El sistema debe dar respuesta rápida ante situaciones de riesgo médico detecta
 \paragraph{Justificación en la arquitectura}
 Para lograr este atributo de performance se realizan varias tácticas que involucran a numerosos componentes: 
 \begin{itemize}
-  \item \texttt{Notificador con prioridad} (ver \ref{conexionEncriptadaConSSL}).
-  \item \texttt{Sistema de datos biomédicos} \ref{dispMedicos}. Particularmente: 
+  \item \texttt{Notificador con prioridad} (ver~\ref{conexionEncriptadaConSSL}).
+  \item \texttt{Sistema de datos biomédicos}~\ref{dispMedicos}. Particularmente: 
   \begin{itemize}
     \item \texttt{Etiquetador de señal}.
     \item \texttt{Router de mediciones biomédicas}.
@@ -162,13 +167,13 @@ Para lograr este atributo de performance se realizan varias tácticas que involu
     \item \texttt{Módulo de transmisión confiable}.
   \end{itemize}
 \end{itemize}
-COMPLETAR UN POCO ESTO NO ME DA MÁS LA CABEZA
-Dado que las notificaciones del dispositivo biomédico tienen la mayor de las prioridades (\emph{P0}), son \emph{handleadas} casi isntantáneamente una vez que son recibidas por el \texttt{notificador con prioridad}. 
+
+Dado que las notificaciones del dispositivo biomédico tienen la mayor de las prioridades (\emph{P0}), son \emph{handleadas} casi instantáneamente una vez que son recibidas por el \texttt{notificador con prioridad}. 
 
 Las principal táctica utilizada es \emph{introduce concurrency}. 
 
-
 \subsection{Atributo de Disponibilidad}
+
 El sistema debe lograr que un mensaje de pedido de emergencia llegue al servicio de emergencias de manera que se disminuya en lo mínimo posible el riesgo de vida del paciente.
 
 \begin{itemize}
@@ -182,6 +187,9 @@ El sistema debe lograr que un mensaje de pedido de emergencia llegue al servicio
 
 \paragraph{Justificación en la arquitectura}
 
+La principal táctica utilizada para esto es implementar transmisión confiable de manera que se reintente enviar
+el mensaje tantas veces como sea necesario para que llegue. Esto lo podemos ver como un tipo de \textit{state
+resincronization}. 
 
 \subsection{Atributo de Disponibilidad}
 El sistema debe estar en funcionamiento todo el tiempo que sea posible.
@@ -197,7 +205,12 @@ El sistema debe estar en funcionamiento todo el tiempo que sea posible.
 
 \paragraph{Justificación en la arquitectura}
 
-
+Para implementar esto utilizamos \texttt{shadow} en varias partes del trabajo práctico de manera que el sistema
+parezca que esta andando (es decir, de respuesta al usuario) lo mayor posible. También utilizamos estrategias
+de \textit{ping-echo} para salud del sistema de procesamiento de datos y utilizamos caches de datos para no 
+necesitar acceder constantemente al servidor. También utilizamos control de frecuencia de sampleo para manejar
+la lectura de datos de cinemática por parte del sistema y usamos colas en los servicios de salida para evitar
+sobrecargar (porque usamos tranmisión con confirmación) a los servicios del sistema.
 
 \subsection{Atributo de Modificabilidad}
 Se desea poder agregar nuevos modelos de dispositivos biométricos.
@@ -213,7 +226,12 @@ Se desea poder agregar nuevos modelos de dispositivos biométricos.
 
 \paragraph{Justificación en la arquitectura}
 
-
+Para esto utilizamos un sistema de fronteo de servicios médicos que se ocupa de routear los mensajes a los
+distintos sistemas (en particular el \texttt{Rastreador de señales de riesgo} y el sistema de envío de datos
+médicos a procesar) y colecciona de los diversos dispositivos los datos que necesita. Esto separa la interfaz
+de procesamiento de los datos de la generación de los mismos y facilita el trabajo de escribir drivers para los
+dispositivos de manera que solo necesitemos formatear las mediciones a lo que necesita el \texttt{Router de
+mediciones biomédicas}
 
 \subsection{Atributo de Modificabilidad}
 El sistema debe poder adaptarse a nuevo hardware de manera de poder cambiar el hardware actual a otro para aumentar el poder de cómputo.
@@ -229,7 +247,11 @@ El sistema debe poder adaptarse a nuevo hardware de manera de poder cambiar el h
 
 \paragraph{Justificación en la arquitectura}
 
-
+Esto se logra instalando el \texttt{Balanceador de carga} que se encarga de mantener una flota de unidades de
+procesamiento funcionando y asignarles trabajo, y luego un sistema de \texttt{Colector de procesamiento} que
+junta los datos de estos. Por lo tanto para agregar hardware, solo es necesario conectarlo y agregar su 
+existencia en los dos sistemas mencionados, lo cual permite escalar horizontalmente con un esfuerzo de 
+configuración lo más mínimo posible.
 
 \subsection{Atributo de Modificabilidad}
 El sistema debe permitir que se adapten todo tipo de dispositivos, no solo anteojos sino también relojes de pulsera, mp3, etc.
@@ -245,3 +267,18 @@ El sistema debe permitir que se adapten todo tipo de dispositivos, no solo anteo
 
 \paragraph{Justificación en la arquitectura}
 
+Esto se logra mediante dos objetivos:
+
+\begin{itemize}
+	\item 
+		Separamos las entradas de dispositivos del sistema de interpretación de comandos, de manera que agregar
+		un nuevo dispositivo solo requiere escribir el código para tomar su entrada y pasarla a un texto que
+		pueda usar el interprete de comandos (y luego estos comandos son usados por los demás sistemas).
+	\item 
+		Separamos las funcionalidades de presentación (que denominamos estímulos en el trabajo) de las 
+		notificaciones a mostrar y sus prioridades. De esta manera solo es 
+\end{itemize}
+
+De esta manera \textit{anticipamos cambios esperados}, \textit{abstraemos servicios comunes} y utilizamos
+\textit{adhesion a protocolos determinados} para separar los detalles particulares del dispositivo lo mejor
+posible.
