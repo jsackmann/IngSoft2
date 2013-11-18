@@ -1,0 +1,84 @@
+\subsection{Diagrama general}
+\subsubsection{Diagrama}
+
+\subsubsection{Detalle}
+
+El anterior diagrama corresponde a un diagrama a gran escala de la
+aplicación, de manera de identificar los sistemas más importantes.
+
+El diagrama se encuentra dividido en dos claras partes. Los sistemas
+en la parte derecha corresponden a los distintos sistemas de la
+aplicación. Estos sistemas interactuan entre si de diversas maneras pero lo 
+principal que pretendíamos que se viera en este diagrama es que los mismos 
+envían notificaciones al usuario, las cuales son priorizadas 
+y mapeadas a las características del dispositivo y la configuración 
+del usuario.
+
+Algunos de los sistemas que indicamos en el diagrama los consideramos
+de un tamaño muy reducido como para merecer un diagrama aparte. Por
+ejemplo, en general los sistemas de notificaciones intermedios (por
+ejemplo el \texttt{Sistema de notificaciones de entrenador}) no hace
+más que poner unos tags de tiempo y otras operaciones lógicas a aplicar
+sobre los comentarios de entrenadores) nos parecieron demasiado sencillos
+como para merecer un diagrama aparte.
+
+Otro ejemplo de similar razonamiento es para el sistema \texttt{Sistema de
+posiciones de usuarios} que simplemente se ocupa de guardar las posiciones
+que le son enviadas de manera de tener un registro de las mismas que se pueda
+usar para mostrar como información contextual en el mapa.
+
+Sin embargo, varios de los sistemas marcados si son importantes y por lo
+tanto incluimos a continuación un breve detalle de los mismos. Se 
+especificarán con otros diagramas a continuación también.
+
+\begin{itemize}
+	\item \textbf{Sistema de datos médicos}: Este sistema se ocupa de
+	las mediciones de datos de condición física (ejemplo: presión
+	arterial, palpitaciones, etc.) con sus mensajes de notificación
+	asociados (``palpitaciones excedidas, disminuya la marcha'', etc.).
+	\item \textbf{Interfaz de redes sociales}: Este sistema se ocupa
+	de ser el puente entre las redes sociales que soporta la plataforma
+	Open Social y el sistema en si. Por ejemplo, posteando estado en
+	tiempo real de la carrera del corredor y permitiendo comentarios
+	motivacionales por afuera.
+	\item \textbf{Sistema de información contextual}: Este sistema se ocupa
+	de obtener y centralizar datos a mostrar al corredor, sea de la 
+	posición de sus amigos o procesar datos que pida mediante la
+	interfaz del dispositivo o del teléfono con el que este conectado.
+	\item \textbf{Sistema de seguimiento de entrenamiento}: Este sistema se
+	ocupa de realizar el seguimiento del entrenamiento del corredor
+	mientras usa el dispositivo, incluyendo procesar los comandos para crear
+	un entrenamiento, pedir estado del seguimiento para mostrar 
+	notificaciones en particular y mostrar datos generales del seguimiento.	
+	\item \textbf{Sistema de seguimiento de carrera virtual}: Este sistema
+	se ocupa de permitir al corredor realizar carreras virtuales contra 
+	otros corredores que esten en la misma zona.
+	\item \textbf{Frontend de indicaciones}: Este sistema se ocupa de
+	obtener indicaciones de los entrenadores a sus corredores profesionales
+	y mandar las mismas como notificaciones. Chequea por ejemplo los permisos
+	y se ocupa de identificar a los entrenadores.
+	\item \textbf{Sistema de adición de publicidad}: Este sistema se ocupa de 
+	aceptar publicidad contextualizada de acuerdo a \textit{features} dados
+	por el dispositivo y enviar una notificación a compaginar por el sistema 
+	de información contextualizada. También se ocupa de chequear los permisos
+	usados para ingresar publicidad de manera que no se puedan inyectar 
+	datos al sistema,  mediante el uso de encripción.
+\end{itemize}
+
+Un subsistema que no consideramos que merece un diagrama aparte consiste en
+el \texttt{Sistema de configuración}. Este sistema se ocupa de mantener la
+configuración del usuario: Que tipo de necesidades diferentes tiene, que 
+cuenta de OAuth posee, etc. Puesto que los componentes consisten basicamente
+en entradas a una base de datos y salidas que leen de la misma, no nos
+pareció pertinente detallarlo más alla de estas palabras.
+
+También tenemos el \texttt{Sistema de entrada al usuario}. Dado que la 
+cantidad de dispositivos de entrada posibles es grande, este sistema tiene 
+que manejar distintos posibles de tipos de entrada y convertirlos a 
+comandos útiles para el sistema. 
+Por ello consideramos que su interacción merece un subsistema aparte.
+
+Por último haremos mención del \texttt{Sistema de interfaz} con el usuario para el envio de las notificaciones. Esta interacción esta específicada en mayor
+detalle mediante un diagrama de componentes y conectores posteriormente en
+el trabajo práctico.
+

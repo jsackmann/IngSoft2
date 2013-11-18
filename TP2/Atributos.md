@@ -102,10 +102,8 @@ con poder de cómputo actuales en menos de 1000 años.
 Atributo de Seguridad
 =====================
 
-Solo los entrenadores de un corredor pueden enviarle un mensaje personalizado a su
-dispositivo.
-//CHE; CAMBIAR.
-
+Solo un entrenador puede enviar un mensaje prioritario a los corredores profesionales que
+esta _coucheando_.
 
 * Fuente: Agente no autorizado.
 * Estímulo: Intenta enviar un mensaje personalizado a un corredor que no lo ha autorizado.
@@ -133,7 +131,6 @@ en menos de 1000 años utilizando equipos con poder de cómputo como los actualm
 
 Atributo de Performance
 =======================
-//AGREGAR EL DE DISPONIBILIDAD ANALOGO.
 
 El sistema debe dar respuesta rápida ante situaciones de riesgo médico detectadas mediante
 un dispositivo de medición de datos médicos.
@@ -147,12 +144,23 @@ de vida se pide asistencia médica.
 * Medida de respuesta: El aviso de situación y las acciones correctivas se realizan en
 menos de 10 segundos de recibida la señal de riesgo potencial del medidor.
 
-Atributo de Auditabilidad
-=========================
 
-Se debe mantener registro de usos del dispositivo por parte de los usuarios de manera
-de tener un registro de acciones de los mismos.
- 
+Atributo de Disponibilidad
+==========================
+
+El sistema debe lograr que un mensaje de pedido de emergencia llegue al servicio de emergencias
+de manera que se disminuya en lo mínimo posible el riesgo de vida del paciente.
+
+* Fuente: Dispositivo médico.
+* Estímulo: Se envía una señal que indica un riesgo potencial a la salud del corredor.
+* Artefacto: Sistema
+* Entorno: En condiciones normales.
+* Respuesta: Se le avisa al corredor de la situación, si la situación conlleva riesgo
+de vida se pide asistencia médica.
+* Medida de respuesta: El 99% de las veces que se detecta una señal de riesgo de vida para el
+corredor, el pedido de ayuda llega a emergencias con datos que les permiten enviar una ambulancia
+al lugar del hecho.
+
 Atributo de Disponibilidad
 ===========================
 

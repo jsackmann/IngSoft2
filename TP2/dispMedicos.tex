@@ -1,0 +1,35 @@
+\subsection{Dispositivos biomédicos}
+\subsubsection{Diagrama}
+% \ig{l}{0.8}{}{}
+
+\subsubsection{Detalle}
+
+Este diagrama detalla la arquitectura del sistema de dispositivos médicos.
+
+En este sistema tenemos por un lado el sistema de driver de dispositivo, que
+toma una medición. Esta medición o señal es etiquetada (de manera de que
+se identifique de que dispositivo es, datos sobre el usuario y un tag
+de geolocalización en caso de emergencia) y luego enviada al router de
+mediciones médicas que se ocupa de enviarlo al resto de los subsistemas que
+necesiten hacer algo con el.
+
+Estos subsistemas se dividen en dos. Por un lado tenemos el sistema de 
+detección de mediciones peligrosas. Este sistema puede detectar que hay un
+posible problema de salud a partir de la medición obtenida (o usar mediciones acumuladas, depende de la implementación particular que dejamos para 
+posterior consideración). Debe entonces avisar al usuario de la gravedad del
+problema notificandolo por su dispositivo y, si hay un riesgo de vida muy
+serio, enviar un mensaje a emergencias con la posición que tenía la 
+medición. Para poder garantizar que esto se produzca de la manera más rápida
+posible, utilizamos redundancia activa para mantener dos sistemas que hacen
+este análisis y posteriormente envian un mensaje a emergencias. Este mensaje
+es enviado utilizando un sistema de envío confiable que considera la 
+posibilidad de que la conexión con emergencias sufra fallas que impidan 
+enviar bien el pedido si se hacen de manera incorrecta.
+
+El problema de multiples pedidos se arregla utilizando para ello un 
+\textit{timestamp} en los pedidos de manera que los sistemas instalados del
+otro lado de emergencias puedan detectar los replays (porque además 
+preferimos que lleguen dos pedidos de emergencias a que haya una mayor
+posibilidad de que no llegue ninguno).
+
+%% TODO: Explicar procesamiento de los datos
