@@ -1,6 +1,23 @@
 \subsection{Notificador con prioridad}
 \subsubsection{Diagrama}
-% \nig{l}{0.8}{}{}
+% \ig{l}{0.9}{}{}
 
 \subsubsection{Detalle}
-El 
+El conector \textbf{\texttt{notificador con prioridades}} tiene como objetivo recibir numerosos pedidos de notificaciones de distintos componentes y enviárselos a quien corresponda, siguiendo un orden de prioridades. De esta forma, se busca evitar que, por ejemplo, notificaciones del \texttt{sistema de comentarios} opaquen o retrasen notificaciones más importantes, tales como la del \texttt{subsistema de datos biomédicos}.
+
+Para realizar esto, el conector permite muchas conexiones entrantes que se le envían sus respectivos paquetes al \texttt{handler de prioridades} mediante respectivas colas. Al recibir un paquete, el \emph{handler} revisa su repositorio de prioridades para asignarle una prioridad al mensaje. En este momento hay definidos 4 niveles de prioridades (\emph{P0}, \emph{P1}, \emph{P2} y \emph{P3}), pero esto puede ser modificado sencillamente en \emph{updates} futuros. En el caso de que el mensaje provenga de un emisor no registrado en el repositorio, se levanta una alerta y no se pasa la correspondiente notificación. De esta forma, el canal no sólo sirve para establecer prioridades, sino que como medida de \textbf{seguridad}, permite filtrar intentos de notificaciones de emisores no registrados. En el caso que el mensaje provenga de un emisor registrado, el \emph{handler} le asigna una prioridad al mensaje, lo \emph{taggea} y lo envía al \texttt{notificador} mediante la cola correspondiente.
+
+El \texttt{notificador} tiene como función ir revisando los mensajes que le lleguen por las diferentes colas, siempre privilegiando las colas de mayor prioridad. En este caso no nos preocupa el \emph{starvation}: consideramos aceptable que se pierdan (o demoren infinitamente) notificaciones de más baja prioridad en pos de notificaciones de prioridad más elevada (por ejemplo, una notificación de instrucciones del entrenador tiene más prioridad que un comentario motivacional de una red social). En este momento, las prioridades definidas son:
+\begin{itemize}
+	\item \textbf{P0}: Notificaciones del \texttt{sistema de notificaciones por dispositivo biomédico}. 
+	\item \textbf{P1}: Notificaciones del \texttt{sistema de notificaciones del entrenador}.
+	\item \textbf{P2}: Notificaciones de: 
+	\begin{itemize}
+		\item \texttt{sistema de seguimiento de entrenamiento}.
+		\item \texttt{sistema de seguimiento de carrera virtual}.
+	\end{itemize}
+	\item \textbf{P3}: Notificaciones del \texttt{sistema de comentarios} (para redes sociales).
+\end{itemize}
+
+\paragraph{Actualización de repositorio}
+Como se dijo, las prioridades definidas pueden cambiar con \emph{updates} futuros. Consideramos que no es importante tener un módulo encargado de actualizar remota y dinámicamente este repositorio en este momento, dado que tanto las actualizaciones posibles (quitado o modificación de un componente existente o agregado de uno nuevo) sólo tienen sentido cuando se modifica alguno de los antedichos componentes. Consideramos que para esta primera etapa (quizás esto se cambie en un \emph{update} futuro), el repositorio contiene la información en forma estática, cargada al momento de instalar y sólo modificada con sucesivos \emph{updates} de la aplicación.
