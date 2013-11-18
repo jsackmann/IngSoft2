@@ -13,6 +13,7 @@ El sistema debe poder ser utilizado por personas con capacidades diferentes de m
 \paragraph{Justificación en la arquitectura}
 Este atributo se logra gracias a que el \texttt{sistema de configuración} envía datos al \texttt{mapper de notificaciones a estímulo}, indicándole, si hubiera, las restriciones de uso del usuario correspondiente. De esta forma, el mapper (utilizando el componente de \texttt{sistema de lógica de mapeo}) puede adaptar la notificación correspondiente a las discapacidades del usuario. Esto utiliza la técnica de \emph{separate user interface}
 
+
 \subsection{Atributo de Usabilidad}
 Las indicaciones dadas por el sistema, visuales auditivas o táctiles, deben ser fáciles de entender por el usuario, y adaptarse al tipo de dispositivo que se tiene.
 
@@ -28,6 +29,7 @@ Las indicaciones dadas por el sistema, visuales auditivas o táctiles, deben ser
 \paragraph{Justificación en la arquitectura}
 Al igual que el atributo anterior, este atributo se logra gracias al \texttt{mapper de notificaciones a estímulo}. El componente de \texttt{sistema de lógica de mapeo} puede determinar correctamente la forma en la que mostrar la notificación utilizando el \texttt{detector de características de dispositivo}. Este componente realiza numerosas \emph{system calls} al sisteam operativo del dispositivo en el que esté corriendo y puede informarle al \texttt{sistema de lógica de mapeo} cuáles son las \emph{features} del dispositivo y éste puede seleccionar la mejor forma de mostrar la notificación. 
 
+
 \subsection{Atributo de Usabilidad}
 Queremos que la aplicación sea intuitiva, elegante y fácil de usar, de manera que el usuario no tenga problemas en encontrar como realizar una tarea.
 
@@ -39,6 +41,7 @@ Queremos que la aplicación sea intuitiva, elegante y fácil de usar, de manera 
   \item \textbf{Respuesta}: El sistema notifica al usuario las opciones y empieza a recibir instrucciones del mismo por los diversos medios que permita el dispositivo.
   \item \textbf{Medida} de respuesta: El 70\% de los usuarios, sin ser avisado previamente, descubre las opciones de uso del sistema y como dar órdenes al mismo.
 \end{itemize}
+
 
 \subsection{Atributo de Usabilidad}
 Las instrucciones y mensajes de los entrenadores a los corredores profesionales deben ser lo menos intrusivos posibles, pero deben resaltar más que un comentario motivacional proveniente de una red social.
@@ -57,6 +60,7 @@ Este atributo se logra gracias a la interacción entre el \texttt{notificador co
 
 También utiliza la técnica de \texttt{separate user interface}.
 
+
 \subsection{Atributo de Usabilidad}
 Se desea que el usuario pueda utilizar su dispositivo para dar avisos al sistema mediante el uso de voz, o utilizando medios táctiles.
 
@@ -72,6 +76,7 @@ Se desea que el usuario pueda utilizar su dispositivo para dar avisos al sistema
 \paragraph{Justificación en la arquitectura} %REVISAR ESTO
 Este atributo de calidad se logra mediante la colaboración entre el \texttt{sistema de entrada del usuario} y el \texttt{sistema de instrucción de comandos}. Utilizando este primer componente, el sistema puede recibir \textit{input} del usuario; de acuerdo al tipo de dispositivo que esté utilizando el usuario, la forma para introducir \textit{input} será distinta (en un \emph{Google Glass} probablemente sea por voz, mientras que en un \emph{smartphone} puede ser tanto por voz como por pantalla táctil). En cualquiera de los casos, la interacción entre ambos componentes logra ocupa de convertir esa forma particular de \texttt{input} en comandos para el sistema.
 
+
 \subsection{Atributo de Seguridad}
 La información de salud sobre los corredores debe ser almacenada de manera que solo personal autorizado pueda revisarla, y solo se puede acceder a la información de la API que se haya autorizado previamente a consumir.
 
@@ -85,9 +90,9 @@ La información de salud sobre los corredores debe ser almacenada de manera que 
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
-Para lograr este atributo se utilizan los conectores \texttt{conexión encriptada con ssl}(\ref{conexionEncriptadaConSSL}),  \texttt{sistema de interfaz a datos} y \texttt{cifrador homomórfico} (\ref{cifradorHomo}). El primero utiliza un sistema estándar de encriptación mediante \emph{SSL} para evitar que algún atacante realizando un ataque del tipo \emph{man in the middle} pueda interceptar información en tránsito. Además, como la conexión con \emph{SSL} se realiza sobre un canal \textbf{confiable} (el conector \texttt{módulo de transmisión confiable}), se garantiza que los datos no fueron almacenados en el camino. De esta forma, durante la transferencia de la información de salud de los coredores, los datos viajan seguros (suponiendo confianza en las autoridades certificantes). 
+Para lograr este atributo se utilizan los conectores \texttt{conexión encriptada con ssl} (ver \ref{conexionEncriptadaConSSL}),  \texttt{sistema de interfaz a datos} y \texttt{cifrador homomórfico} (ver \ref{cifradorHomo}). El primero utiliza un sistema estándar de encriptación mediante \emph{SSL} para evitar que algún atacante realizando un ataque del tipo \emph{man in the middle} pueda interceptar información en tránsito. Además, como la conexión con \emph{SSL} se realiza sobre un canal \textbf{confiable} (el conector \texttt{módulo de transmisión confiable}), se garantiza que los datos no fueron almacenados en el camino. De esta forma, durante la transferencia de la información de salud de los coredores, los datos viajan seguros (suponiendo confianza en las autoridades certificantes). 
 
-Una vez dentro de los repositorios, la seguridad se garantiza mediante el \texttt{sistema de interfaz a datos}, que requiere autenticación a la hora de acceder a los datos. Además, los datos son cifrados antes de ser almacenados mediante el \texttt{cifrador homomórfico}. De esta forma, por más que alguien tenga acceso directo a la base de datos (violentando por ejemplo la seguridad física de la Secretaría de Deportes), no podría obtener datos de la salud de los corredores.
+Una vez dentro de los repositorios, la seguridad se garantiza mediante el \texttt{sistema de interfaz a datos} (ver \ref{dispMedicos}), que requiere autenticación a la hora de acceder a los datos. Además, los datos son cifrados antes de ser almacenados mediante el \texttt{cifrador homomórfico}. De esta forma, por más que alguien tenga acceso directo a la base de datos (violentando por ejemplo la seguridad física de la Secretaría de Deportes), no podría obtener datos de la salud de los corredores.
 
 Las tácticas utilizadas para esto son:
 \begin{itemize}
@@ -96,6 +101,7 @@ Las tácticas utilizadas para esto son:
   \item \emph{Maintain data confidentiality}
   \item \emph{Maintain integrity}
 \end{itemize}
+
 
 \subsection{Atributo de Seguridad}
 Solo un entrenador puede enviar un mensaje prioritario a los corredores profesionales que esta \emph{coucheando}.
@@ -110,8 +116,7 @@ Solo un entrenador puede enviar un mensaje prioritario a los corredores profesio
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
-Este atributo se logra utilizando el módulo de \texttt{notificador con prioridad}\ref{notificadorConPrioridad} para garantizar que las notificaciones se ordenen correspondientemente (por ejemplo, evita que un corredor deje de recibir notificaciones de su entrenador por un \emph{flooding} de comentarios motivacionales). Además, participan los módulos \texttt{conexión encriptada por SSL}\ref{conexionEncriptadaConSSL} y los sistemas de seguridad de entrenador (módulos \texttt{sistema de inscripción de entrenadores}, \texttt{chequeo de permisos} y \texttt{sistema de autenticación de entrenador}). Estos últimos módulos garantizan que nadie pueda hacerse pasar por un entrenador.
-
+Este atributo se logra utilizando el módulo de \texttt{notificador con prioridad} (ver \ref{notificadorConPrioridad}) para garantizar que las notificaciones se ordenen correspondientemente (por ejemplo, evita que un corredor deje de recibir notificaciones de su entrenador por un \emph{flooding} de comentarios motivacionales). Además, participan los módulos \texttt{conexión encriptada por SSL} (ver \ref{conexionEncriptadaConSSL}) y los sistemas de seguridad de entrenador (módulos \texttt{sistema de inscripción de entrenadores}, \texttt{chequeo de permisos} y \texttt{sistema de autenticación de entrenador}). Estos últimos módulos garantizan que nadie pueda hacerse pasar por un entrenador.
 
 
 \subsection{Atributo de Seguridad}
@@ -127,6 +132,9 @@ La información de datos físicos que midan los sensores de los dispositivos no 
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
+Análogo al atributo anterior, los componentes involucrados en este caso son el módulo de \texttt{conexión encriptada por SSL} (ver \ref{conexionEncriptadaConSSL}) y el \texttt{cifrador homomórfico} (ver \ref{cifradorHomo}). Ambos utilizan algoritmos de cifrado (simétrico y/u homomórfico respectivamente) suficientemente seguros como para salvaguardar la confidencialidad de los datos.
+
+La táctica utilizada para esto es la de \emph{maintain data confidenciality}.
 
 
 \subsection{Atributo de Performance}
@@ -142,6 +150,22 @@ El sistema debe dar respuesta rápida ante situaciones de riesgo médico detecta
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
+Para lograr este atributo de performance se realizan varias tácticas que involucran a numerosos componentes: 
+\begin{itemize}
+  \item \texttt{Notificador con prioridad} (ver \ref{conexionEncriptadaConSSL}).
+  \item \texttt{Sistema de datos biomédicos} \ref{dispMedicos}. Particularmente: 
+  \begin{itemize}
+    \item \texttt{Etiquetador de señal}.
+    \item \texttt{Router de mediciones biomédicas}.
+    \item \texttt{Rastreador de señales de riesgo}.
+    \item \texttt{Sistema de determinación de acción}.
+    \item \texttt{Módulo de transmisión confiable}.
+  \end{itemize}
+\end{itemize}
+COMPLETAR UN POCO ESTO NO ME DA MÁS LA CABEZA
+Dado que las notificaciones del dispositivo biomédico tienen la mayor de las prioridades (\emph{P0}), son \emph{handleadas} casi isntantáneamente una vez que son recibidas por el \texttt{notificador con prioridad}. 
+
+Las principal táctica utilizada es \emph{introduce concurrency}. 
 
 
 \subsection{Atributo de Disponibilidad}
@@ -174,6 +198,7 @@ El sistema debe estar en funcionamiento todo el tiempo que sea posible.
 \paragraph{Justificación en la arquitectura}
 
 
+
 \subsection{Atributo de Modificabilidad}
 Se desea poder agregar nuevos modelos de dispositivos biométricos.
 
@@ -189,6 +214,7 @@ Se desea poder agregar nuevos modelos de dispositivos biométricos.
 \paragraph{Justificación en la arquitectura}
 
 
+
 \subsection{Atributo de Modificabilidad}
 El sistema debe poder adaptarse a nuevo hardware de manera de poder cambiar el hardware actual a otro para aumentar el poder de cómputo.
 
@@ -202,6 +228,7 @@ El sistema debe poder adaptarse a nuevo hardware de manera de poder cambiar el h
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
+
 
 
 \subsection{Atributo de Modificabilidad}
