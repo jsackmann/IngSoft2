@@ -1,5 +1,4 @@
-Atributo de Usabilidad
-=======================
+## Atributo de Usabilidad
 
 El sistema debe poder ser utilizado por personas con capacidades
 diferentes de movibilidad, visión o audición de la manera más
@@ -16,8 +15,7 @@ limitaciones del usuario.
 notificaciones recibidas en menos de 10 segundos sin ayuda de una
 persona externa.
 
-Atributo de Usabilidad
-======================
+## Atributo de Usabilidad
 
 Queremos que la aplicación sea intuitiva, elegante y fácil de usar, de
 manera que el usuario no tenga problemas en encontrar como realizar una
@@ -32,8 +30,7 @@ instrucciones del mismo por los diversos medios que permita el dispositivo.
 * Medida de respuesta: El 70% de los usuarios, sin ser avisado previamente,
 descubre las opciones de uso del sistema y como dar órdenes al mismo.
 
-Atributo de Usabilidad
-======================
+## Atributo de Usabilidad
 
 Las indicaciones dadas por el sistema, visuales auditivas o táctiles, deben
 ser fáciles de entender por el usuario, y adaptarse al tipo de dispositivo
@@ -50,8 +47,7 @@ inmediatos (por ejemplo priorizando visual sobre táctil en la medida de lo posi
 * Medida de respuesta: El 75% de los usuarios entiende en menos de 10 segundos, sin
 ayuda de terceros, la notificación presentada cuando la misma ocurre por primera vez.
 
-Atributo de Usabilidad
-======================
+## Atributo de Usabilidad
 
 Las instrucciones y mensajes de los entrenadores a los corredores profesionales 
 deben ser lo menos intrusivos posibles.
@@ -65,8 +61,7 @@ deben ser lo menos intrusivos posibles.
 en menos de 6 segundos, sin ser distraido de la tarea que se encuentra realizando
 al momento pero sin ser interrumpido por otras notificaciones de menor prioridad.
 
-Atributo de Usabilidad
-======================
+## Atributo de Usabilidad
 
 Se desea que el usuario pueda utilizar su dispositivo para dar avisos al
 sistema mediante el uso de voz, o utilizando medios táctiles.
@@ -82,8 +77,7 @@ información para dar notificaciones o para ejecutar comandos.
 correctamente por el Sistema en menos de 3 reintentos. De las órdenes ingresadas, 
 el 70% en promedio son órdenes que el sistema puede procesar efectivamente. 
 
-Atributo de Seguridad
-=====================
+## Atributo de Seguridad
 
 La información de salud sobre los corredores debe ser almacenada de manera que
 solo personal autorizado pueda revisarla, y solo se puede acceder a la información
@@ -99,8 +93,7 @@ los accesos no autorizados son auditados por el sistema.
 con éxito no pueden obtener información privada de los datos utilizando dispositivos
 con poder de cómputo actuales en menos de 1000 años.
 
-Atributo de Seguridad
-=====================
+## Atributo de Seguridad
 
 Solo un entrenador puede enviar un mensaje prioritario a los corredores profesionales que
 esta _coucheando_.
@@ -114,8 +107,7 @@ esta _coucheando_.
 mensajes no autorizados enviados, no se interrumpe al corredor mientras se realiza este
 filtrado.
 
-Atributo de Seguridad
-=====================
+## Atributo de Seguridad
 
 La información de datos físicos que midan los sensores de los dispositivos no debe
 poder ser interceptada en su camino a la unidad de procesamiento central.
@@ -129,8 +121,7 @@ pero solo los extremos de la comunicación pueden usarla para obtener los datos 
 * Medida de Respuesta: Un _eavesdropper_ no puede obtener los datos que tomó el dispositivo
 en menos de 1000 años utilizando equipos con poder de cómputo como los actualmente disponibles.
 
-Atributo de Performance
-=======================
+## Atributo de Performance
 
 El sistema debe dar respuesta rápida ante situaciones de riesgo médico detectadas mediante
 un dispositivo de medición de datos médicos.
@@ -145,8 +136,7 @@ de vida se pide asistencia médica.
 menos de 10 segundos de recibida la señal de riesgo potencial del medidor.
 
 
-Atributo de Disponibilidad
-==========================
+## Atributo de Disponibilidad
 
 El sistema debe lograr que un mensaje de pedido de emergencia llegue al servicio de emergencias
 de manera que se disminuya en lo mínimo posible el riesgo de vida del paciente.
@@ -161,8 +151,7 @@ de vida se pide asistencia médica.
 corredor, el pedido de ayuda llega a emergencias con datos que les permiten enviar una ambulancia
 al lugar del hecho.
 
-Atributo de Disponibilidad
-===========================
+## Atributo de Disponibilidad
 
 El sistema debe estar en funcionamiento todo el tiempo que sea posible.
 
@@ -174,8 +163,7 @@ El sistema debe estar en funcionamiento todo el tiempo que sea posible.
 * Medida de Respuesta: El sistema responde con una probabilidad que equivale a un
 _downtime_ de 30 segundos por día promediado a lo largo de un año.
 
-Atributo de Modificabilidad //WAAAAAAAAAAAAT??????
-===========================
+## Atributo de Modificabilidad 
 
 Se desea poder agregar nuevos modelos de dispositivos biométricos.
 
@@ -189,8 +177,7 @@ los demás módulos continuan funcionando.
 * Medida de Respuesta: Desarrollar y probar el driver para recolectar esta información se
 realiza en menos de dos semanas hombre de trabajo.
 
-Atributo de Modificabilidad
-===========================
+## Atributo de Modificabilidad
 
 El sistema debe poder adaptarse a nuevo hardware de manera de poder
 cambiar el hardware actual a otro para aumentar el poder de cómputo.
@@ -205,8 +192,7 @@ con la proporción de pedidos modificada.
 * Medida de respuesta: El hardware agregado logra entrar en funcionamiento
 en menos de una semana de configuración y _deployment_.
  
-Atributo de Modificabilidad
-===========================
+## Atributo de Modificabilidad
 
 El sistema debe permitir que se adapten todo tipo de dispositivos,
 no solo anteojos sino también relojes de pulsera, mp3, etc.
