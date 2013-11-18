@@ -85,7 +85,17 @@ La información de salud sobre los corredores debe ser almacenada de manera que 
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
+Para lograr este atributo se utilizan los conectores \texttt{conexión encriptada con ssl}(\ref{conexionEncriptadaConSSL}),  \texttt{sistema de interfaz a datos} y \texttt{cifrador homomórfico} (\ref{cifradorHomo}). El primero utiliza un sistema estándar de encriptación mediante \emph{SSL} para evitar que algún atacante realizando un ataque del tipo \emph{man in the middle} pueda interceptar información en tránsito. Además, como la conexión con \emph{SSL} se realiza sobre un canal \textbf{confiable} (el conector \texttt{módulo de transmisión confiable}), se garantiza que los datos no fueron almacenados en el camino. De esta forma, durante la transferencia de la información de salud de los coredores, los datos viajan seguros (suponiendo confianza en las autoridades certificantes). 
 
+Una vez dentro de los repositorios, la seguridad se garantiza mediante el \texttt{sistema de interfaz a datos}, que requiere autenticación a la hora de acceder a los datos. Además, los datos son cifrados antes de ser almacenados mediante el \texttt{cifrador homomórfico}. De esta forma, por más que alguien tenga acceso directo a la base de datos (violentando por ejemplo la seguridad física de la Secretaría de Deportes), no podría obtener datos de la salud de los corredores.
+
+Las tácticas utilizadas para esto son:
+\begin{itemize}
+  \item \emph{Authenticate users}
+  \item \emph{Authorize users}
+  \item \emph{Maintain data confidentiality}
+  \item \emph{Maintain integrity}
+\end{itemize}
 
 \subsection{Atributo de Seguridad}
 Solo un entrenador puede enviar un mensaje prioritario a los corredores profesionales que esta \emph{coucheando}.
@@ -100,6 +110,8 @@ Solo un entrenador puede enviar un mensaje prioritario a los corredores profesio
 \end{itemize}
 
 \paragraph{Justificación en la arquitectura}
+Este atributo se logra utilizando el módulo de \texttt{notificador con prioridad}\ref{notificadorConPrioridad} para garantizar que las notificaciones se ordenen correspondientemente (por ejemplo, evita que un corredor deje de recibir notificaciones de su entrenador por un \emph{flooding} de comentarios motivacionales). Además, participan los módulos \texttt{conexión encriptada por SSL}\ref{conexionEncriptadaConSSL} y los sistemas de seguridad de entrenador (módulos \texttt{sistema de inscripción de entrenadores}, \texttt{chequeo de permisos} y \texttt{sistema de autenticación de entrenador}). Estos últimos módulos garantizan que nadie pueda hacerse pasar por un entrenador.
+
 
 
 \subsection{Atributo de Seguridad}
