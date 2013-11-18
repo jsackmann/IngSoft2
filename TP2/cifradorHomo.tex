@@ -1,0 +1,10 @@
+\subsection{Cifrador homomórfico}\label{cifradorHomo}
+\subsubsection{Diagrama}
+% \ig{l}{0.8}{}{}
+
+
+\subsubsection{Detalle}
+El \texttt{\textbf{cifrador homomórfico}} es el componente encargado de aplicar el algoritmo de cifrado homomórfico a los datos que le lleguen. Mediante un call return, se le solicita que encripte algún dato y este intenta encriptarlo con cifrado homomórfico (para permitir su posterior procesamiento sin necesidad de desencriptarlos). Debido a que es un algoritmo experimental, puede fallar. En el caso de que esto ocurriera, el \texttt{handler} utiliza un \texttt{cifrador simétrico} para cifrar los datos. Si bien no podrán ser procesados en la nube, son almacenados en forma segura, que tiene mayor prioridad. Podría existir un proceso que corre en el server de almacenamiento de datos encriptados que períodicamente busca datos que estén encriptados mediante un mecanismo simétrico y le cambie su encriptación (o sea los desencripte y los vuelva a encriptar) a homomórfica (en caso de que, por ejemplo, haya habido mejoras en el algoritmo).
+
+Para que este proceso pueda darse cuenta (así como los procesos que intenten realizar operaciones sobre datos encriptados) de cuáles son los datos cifrados homomórficamente, el cifrador cuenta con un \texttt{tageador de tipo de cifrado} que agrega a los datos que serán almacenados qué tipo de cifrado se utilizó para almacenarlos.
+
