@@ -1,0 +1,59 @@
+\subsection{Seguidor de entrenamiento y carrera virtual}
+\subsubsection{Diagrama}
+
+\ig{l}{0.9}{seguidorDeEntrenamiento.png}{Diagrama de componentes y
+conectores del sistema de seguimiento de entrenamiento.}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior detallamos los componentes y conectores del
+sistema de seguimiento de entrenamiento. 
+
+Este sistema se ocupa de seguir al corredor mientras realiza un 
+entrenamiento (como fue especificado en el primer trabajo práctico
+de la materia). Por un lado se ocupa de permitir crear entrenamientos
+y por otro lado se ocupa de procesar un entrenamiento en carrera.
+
+Los entrenamientos son almacenados del lado del servidor y el
+\texttt{Procesador de estado de seguimiento} se ocupa de obtener
+(y cachear) los mismos en el dispositivo. Los datos se obtienen del
+\texttt{Sistema de cinemática} y con ellos se va formando el registro
+de los entrenamientos realizados y se van enviando los datos 
+generales para ser notificados al usuario y enviados al entrenador del
+mismo si es pertinente.
+
+También, al concluir, se commitean estos resultados a un 
+\texttt{Centralizador de entrenamientos}, con el objetivo de que 
+se almacenen los datos del entrenamiento del usuario para que 
+puedan utilizarse para carreras virtuales.
+
+También este sistema incluye un procesador de pedidos (bajo el nombre
+\texttt{Sistema de querys de entrenamiento} que contesta consultas
+más generales (y que no se muestran siempre para que la interfaz no
+se llene de datos posiblemente irrelevantes) sobre el estado del
+entrenamiento a los sistemas que lo necesiten (en particular, el
+\texttt{Sistema de información contextual}.
+
+\subsubsection{Diagrama}
+
+\ig{l}{0.9}{carrerasVirtuales.png}{Diagrama de componentes y
+conectores del sistema de carreras virtuales.}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior se detalla los componentes y conectores del
+sistema de carreras virtuales.
+
+Dado que este sistema es análogo al sistema de seguimiento de
+corredores, no lo detallaremos mucho más. La principal diferencia es
+que se utiliza la información de cinemática (en particular la posición
+actual) junto con un acceso a un servidor de carreras virtuales que
+utiliza los entrenamientos de los otros corredores para crear carreras
+virtuales.
+
+Para permitir al sistema continuar operando incluso fuera de línea, se
+tiene un cache local de carreras virtuales que guarda las ultimas
+carreras virtuales corridas de manera que se puedan volver a realizar
+(y en particular guarda la última para que se pueda realizar la misma
+sin tener que ir a buscar los datos de la misma cada vez al servidor).
+

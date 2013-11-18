@@ -1,6 +1,8 @@
 \subsection{Dispositivos biomédicos}
 \subsubsection{Diagrama}
-% \ig{l}{0.8}{}{}
+
+\ig{l}{0.8}{dispMedicos.png}{Diagrama de componentes y conectores del
+sistema de dispositivos biomédicos.}
 
 \subsubsection{Detalle}
 
@@ -53,7 +55,9 @@ manteniendo entonces la privacidad de los datos médicos de los corredores
 
 Para permitir el acceso a estos datos solamente a entes autorizados, se 
 utiliza una estructura cliente servidor con autenticación para los 
-consumidores de la API. Puesto que el servidor solo debe verificar la 
+consumidores de la API. 
+
+Puesto que el servidor solo debe verificar la 
 identidad del consumidor revisando su identificación de clave de API y usar
 el repositorio de datos obtenido, no nos parece pertinente detallar más el
 módulo.
@@ -61,7 +65,7 @@ módulo.
 Para dar un poco más de detalle al sistema de procesamiento de datos en
 la nube, incluimos el siguiente diagrama:
 
-% \ig{l}{0.8}{}{}
+\ig{p}{0.8}{procDatosMedicos.png}{Diagrama de componentes y conectores de procesamiento de datos médicos.}
 
 En este se puede ver los componentes y conectores internos al sistema de
 procesamiento. Como podemos ver, el balanceador de carga toma la decisión

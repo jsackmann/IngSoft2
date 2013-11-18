@@ -1,0 +1,30 @@
+\subsubsection{Notificaciones entrenador}
+
+\ig{l}{0.9}{notificacionesEntrenador.png}{Diagrama de componentes y
+conectores de notificaciones de entrenador.}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior se detallan los diagramas de componentes y
+conectores del \texttt{Sistema de notificaciones a entrenador}.
+
+Este sistema se ocupa principalmente de darle datos al entrenador
+sobre sus corredores y además permitirle mandar mensajes particulares
+a sus corredores profesionales. La principal preocupación es 
+autenticar a los entrenadores y revisar permisos de envío (puesto que
+no queremos que un entrenador cualquiera pueda mandar una notificación
+a cualquier corredor.
+
+También identificamos los datos enviados por el \texttt{Publicador
+de datos para entrenador} y filtramos los mismos de acuerdo a
+relevancia para mostrar en la UI del entrenador. Los datos no son
+almacenados puesto que son descartables, pero si se computan y
+almacenan resúmenes de los mismos que el entrenador puede reveer
+en cualquier momento. Los datos que se consideran relevantes pueden
+ser accedidos desde la interfaz gráfica de entrenador.
+
+A través de la misma intefaz gráfica se pueden enviar comentarios a
+los corredores, y se realiza un chequeo de permisos y un envío seguro
+de los mismos al dispositivo del corredor de manera que se puedan
+procesar los comentarios de los entrenadores (aplicando tags y 
+ordenandolos por prioridad, etc.) en el dispositivo del corredor.

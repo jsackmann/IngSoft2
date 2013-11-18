@@ -1,0 +1,22 @@
+\subsubsection{Sistema de publicidad}
+
+\ig{l}{0.9}{publicidad.png}{Diagrama de componentes y conectores del
+sistema de publicidad.}
+
+\subsubsection{Detalle}
+
+En el diagrama anterior se detallan los componentes y conectores del
+\texttt{Sistema de publicidad}. Este sistema se ocupa de agregar
+publicidad contextualizada al sistema y permitir a los dispositivos
+acceder a la publicidad. Para aumentar la seguridad (puesto que no
+queremos que se pueda inyectar publicidad no aprobada y posiblemente
+intrusiva), se utiliza autenticación y encriptación de datos para
+devolver publicidad a los dispositivos.
+
+Para agregar publicidad, se ocupa un administrador de sistema, que
+también debe ser autenticado. Posteriormente de agregada a la 
+publicidad se identifica su relevancia y sus \textit{features}, o
+lugares donde la misma es válida. Posteriormente las almacenamos.
+
+El sistema de acceso para dispositivos es un simple cliente servidor
+con autenticación de dispositivo para evitar accesos no autorizados.

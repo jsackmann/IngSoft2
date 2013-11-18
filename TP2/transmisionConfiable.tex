@@ -1,0 +1,18 @@
+\subsection{Sistema de transmision confiable}
+\subsubsection{Diagrama}
+
+\ig{l}{0.9}{transmisionConfiable.png}{Diagrama de componentes y conectores del sistema de transmisión confiable.}
+
+\subsubsection{Detalle}
+
+En el diagrama se muestra el detalle de componentes y conectores del
+módulo de transmisión confiable. El mismo implementa una transmisión
+confiable en el sentido de que nos sirve para enviar un mensaje de
+manera que llegue y de manera correcta al otro lado de un canal con
+ruido y pérdida.
+
+Este sistema es simplemente una variante de TCP (Transmission
+Control Protocol) que utiliza redundancia para poder determinar si
+el paquete fue recibido correctamente o no. Para enviar de manera
+confiable utiliza un protocolo de ventana deslizante con ACK de 
+paquetes, lo estándar para TCP.
