@@ -45,7 +45,7 @@ ciencias de la computación.
 	* Jerarquías de conceptos muy profundas para esa escala.
 	* Única tecnología: Abarca un incomensurable espacio. 
 	* La analogía falla: ``es como una maquina de escribir''. Error grosero de _ratio_.
-2. Dispositivo digital de larga escala
+2. Dispositivo digital de gran escala
 	* Comprensión humana más ajustada a sistemas analógicos.
 	* Discretización produce que los comportamientos no sean interpolables.
 	* Dificulta hacer suposiciones sobre lo desconocido.
@@ -81,7 +81,7 @@ _craftsmen_ ordinarios:
 
 # Discusión: La respuesta de Parnas
 
-## La Respuesta de Parnas
+## La respuesta de Parnas
 
 * No es culpa de la Ing. del Soft. que haya malos libros.
 * La ingeniería no es heurística: Enfasis en validación con métodos formales.
@@ -91,3 +91,45 @@ _craftsmen_ ordinarios:
 	* Fallas en los axiomas del modelo frente a como funciona la máquina de verdad.
 * Sensibilidad a cambios sutiles ya existe en otras disciplinas.
 * Para la complejidad existe _Divide and Conquer_ como método.
+
+# Nuestras conclusiones
+
+## Porque nos parece importante.
+
+* El paper nos parece fundacional o importante porque:
+	* Enfoque novedoso a la enseñanza formal de la computación como ciencia.
+	* Podemos ver su influencia en nuestra propia carrera (ej. Algoritmos I y II) 
+	* Contexto Histórico:
+		* C++, SmallTalk. OOP gana tracción.
+		* Computadoras hogareñas, BASIC, Logo, aprendizaje constructivista.
+		* AI Winter.
+		* 1985-1987: Therac 25.
+	* Hoy mismo tenemos el problema del software.
+		* _healthcare.gov_: Un simple _sitio web_, si se lo quiere ver así.
+	* Hoy mismo esta cambiando la educación: 
+		* Treehouse, CodeAcademy, CodeSchool, Udemy, Udacity, ...
+
+## Nuestras conclusiones: Julián
+
+* Es impracticable la idea de "approach radical novelties with a blank mind".
+* Tampoco es practicable demostrar la correctitud de todo programa. A mano es difícil, con computadora
+es imposible (ejemplo _halting problem_).
+* Tiene valor intentar simplificar los programas para hacerlos más fácilmente demostrables.
+* No todo programa tiene requerimientos tan serios: Minecraft, Angry Birds.
+* Conclusión de conclusiones: si bien en lineas generales estoy de acuerdo con lo que plantea Dijkstra, aplica demasiado al mundo académico. La computación no está acotada solo a eso.
+
+## Nuestras conclusiones: Juan Pablo
+
+* Ignora la aparición de Open Source y el software libre: Modelo colaborativo cuyo exito es difícil de explicar
+a nivel ingeniería del software.
+* Existe valor en la perspectiva de Dijkstra. Ejemplo: _Structure and Interpretation of Computer Programs_.
+* Crítica al razonamiento por analogía  y antropomorfización del software me parece acertado.
+* Las dimensiones con las que trabaja la computación siguen creciendo.
+
+## Nuestras conclusiones: Vanesa
+
+* A pesar de estar en desacuerdo con varios de los comentarios de Dijkstra
+* Me parece interesante y útil su crítica:
+	* Uno se replantea el porque uno hace lo que hace y porque lo hace de la forma en que lo hace.
+	* ¿Tiene algún fundamento lo que uno hace?
+	* ¿Qué transmito con lo que hago, enseño o métodos que uso?

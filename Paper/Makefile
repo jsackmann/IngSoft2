@@ -3,8 +3,8 @@
 
 .md.tex:
 	~/.cabal/bin/pandoc --slide-level=2 --toc -H header.tex --listings\
-		-V theme:Warsaw -V colortheme:crane \
-		-s -t beamer -f markdown -o $@ $<
+		-V theme:Madrid -V colortheme:crane \
+		-i -s -t beamer -f markdown -o $@ $<
 
 %.pdf: %.tex
 	pdflatex $<
